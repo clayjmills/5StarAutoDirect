@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ohw-57-brI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ohw-57-brI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Screen View Controller-->
         <scene sceneID="c9s-PQ-OWO">
             <objects>
-                <viewController id="SXi-w3-VbI" sceneMemberID="viewController">
+                <viewController id="SXi-w3-VbI" customClass="HomeScreenViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wMs-Tg-IN9"/>
                         <viewControllerLayoutGuide type="bottom" id="S3c-Fo-PIK"/>
@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="920.79999999999995" y="73.313343328335833"/>
         </scene>
-        <!--View Controller-->
+        <!--Car Detail View Controller-->
         <scene sceneID="9bJ-w7-y4T">
             <objects>
-                <viewController id="5oK-9V-gFU" sceneMemberID="viewController">
+                <viewController id="5oK-9V-gFU" customClass="CarDetailViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O1V-sn-a1P"/>
                         <viewControllerLayoutGuide type="bottom" id="pT0-ET-WF4"/>
@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="2853.5999999999999" y="72.413793103448285"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Message List Table View Controller-->
         <scene sceneID="yfU-FF-1R7">
             <objects>
-                <tableViewController id="fcL-Ta-ENg" sceneMemberID="viewController">
+                <tableViewController id="fcL-Ta-ENg" customClass="MessageListTableViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="l9J-QU-WON">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -209,7 +209,7 @@
                                 <rect key="frame" x="0.0" y="298" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L6E-2t-HUw" id="8m4-my-a31">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -224,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="2044" y="806.44677661169419"/>
         </scene>
-        <!--View Controller-->
+        <!--Your Car View Controller-->
         <scene sceneID="0CB-xF-OFD">
             <objects>
-                <viewController id="blU-ME-HwJ" sceneMemberID="viewController">
+                <viewController id="blU-ME-HwJ" customClass="YourCarViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Z1-Aj-HUd"/>
                         <viewControllerLayoutGuide type="bottom" id="DdP-e1-wzg"/>
@@ -278,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="2044" y="72.413793103448285"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="pAY-58-dvi">
             <objects>
-                <viewController id="AS1-Dz-w0k" sceneMemberID="viewController">
+                <viewController id="AS1-Dz-w0k" customClass="SignUpViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xci-zU-XIH"/>
                         <viewControllerLayoutGuide type="bottom" id="IfA-XT-KhG"/>
