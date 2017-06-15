@@ -69,6 +69,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="6xG-GN-UG4"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="4Uq-Dg-8wX" id="fZ3-5U-ehC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJz-U0-itI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,6 +144,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
+                                            <action selector="submitButtonTapped:" destination="5oK-9V-gFU" eventType="touchUpInside" id="3aN-e3-S5X"/>
                                             <segue destination="WKs-eb-y5g" kind="show" id="Ro2-wz-ET1"/>
                                         </connections>
                                     </button>
@@ -187,6 +191,13 @@
                             <constraint firstAttribute="trailing" secondItem="JqI-Hi-AeP" secondAttribute="trailing" id="uGs-nF-80J"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="budgetTextField" destination="YlC-Qd-m5Z" id="K4e-F7-mb2"/>
+                        <outlet property="colorTextField" destination="Jcz-VK-OBT" id="szS-Kr-MqR"/>
+                        <outlet property="makeTextField" destination="B0p-jA-RDi" id="CgO-Kh-WIH"/>
+                        <outlet property="modelTextField" destination="H8x-zl-yXl" id="9uz-a5-x4E"/>
+                        <outlet property="otherTextField" destination="jKq-vj-4lW" id="PZ9-aU-Nzk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ge-wN-5Ip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -352,6 +363,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="c81-FC-3N3" id="HIM-DH-QUM"/>
+                        <outlet property="nameTextField" destination="cnZ-FZ-y5Q" id="MRE-0L-7M7"/>
+                        <outlet property="phoneTextField" destination="NQz-Gf-Vtu" id="kvA-pC-xKQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wso-DT-BjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -428,6 +444,6 @@
         <image name="Your Car Button" width="164" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yCL-hW-xz1"/>
+        <segue reference="b3h-up-cii"/>
     </inferredMetricsTieBreakers>
 </document>
