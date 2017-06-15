@@ -10,8 +10,8 @@ import Foundation
 
 struct User {
     let name: String
-    let phone: String
-    let email: String
+    let phone: String?
+    let email: String?
     
     var messages: [Message] = []
 }
