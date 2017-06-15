@@ -22,6 +22,8 @@
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
 		66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */; };
 		C82920691EF1B7BB0089A695 /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920681EF1B7BB0089A695 /* CarController.swift */; };
+		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
+		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		66EDEA401EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C82920681EF1B7BB0089A695 /* CarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
+		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
+		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				66813B871EF1AE42000FA884 /* YourCarViewController.swift */,
 				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
 				66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */,
+				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 				66EDEA3D1EE8755500BF8357 /* Assets.xcassets */,
 				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
 				66EDEA421EE8755500BF8357 /* Info.plist */,
+				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -205,11 +211,13 @@
 				66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */,
 				C82920691EF1B7BB0089A695 /* CarController.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
+				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
+				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,
 				66813B841EF1AE24000FA884 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

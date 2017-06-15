@@ -12,7 +12,17 @@ struct UserController {
     
     static let shared = UserController()
     
-    func createUser(name: String, phone: String, email: String) {
+    var users: [User] = []
+    var brokers: [User] = []
+    
+    mutating func createUser(name: String, phone: String, email: String) {
         let user = User(name: name, phone: phone, email: email, messages: [])
+        users.insert(user, at: 0)
     }
+    
+    func deleteUser() {
+        
+    }
+    
+
 }

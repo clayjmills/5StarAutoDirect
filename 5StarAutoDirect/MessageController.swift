@@ -12,11 +12,10 @@ struct MessageController {
     
     static let shared = MessageController()
     
-    func createMessage(text: String) {
-        let message = Message(text: text)
-    }
+    var messages: [Message] = []
     
-    func deleteMessage() {
-        
+    mutating func createMessage(text: String) {
+        let message = Message(text: text)
+        messages.insert(message, at: 0)
     }
 }
