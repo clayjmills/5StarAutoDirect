@@ -13,7 +13,8 @@ struct UserController {
     static let shared = UserController()
     
     var users: [User] = []
-    var brokers: [User] = []
+    var brokers: [User] = [] // This will be to see if they're a broker
+    var deletableBroker: [User] = []
     
     mutating func createUser(name: String, phone: String, email: String) {
         let user = User(name: name, phone: phone, email: email, messages: [])
