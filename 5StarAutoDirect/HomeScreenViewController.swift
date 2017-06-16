@@ -14,8 +14,6 @@ class HomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func brokerLoginButtonTapped(_ sender: Any) {
@@ -36,7 +34,6 @@ class HomeScreenViewController: UIViewController {
         
         youreNotABrokerAlertController.addAction(dismissAction)
         present(youreNotABrokerAlertController, animated: true, completion: nil)
-        
     }
 
     /*
