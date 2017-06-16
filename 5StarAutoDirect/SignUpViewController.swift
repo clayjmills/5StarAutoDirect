@@ -20,6 +20,10 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text else { return }
+        UserController.shared.createUser(name: name, phone: phone, email: email)
+    }
     
     /*
     // MARK: - Navigation
