@@ -14,13 +14,14 @@
 		66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B801EF1ADCE000FA884 /* MessageController.swift */; };
 		66813B841EF1AE24000FA884 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B831EF1AE24000FA884 /* HomeScreenViewController.swift */; };
 		66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B851EF1AE35000FA884 /* SignUpViewController.swift */; };
-		66813B881EF1AE42000FA884 /* YourCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B871EF1AE42000FA884 /* YourCarViewController.swift */; };
+		66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B871EF1AE42000FA884 /* UserHomeViewController.swift */; };
 		66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B891EF1AE53000FA884 /* CarDetailViewController.swift */; };
 		66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */; };
 		66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDEA361EE8755500BF8357 /* AppDelegate.swift */; };
 		66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3A1EE8755500BF8357 /* Main.storyboard */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
 		66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */; };
+		C824A68A1EF44337004F74D2 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */; };
 		C82920691EF1B7BB0089A695 /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920681EF1B7BB0089A695 /* CarController.swift */; };
 		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
@@ -35,7 +36,7 @@
 		66813B801EF1ADCE000FA884 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		66813B831EF1AE24000FA884 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		66813B851EF1AE35000FA884 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		66813B871EF1AE42000FA884 /* YourCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourCarViewController.swift; sourceTree = "<group>"; };
+		66813B871EF1AE42000FA884 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		66813B891EF1AE53000FA884 /* CarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
 		66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListTableViewController.swift; sourceTree = "<group>"; };
 		66EDEA331EE8755500BF8357 /* 5StarAutoDirect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5StarAutoDirect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		66EDEA3D1EE8755500BF8357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66EDEA401EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		C82920681EF1B7BB0089A695 /* CarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
 		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -86,10 +88,11 @@
 			children = (
 				66813B831EF1AE24000FA884 /* HomeScreenViewController.swift */,
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
-				66813B871EF1AE42000FA884 /* YourCarViewController.swift */,
+				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
 				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
 				66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */,
 				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
+				C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -217,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
-				66813B881EF1AE42000FA884 /* YourCarViewController.swift in Sources */,
+				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
 				66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */,
 				66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */,
 				C82920691EF1B7BB0089A695 /* CarController.swift in Sources */,
@@ -225,6 +228,7 @@
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
+				C824A68A1EF44337004F74D2 /* MessageDetailViewController.swift in Sources */,
 				66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,

@@ -10,14 +10,10 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
     
-
-    
     @IBOutlet weak var emailTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func brokerLoginButtonTapped(_ sender: Any) {
@@ -29,10 +25,15 @@ class HomeScreenViewController: UIViewController {
     func presentYoureNotABrokerAlertController() {
             UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor.AutoBlue
         let youreNotABrokerAlertController = UIAlertController(title: "If you are not a broker", message: "please select the login button", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        //changing color of alerController background
+        let backView = youreNotABrokerAlertController.view.subviews.last
+        backView?.layer.cornerRadius = 10.0
+        backView?.backgroundColor = UIColor.white
+        
         youreNotABrokerAlertController.addAction(dismissAction)
         present(youreNotABrokerAlertController, animated: true, completion: nil)
-        
     }
 
     /*

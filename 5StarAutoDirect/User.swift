@@ -13,5 +13,7 @@ struct User {
     let phone: String?
     let email: String?
     
+    let isBroker: Bool
+    
     var messages: [Message] = []
 }
