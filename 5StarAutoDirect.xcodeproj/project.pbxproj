@@ -24,6 +24,7 @@
 		C82920691EF1B7BB0089A695 /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920681EF1B7BB0089A695 /* CarController.swift */; };
 		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
+		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C82920681EF1B7BB0089A695 /* CarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
 		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				66813B8D1EF1AE74000FA884 /* View Controllers */,
 				66813B7D1EF1AD75000FA884 /* Models */,
 				66813B821EF1ADD8000FA884 /* Model Controllers */,
+				C82920721EF339F90089A695 /* Helpers */,
 				66EDEA481EE8756E00BF8357 /* Resources */,
 			);
 			path = 5StarAutoDirect;
@@ -127,9 +130,17 @@
 				66EDEA3D1EE8755500BF8357 /* Assets.xcassets */,
 				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
 				66EDEA421EE8755500BF8357 /* Info.plist */,
-				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C82920721EF339F90089A695 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
+				C82920701EF30B090089A695 /* Extensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */,
+				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
 				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,

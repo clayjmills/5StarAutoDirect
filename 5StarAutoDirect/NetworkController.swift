@@ -11,6 +11,10 @@ class NetworkController {
     
     // MARK: Properties
     
+    // TODO: - change this to the firebase for this project
+    static let baseURL = URL(string: "https://devmtn-post.firebaseio.com/posts/")
+
+    
     enum HTTPMethod: String {
         case Get = "GET"
         case Put = "PUT"

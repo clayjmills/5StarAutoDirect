@@ -10,10 +10,10 @@ import Foundation
 
 struct UserController {
     
-    static let shared = UserController()
+    static var shared = UserController()
     
     var users: [User] = []
-    var brokers: [User] = []
+    var brokers: [User] = [] // if they're a broker, append here
     
     mutating func createUser(name: String, phone: String, email: String) {
         let user = User(name: name, phone: phone, email: email, messages: [])
@@ -23,6 +23,4 @@ struct UserController {
     func deleteUser() {
         
     }
-    
-
 }
