@@ -18,7 +18,7 @@ struct UserController {
     mutating func createUser(name: String, phone: String, email: String, isBroker: Bool) {
         // checking to see if email contains 5starAuto, if so, isBroker is true
         
-        let user = User(name: name, phone: phone, email: email, isBroker: isBroker, messages: [])
+        let user = User(name: name, phone: phone, email: email, isBroker: isBroker, messages: [], currentStep: .One)
         users.insert(user, at: 0)
     }
     
