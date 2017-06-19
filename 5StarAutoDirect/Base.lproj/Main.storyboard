@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -175,9 +176,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="aDQ-Wa-xCM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-bf-VbO">
+                                    <rect key="frame" x="0.0" y="8" width="375" height="288"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="1g0-bf-VbO" secondAttribute="trailing" id="Fiw-t6-Rok"/>
+                                <constraint firstItem="1g0-bf-VbO" firstAttribute="leading" secondItem="aDQ-Wa-xCM" secondAttribute="leading" id="KJb-oZ-qfj"/>
+                                <constraint firstAttribute="bottom" secondItem="1g0-bf-VbO" secondAttribute="bottom" id="fPZ-9r-yQG"/>
+                                <constraint firstItem="1g0-bf-VbO" firstAttribute="top" secondItem="aDQ-Wa-xCM" secondAttribute="topMargin" id="w9d-0c-zWL"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" textLabel="XuJ-J5-8ID" rowHeight="204" style="IBUITableViewCellStyleDefault" id="hH5-2W-SAo">
-                                <rect key="frame" x="0.0" y="28" width="375" height="204"/>
+                                <rect key="frame" x="0.0" y="324" width="375" height="204"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hH5-2W-SAo" id="zdx-b8-318">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
@@ -345,10 +362,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-bf-VbO">
-                                <rect key="frame" x="67" y="100" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-KV-iNj">
                                 <rect key="frame" x="16" y="321" width="343" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
