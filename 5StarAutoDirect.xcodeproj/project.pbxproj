@@ -26,6 +26,7 @@
 		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
+		C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830971E1EF829970004B56D /* FiveStepTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C830971E1EF829970004B56D /* FiveStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStepTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */,
 				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
 				C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */,
+				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
+				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
 				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,
 				66813B841EF1AE24000FA884 /* HomeScreenViewController.swift in Sources */,

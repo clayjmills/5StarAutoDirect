@@ -16,4 +16,19 @@ struct User {
     let isBroker: Bool
     
     var messages: [Message] = []
+    
+    var currentStep: CurrentStep
+}
+
+
+public enum CurrentStep {
+    case One
+    case Two
+    case Three
+    case Four
+    case Five
+    
+    init() {
+        self = .One
+    }
 }
