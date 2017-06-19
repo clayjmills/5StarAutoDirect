@@ -28,14 +28,4 @@ class SignUpViewController: UIViewController {
         UserController.shared.createUser(name: name, phone: phone, email: email, isBroker: false /* <- just for committing purposes*/ )
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
