@@ -13,7 +13,9 @@ struct User {
     let phone: String?
     let email: String?
     
-    let isBroker: Bool
+    let isBroker: Bool /* {
+        if email?.contains("5StarAutoDirect")
+    }*/
     
     var messages: [Message] = []
     
