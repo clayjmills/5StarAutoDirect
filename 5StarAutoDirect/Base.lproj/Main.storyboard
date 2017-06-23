@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -480,6 +479,7 @@
                         <outlet property="emailTextField" destination="c81-FC-3N3" id="HIM-DH-QUM"/>
                         <outlet property="nameTextField" destination="cnZ-FZ-y5Q" id="MRE-0L-7M7"/>
                         <outlet property="phoneTextField" destination="NQz-Gf-Vtu" id="kvA-pC-xKQ"/>
+                        <outlet property="submitButton" destination="Tzs-J7-JzV" id="Dn1-kX-RL2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wso-DT-BjB" userLabel="First Responder" sceneMemberID="firstResponder"/>

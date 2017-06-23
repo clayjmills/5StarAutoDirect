@@ -46,6 +46,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Auth
+  - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
@@ -63,6 +64,6 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-PODFILE CHECKSUM: 184c1c90897aab51e11d86cabd5d9af0c2d8464b
+PODFILE CHECKSUM: a38671754afb9eda3de4b160906164bba87f20c4
 
 COCOAPODS: 1.2.1
