@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>457702508822-878fbo9arrgn1bnr29d05040oj0bmfcd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.457702508822-878fbo9arrgn1bnr29d05040oj0bmfcd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAl8UqmLBoFiuBmWirnhi81olMqRUUCyIA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>457702508822</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pineapplecoding.-StarAutoDirect</string>
+	<key>PROJECT_ID</key>
+	<string>starautodirect-5b1fc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>starautodirect-5b1fc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:457702508822:ios:7888c1650469e96c</string>
+	<key>DATABASE_URL</key>
+	<string>https://starautodirect-5b1fc.firebaseio.com</string>
+</dict>
+</plist>

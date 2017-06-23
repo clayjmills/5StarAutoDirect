@@ -17,6 +17,17 @@ class UserHomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    var user: User?
+    
+    @IBAction func brokerButtonTapped(_ sender: Any) {
+        guard let user = user else { return }
+        if user.isBroker {
+            self.performSegue(withIdentifier: "toCustomerTVC", sender: self)
+        } else {
+            presentYouCantGoThereAlert()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -26,5 +37,12 @@ class UserHomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func presentYouCantGoThereAlert() {
+        let accessDeniedAlertCont = UIAlertController(title: "You can't go there", message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        accessDeniedAlertCont.addAction(dismissAction)
+        present(accessDeniedAlertCont, animated: true, completion: nil)
+    }
 
 }

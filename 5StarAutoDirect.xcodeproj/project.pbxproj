@@ -27,6 +27,7 @@
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
 		C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830971E1EF829970004B56D /* FiveStepTableViewController.swift */; };
+		C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C830971E1EF829970004B56D /* FiveStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStepTableViewController.swift; sourceTree = "<group>"; };
+		C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE53A596BE94FA5286FF9B2D /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				66EDEA3D1EE8755500BF8357 /* Assets.xcassets */,
 				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
 				66EDEA421EE8755500BF8357 /* Info.plist */,
+				C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */,
+				C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */,
 				66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */,
 				66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */,
 			);
