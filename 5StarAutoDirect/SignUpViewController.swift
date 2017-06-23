@@ -29,13 +29,22 @@ class SignUpViewController: UIViewController {
         
         if isSignUp {
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                if let user = user {
-                    self.performSegue(withIdentifier: "toUserHomeVC", sender: self)
+                
+                // This is my attempt to check if the user's email contains 5StarAuto, and then make them either a broker or not, based on that. If this doesn't work, delete lines 35-41 and uncomment 43 & 45
+                
+                let broker: Bool
+                if email.uppercased().contains("5STARAUTO") {
+                    broker = true
+                } else {
+                    broker = false
                 }
+                let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], currentStep: .One)
+                
+//                if user == user {
+                    self.performSegue(withIdentifier: "toUserHomeVC", sender: self)
+//                }
             })
         }
-        
-        UserController.shared.createUser(name: name, phone: phone, email: email, isBroker: false /* <- just for committing purposes*/ )
     }
     
 
