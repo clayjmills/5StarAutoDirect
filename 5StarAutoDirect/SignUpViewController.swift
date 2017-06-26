@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var submitButton: UIImageView!
     
     var isSignUp: Bool = true
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -40,18 +40,24 @@ class SignUpViewController: UIViewController {
                 }
                 let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], currentStep: .One)
                 
-//                if user == user {
-                    self.performSegue(withIdentifier: "toUserHomeVC", sender: self)
-//                }
+                //                if user == user {
+                self.performSegue(withIdentifier: "signUpToCustomersVC", sender: self)
+                //                }
             })
         }
     }
     
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        <#code#>
-//    }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signUpToCustomersVC" {
+            
+            let createdUser = BrokerTableViewController.shared.user
+            if let detailVC = segue.destination as? BrokerTableViewController {
+                detailVC.user = createdUser
+            }
+        }
+    }
+    
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
