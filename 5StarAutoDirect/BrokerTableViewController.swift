@@ -10,7 +10,11 @@ import UIKit
 import Firebase
 
 class BrokerTableViewController: UITableViewController {
-
+    
+    static let shared = BrokerTableViewController()
+    
+    var user: User? 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
