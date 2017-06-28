@@ -17,7 +17,6 @@ class FiveStepTableViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 140
         tableView.rowHeight = UITableViewAutomaticDimension
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

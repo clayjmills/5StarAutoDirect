@@ -2,22 +2,13 @@
 //  MessageDetailViewController.swift
 //  5StarAutoDirect
 //
-//  Created by Alex Whitlock on 6/16/17.
+//  Created by Alex Whitlock on 6/27/17.
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class MessageDetailViewController: UIViewController {
-
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var oneButton: UIButton!
-    @IBOutlet weak var twoButton: UIButton!
-    @IBOutlet weak var threeButton: UIButton!
-    @IBOutlet weak var fourButton: UIButton!
-    @IBOutlet weak var fiveButton: UIButton!
+class MessageDetailViewController: UICollectionViewController {
     
     var user: User? {
         didSet {
@@ -25,53 +16,61 @@ class MessageDetailViewController: UIViewController {
         }
     }
 
-    
-    func updateViews() {
-        guard let user = user else { return }
-        if user.currentStep == .One {
-            oneButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
-        }
-        if user.currentStep == .Two {
-            twoButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
-        }
-        if user.currentStep == .Three {
-            threeButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
-        }
-        if user.currentStep == .Four {
-            fourButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
-        }
-        if user.currentStep == .Five {
-            fiveButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let user = user else { return }
+        
+        navigationItem.title = "\(user.name)"
+        collectionView?.backgroundColor = UIColor.AutoBlue
+        setupInputComponents()
     }
 
-    @IBAction func sendMessageButtonTapped(_ sender: Any) {
-        messageTextView.text = ""
-        // TODO: - Actually, yaknow, send the message
+    
+    func setupInputComponents() {
+            let containerView = UIView()
+        containerView.backgroundColor = UIColor.white
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(containerView)
+        
+        // constraining with anchors
+        containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        let sendButton = UIButton(type: .system )
+        sendButton.setTitle("Send", for: .normal)
+        sendButton.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(sendButton)
+        // constraining with anchors
+        sendButton.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        sendButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        sendButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        sendButton.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
     }
     
-    @IBAction func oneButtonTapped(_ sender: Any) {
-        user?.currentStep = .One
-    }
     
-    @IBAction func twoButtonTapped(_ sender: Any) {
-        user?.currentStep = .Two
+    func updateViews() {
+        // once we get the button stuff set up
+//        guard let user = user else { return }
+//        if user.currentStep == .One {
+//            oneButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
+//        }
+//        if user.currentStep == .Two {
+//            twoButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
+//        }
+//        if user.currentStep == .Three {
+//            threeButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
+//        }
+//        if user.currentStep == .Four {
+//            fourButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
+//        }
+//        if user.currentStep == .Five {
+//            fiveButton.imageView?.image = #imageLiteral(resourceName: "blueRect")
+//        }
     }
-    
-    @IBAction func threeButtonTapped(_ sender: Any) {
-        user?.currentStep = .Three
-    }
-    
-    @IBAction func fourButtonTapped(_ sender: Any) {
-        user?.currentStep = .Four
-    }
-    
-    @IBAction func fiveButtonTapped(_ sender: Any) {
-        user?.currentStep = .Five
-    }
-    
+
+
 }

@@ -14,6 +14,13 @@ class UserHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            let userVC = UserHomeViewController()
+            self.present(userVC, animated: true, completion: nil)
+        }
+    }
 
     var user: User?
     
