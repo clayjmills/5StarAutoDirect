@@ -8,6 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import KeychainSwift
+import FirebaseDatabase
+import Firebase
 
 class SignUpViewController: UIViewController {
     
@@ -21,6 +24,19 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let keyChain = DatabaseManager().keyChain
+        if keyChain.get("uid") != nil {
+            performSegue(withIdentifier: "toUserHomeVC", sender: nil)
+        }
+    }
+    
+    func completeSignIn (id: String) {
+        let keyChain = DatabaseManager().keyChain
+        keyChain.set(id , forKey: "uid")
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
@@ -39,12 +55,37 @@ class SignUpViewController: UIViewController {
                     broker = false
                 }
                 let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], currentStep: .One)
+                if user != nil {
+                    self.completeSignIn(id: user.name)
+                }
                 
                 //                if user == user {
                 self.performSegue(withIdentifier: "signUpToCustomersVC", sender: self)
                 //                }
             })
+        } else {
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                if user != nil {
+                    self.completeSignIn(id: user!.uid)
+                    //User is found, go to home screen
+                    self.performSegue(withIdentifier: "toUserHomeVC", sender: self)
+                } else {
+                    //Error: check error and show message
+                }
+            })
         }
+        
+    }
+    
+    @IBAction func SignOutButtonTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        DatabaseManager().keyChain.delete("uid")
+        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

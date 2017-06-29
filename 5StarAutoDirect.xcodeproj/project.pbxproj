@@ -26,6 +26,7 @@
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
 		C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830971E1EF829970004B56D /* FiveStepTableViewController.swift */; };
+		C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83274941F054B3E000E3FE5 /* DatabaseManager.swift */; };
 		C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */; };
 		C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */; };
 		C83E6C7C1F02DA9700DFC078 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */; };
@@ -54,6 +55,7 @@
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C830971E1EF829970004B56D /* FiveStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStepTableViewController.swift; sourceTree = "<group>"; };
+		C83274941F054B3E000E3FE5 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		66813B821EF1ADD8000FA884 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C83274941F054B3E000E3FE5 /* DatabaseManager.swift */,
 				66813B7E1EF1ADC0000FA884 /* UserController.swift */,
 				66813B801EF1ADCE000FA884 /* MessageController.swift */,
 				C82920681EF1B7BB0089A695 /* CarController.swift */,
@@ -309,6 +312,7 @@
 				C82920691EF1B7BB0089A695 /* CarController.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
+				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */,

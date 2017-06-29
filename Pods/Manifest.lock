@@ -43,6 +43,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - KeychainSwift (8.0.2)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
+  - KeychainSwift
 
 SPEC CHECKSUMS:
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
@@ -63,7 +65,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  KeychainSwift: 213db04dfe7244988e61f77c72a2afb2f775954a
 
-PODFILE CHECKSUM: a38671754afb9eda3de4b160906164bba87f20c4
+PODFILE CHECKSUM: a9361f437c58a8464586577f0ddb1a665675e8ea
 
 COCOAPODS: 1.2.1
