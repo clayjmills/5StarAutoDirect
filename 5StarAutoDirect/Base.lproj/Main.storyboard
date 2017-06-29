@@ -241,9 +241,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="ae0-i2-gjc" kind="show" identifier="cellToMessageVC" id="R9X-S5-tx3"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -258,27 +255,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lN8-6g-UKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2422" y="-603"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="zTn-Xb-lqv">
-            <objects>
-                <viewController id="ae0-i2-gjc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eSp-Ja-t5X"/>
-                        <viewControllerLayoutGuide type="bottom" id="HkB-b5-qNy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NZC-rE-F9s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="MKV-l5-B15">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="6Jh-mC-Yaq"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qLF-rf-QRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3329" y="-603"/>
         </scene>
         <!--User Home View Controller-->
         <scene sceneID="0CB-xF-OFD">
@@ -392,7 +368,6 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButtonTapped:" destination="AS1-Dz-w0k" eventType="touchUpInside" id="91i-At-sce"/>
-                                    <segue destination="blU-ME-HwJ" kind="show" identifier="toUserHomeVC" id="UHB-Lk-lCK"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Submit Button" translatesAutoresizingMaskIntoConstraints="NO" id="Tzs-J7-JzV">
@@ -445,7 +420,8 @@
                         <outlet property="passwordTextField" destination="uY4-fU-Rr3" id="4Kj-Mt-GZd"/>
                         <outlet property="phoneTextField" destination="NQz-Gf-Vtu" id="kvA-pC-xKQ"/>
                         <outlet property="submitButton" destination="Tzs-J7-JzV" id="Dn1-kX-RL2"/>
-                        <segue destination="Mx5-3g-S1x" kind="show" identifier="signUpToCustomersVC" id="Sds-DC-nts"/>
+                        <segue destination="blU-ME-HwJ" kind="show" identifier="signinToUserHomeVC" id="zqy-Aj-wSf"/>
+                        <segue destination="Mx5-3g-S1x" kind="show" identifier="signinToBrokerTVC" id="gLZ-Av-fq7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wso-DT-BjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
