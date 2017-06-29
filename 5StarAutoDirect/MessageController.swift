@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct MessageController {
     
@@ -18,4 +19,5 @@ struct MessageController {
         let message = Message(text: text)
         messages.insert(message, at: 0)
     }
+    
 }

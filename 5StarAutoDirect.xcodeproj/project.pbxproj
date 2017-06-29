@@ -21,13 +21,15 @@
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
 		66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */; };
 		68FD1F7CD0C355053F310871 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A851FF27F3B7F743547CA549 /* Pods_5StarAutoDirect.framework */; };
-		C824A68A1EF44337004F74D2 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */; };
 		C82920691EF1B7BB0089A695 /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920681EF1B7BB0089A695 /* CarController.swift */; };
 		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
 		C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830971E1EF829970004B56D /* FiveStepTableViewController.swift */; };
+		C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83274941F054B3E000E3FE5 /* DatabaseManager.swift */; };
 		C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */; };
+		C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */; };
+		C83E6C7C1F02DA9700DFC078 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,13 +50,15 @@
 		66EDEA401EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A851FF27F3B7F743547CA549 /* Pods_5StarAutoDirect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5StarAutoDirect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		C82920681EF1B7BB0089A695 /* CarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
 		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C830971E1EF829970004B56D /* FiveStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStepTableViewController.swift; sourceTree = "<group>"; };
+		C83274941F054B3E000E3FE5 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EE53A596BE94FA5286FF9B2D /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,7 @@
 		66813B821EF1ADD8000FA884 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C83274941F054B3E000E3FE5 /* DatabaseManager.swift */,
 				66813B7E1EF1ADC0000FA884 /* UserController.swift */,
 				66813B801EF1ADCE000FA884 /* MessageController.swift */,
 				C82920681EF1B7BB0089A695 /* CarController.swift */,
@@ -106,7 +111,8 @@
 				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
 				66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */,
 				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
-				C824A6891EF44337004F74D2 /* MessageDetailViewController.swift */,
+				C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */,
+				C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */,
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 			);
 			name = "View Controllers";
@@ -299,15 +305,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
+				C83E6C7C1F02DA9700DFC078 /* MessagesTableViewController.swift in Sources */,
 				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
 				66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */,
 				66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */,
 				C82920691EF1B7BB0089A695 /* CarController.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
+				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
-				C824A68A1EF44337004F74D2 /* MessageDetailViewController.swift in Sources */,
+				C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */,
 				66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
