@@ -160,9 +160,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="St7-pa-Em9">
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="scy-N0-zn2">
+                        <barButtonItem key="rightBarButtonItem" title="5 Steps" id="scy-N0-zn2">
                             <connections>
                                 <action selector="testButtonTapped:" destination="H8s-Ty-BB4" id="KvL-DH-f6B"/>
+                                <segue destination="rxn-w3-yD4" kind="show" id="jma-IM-YFQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -223,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wua-OD-D2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4086" y="867"/>
+            <point key="canvasLocation" x="3234" y="867"/>
         </scene>
         <!--Customers-->
         <scene sceneID="jRd-PR-7hF">
@@ -283,7 +284,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="Your car button"/>
                                 <connections>
-                                    <segue destination="H8s-Ty-BB4" kind="show" id="sQb-Yn-UMg"/>
+                                    <segue destination="H8s-Ty-BB4" kind="show" identifier="userHomeVCToMessagesTVC" id="sQb-Yn-UMg"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Find Your Car Button" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-qv-Rae">
@@ -302,13 +303,6 @@
                                 <rect key="frame" x="67" y="64" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vF8-20-lmt">
-                                <rect key="frame" x="67" y="64" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="brokerButtonTapped:" destination="blU-ME-HwJ" eventType="touchUpInside" id="xhN-ek-7jg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -419,6 +413,7 @@
                         <outlet property="nameTextField" destination="cnZ-FZ-y5Q" id="MRE-0L-7M7"/>
                         <outlet property="passwordTextField" destination="uY4-fU-Rr3" id="4Kj-Mt-GZd"/>
                         <outlet property="phoneTextField" destination="NQz-Gf-Vtu" id="kvA-pC-xKQ"/>
+                        <outlet property="signOutButton" destination="hoe-CC-XU5" id="RMg-yK-Z1N"/>
                         <outlet property="submitButton" destination="Tzs-J7-JzV" id="Dn1-kX-RL2"/>
                         <segue destination="blU-ME-HwJ" kind="show" identifier="signinToUserHomeVC" id="zqy-Aj-wSf"/>
                         <segue destination="Mx5-3g-S1x" kind="show" identifier="signinToBrokerTVC" id="gLZ-Av-fq7"/>

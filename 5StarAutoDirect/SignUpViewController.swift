@@ -10,7 +10,8 @@ import UIKit
 import FirebaseAuth
 import KeychainSwift
 import FirebaseDatabase
-import Firebase
+
+// We may want to put the code to tell what the initial VC is in the AppDelegate, appDidFinishLaunching instead of here
 
 class SignUpViewController: UIViewController {
     
@@ -19,19 +20,19 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: UIImageView!
+    @IBOutlet weak var signOutButton: UIButton!
     
     var isSignUp: Bool = true
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
         let keyChain = DatabaseManager().keyChain
         if keyChain.get("uid") != nil {
-            performSegue(withIdentifier: "toUserHomeVC", sender: nil)
+            performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
         }
+        
+        signOutButton.imageView?.image = #imageLiteral(resourceName: "SignOut")
     }
     
     func completeSignIn (id: String) {
@@ -46,7 +47,7 @@ class SignUpViewController: UIViewController {
         if isSignUp {
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 
-                // This is my attempt to check if the user's email contains 5StarAuto, and then make them either a broker or not, based on that. If this doesn't work, delete lines 35-41 and uncomment 43 & 45
+                // This is my attempt to check if the user's email contains 5StarAuto, and then make them either a broker or not, based on that. If this doesn't work, delete next few lines
                 
                 let broker: Bool
                 if email.uppercased().contains("5STARAUTO") {
@@ -55,29 +56,30 @@ class SignUpViewController: UIViewController {
                     broker = false
                 }
                 let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], currentStep: .One)
-                if user != nil {
+                if user.isBroker {
+                    self.completeSignIn(id: user.name)
+                    self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
                     self.completeSignIn(id: user.name)
                 }
                 
-                //                if user == user {
-                self.performSegue(withIdentifier: "signUpToCustomersVC", sender: self)
-                //                }
             })
         } else {
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 if user != nil {
                     self.completeSignIn(id: user!.uid)
                     //User is found, go to home screen
-                    self.performSegue(withIdentifier: "toUserHomeVC", sender: self)
+                    
+                    self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
                 } else {
                     //Error: check error and show message
                 }
             })
         }
-        
     }
     
-    @IBAction func SignOutButtonTapped(_ sender: Any) {
+    @IBAction func signOutButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -89,15 +91,18 @@ class SignUpViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "signUpToCustomersVC" {
+        if segue.identifier == "signinToBrokerTVC" {
             
             let createdUser = BrokerTableViewController.shared.user
             if let detailVC = segue.destination as? BrokerTableViewController {
                 detailVC.user = createdUser
             }
+        } else {
+            if segue.identifier == "signinToUserHomeVC"{
+            
+            }
         }
     }
-    
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()

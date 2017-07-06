@@ -10,36 +10,28 @@ import UIKit
 import Firebase
 
 class UserHomeViewController: UIViewController {
-
+    
+    static let shared = UserHomeViewController()
+    
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
-            let userVC = UserHomeViewController()
-            self.present(userVC, animated: true, completion: nil)
+            
         }
     }
-
-    var user: User?
     
-    @IBAction func brokerButtonTapped(_ sender: Any) {
-// We'll only need this if we decide to have the brokers got to this VC and tap the button to segue into the customer list
-        
-//        guard let user = user else { return }
-//        if user.isBroker {
-//            self.performSegue(withIdentifier: "toCustomerTVC", sender: self)
-//        } else if user.isBroker == false {
-//            presentYouCantGoThereAlert()
-//        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "userHomeVCToMessagesTVC" {
+            let selectedUser = UserHomeViewController.shared.user
+            if let detailVC = segue.destination as? MessagesTableViewController {
+                detailVC.user = selectedUser
+            }
+        }
     }
     
-//    func presentYouCantGoThereAlert() {
-//        let accessDeniedAlertCont = UIAlertController(title: "You can't go there", message: nil, preferredStyle: .alert)
-//        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//        accessDeniedAlertCont.addAction(dismissAction)
-//        present(accessDeniedAlertCont, animated: true, completion: nil)
-//    }
-
 }

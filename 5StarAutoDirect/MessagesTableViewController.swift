@@ -10,22 +10,25 @@ import UIKit
 
 class MessagesTableViewController: UITableViewController {
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
-        
+        cell.textLabel?.text = "You have one test cell"
         return cell
     }
     
@@ -41,7 +44,7 @@ class MessagesTableViewController: UITableViewController {
     }
     
     func showChatController() {
-        let messageDetailVC = MessageDetailViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let messageDetailVC = MessageDetailViewController()
          navigationController?.pushViewController(messageDetailVC, animated: true)
     }
     
