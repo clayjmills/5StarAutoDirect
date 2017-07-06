@@ -15,7 +15,6 @@
 		66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B851EF1AE35000FA884 /* SignUpViewController.swift */; };
 		66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B871EF1AE42000FA884 /* UserHomeViewController.swift */; };
 		66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B891EF1AE53000FA884 /* CarDetailViewController.swift */; };
-		66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */; };
 		66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDEA361EE8755500BF8357 /* AppDelegate.swift */; };
 		66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3A1EE8755500BF8357 /* Main.storyboard */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
@@ -42,7 +41,6 @@
 		66813B851EF1AE35000FA884 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		66813B871EF1AE42000FA884 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		66813B891EF1AE53000FA884 /* CarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
-		66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListTableViewController.swift; sourceTree = "<group>"; };
 		66EDEA331EE8755500BF8357 /* 5StarAutoDirect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5StarAutoDirect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EDEA361EE8755500BF8357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EDEA3B1EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,9 +107,8 @@
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
 				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
 				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
-				66813B8B1EF1AE68000FA884 /* MessageListTableViewController.swift */,
-				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
 				C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */,
+				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
 				C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */,
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 			);
@@ -316,7 +313,6 @@
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */,
-				66813B8C1EF1AE68000FA884 /* MessageListTableViewController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
