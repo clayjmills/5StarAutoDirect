@@ -97,8 +97,9 @@ class MessageDetailViewController: UIViewController, UITextFieldDelegate {
             let ref = Database.database().reference().child("messages")
             
             let childRef = ref.childByAutoId()
-            
-            let values = ["text":inputTextField.text!]
+            guard let input = inputTextField.text else { return }
+            let name = user?.name
+            let values = ["text":inputTextField.text!, "name": name]
             ref.updateChildValues(values)
             inputTextField.text = ""
         }

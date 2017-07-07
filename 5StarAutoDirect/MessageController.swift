@@ -15,9 +15,9 @@ struct MessageController {
     
     var messages: [Message] = []
     
-    mutating func createMessage(text: String) {
-        let message = Message(text: text)
-        messages.insert(message, at: 0)
-    }
-    
+//    mutating func createMessage(text: String) {
+//        let message = Message(text: text, toID: <#String?#>)
+//        messages.insert(message, at: 0)
+//    }
+//    
 }
