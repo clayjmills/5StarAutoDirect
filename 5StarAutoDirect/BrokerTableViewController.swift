@@ -13,7 +13,9 @@ class BrokerTableViewController: UITableViewController {
     
     static let shared = BrokerTableViewController()
     
-    var user: User? 
+    var user: User?
+    
+    var users: [User]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,4 +44,20 @@ class BrokerTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) {
+            guard let user = self.users?[indexPath.row] else { return }
+            self.showChatController(user: user)
+        }
+    }
+    
+    func showChatController(user: User) {
+        let messageDetailVC = MessageDetailViewController()
+        MessagesTableViewController.shared.user = user
+        navigationController?.pushViewController(messageDetailVC, animated: true)
+    }
+    
+    
+    
 }

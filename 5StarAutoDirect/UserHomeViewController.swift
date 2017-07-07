@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class UserHomeViewController: UIViewController {
+    @IBAction func messagebuttonTapped(_ sender: Any) {
+        navigationController?.pushViewController(MessageDetailViewController(), animated: true)
+    }
     
     static let shared = UserHomeViewController()
     
@@ -21,7 +24,6 @@ class UserHomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
-            
         }
     }
     

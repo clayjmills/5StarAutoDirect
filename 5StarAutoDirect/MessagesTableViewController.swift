@@ -10,14 +10,22 @@ import UIKit
 
 class MessagesTableViewController: UITableViewController {
     
-    var user: User?
+    static let shared = MessagesTableViewController()
+    
+    var user: User? {
+        didSet {
+            navigationItem.title = user?.name
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        observeMessages()
     }
     
-    
+    func observeMessages() {
+//        let ref = 
+    }
     
     // MARK: - Table view data source
     
@@ -27,8 +35,8 @@ class MessagesTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
-        cell.textLabel?.text = "You have one test cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell", for: indexPath)
+        cell.textLabel?.text = "You have a test cell"
         return cell
     }
     
@@ -46,6 +54,10 @@ class MessagesTableViewController: UITableViewController {
     func showChatController() {
         let messageDetailVC = MessageDetailViewController()
          navigationController?.pushViewController(messageDetailVC, animated: true)
+    }
+    
+    func handleNewMessage() {
+        
     }
     
     // MARK: - Navigation
