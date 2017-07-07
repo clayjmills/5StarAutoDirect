@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MessagesTableViewController: UITableViewController {
     
@@ -24,19 +25,34 @@ class MessagesTableViewController: UITableViewController {
     }
     
     func observeMessages() {
-//        let ref = 
+        let ref = Database.database().reference().child("messages")
+        ref.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let message = Message()
+                message.setValuesForKeys(dictionary)
+                self.messages.append(message)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            
+        }, withCancel: nil)
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return messages.count
     }
     
+    var messages = [Message]()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell", for: indexPath)
-        cell.textLabel?.text = "You have a test cell"
+        let message = messages[indexPath.row]
+        cell.textLabel?.text = message.text
         return cell
     }
     

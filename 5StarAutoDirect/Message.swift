@@ -6,9 +6,9 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-
-struct Message {
-    let text: String
+class Message: NSObject {
+    var text: String?
+    var toID: String?
 }
