@@ -211,7 +211,7 @@
 				TargetAttributes = {
 					66EDEA321EE8755500BF8357 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 56SA3Y6F29;
+						DevelopmentTeam = HK9J242HR4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -441,7 +441,7 @@
 			baseConfigurationReference = 44C8BACDF16E1C0FCB612D67 /* Pods-5StarAutoDirect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 56SA3Y6F29;
+				DEVELOPMENT_TEAM = HK9J242HR4;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -456,7 +456,7 @@
 			baseConfigurationReference = EE53A596BE94FA5286FF9B2D /* Pods-5StarAutoDirect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 56SA3Y6F29;
+				DEVELOPMENT_TEAM = HK9J242HR4;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
