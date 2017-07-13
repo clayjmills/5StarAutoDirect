@@ -144,8 +144,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-bf-VbO">
-                                    <rect key="frame" x="0.0" y="8" width="375" height="288"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-bf-VbO">
+                                    <rect key="frame" x="32" y="20" width="310" height="223"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,7 +184,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wua-OD-D2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3234" y="867"/>
+            <point key="canvasLocation" x="3232.8000000000002" y="866.71664167916049"/>
         </scene>
         <!--Customers-->
         <scene sceneID="jRd-PR-7hF">

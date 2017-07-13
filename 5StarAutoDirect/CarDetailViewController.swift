@@ -37,15 +37,17 @@ class CarDetailViewController: UIViewController {
         guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
         
         
-        let emptyTextFieldsAlertController = UIAlertController(title: "One or more text fields are still empty", message: "Submit anyways?", preferredStyle: .alert)
+        let emptyTextFieldsAlertController = UIAlertController(title: "Fill out all fields", message: "Thank you", preferredStyle: .alert)
         
-        let dismissAction = UIAlertAction(title: "Edit", style: .cancel, handler: nil)
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { (createCar) in
-            CarController.shared.createCar(make: make, model: model, budget: budget, color: color, other: other)
-        }
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        // To Do: delete if never used again
+        //let submitAction = UIAlertAction(title: "Submit", style: .default) { (createCar) in
+           // CarController.shared.createCar(make: make, model: model, budget: budget, color: color, other: other)
+        //}
         
         emptyTextFieldsAlertController.addAction(dismissAction)
-        emptyTextFieldsAlertController.addAction(submitAction)
+        //emptyTextFieldsAlertController.addAction(submitAction)
         present(emptyTextFieldsAlertController, animated: true, completion: nil)
     }
 }
