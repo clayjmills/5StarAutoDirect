@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class CarDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var makeTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var budgetTextField: UITextField!
@@ -20,23 +20,32 @@ class CarDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
+
+        // TODO: - check if text fields are empty
+        // if {
+        textFieldsEmptyAlertController()
+        // } else {
         CarController.shared.createCar(make: make, model: model, budget: budget, color: color, other: other)
+    //}
+    
     }
     
-    func presentTextFieldsAreEmptyAlert() {
+    func textFieldsEmptyAlertController() {
+        guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
+        
+        
         let emptyTextFieldsAlertController = UIAlertController(title: "One or more text fields are still empty", message: "Submit anyways?", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Add", style: .cancel, handler: nil)
+        
+        let dismissAction = UIAlertAction(title: "Edit", style: .cancel, handler: nil)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (createCar) in
             CarController.shared.createCar(make: make, model: model, budget: budget, color: color, other: other)
         }
+        
+        emptyTextFieldsAlertController.addAction(dismissAction)
+        emptyTextFieldsAlertController.addAction(submitAction)
+        present(emptyTextFieldsAlertController, animated: true, completion: nil)
     }
 }
-
-
-
-
-
-
