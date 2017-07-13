@@ -11,6 +11,8 @@ import FirebaseAuth
 import KeychainSwift
 import FirebaseDatabase
 
+// making a comment to test Tower
+
 // We may want to put the code to tell what the initial VC is in the AppDelegate, appDidFinishLaunching instead of here
 
 class SignUpViewController: UIViewController {
