@@ -9,6 +9,20 @@
 import UIKit
 
 class Message: NSObject {
+    
+    private let textKey = "text"
+    private let toIDKey = "toID"
+    
     var text: String?
     var toID: String?
+    
+    init(text: String?, toID: String){
+        self.text = text
+        self.toID = toID
+    }
+    
+    init?(jsonDictionary: [String: Any]) {
+        guard let text = jsonDictionary[textKey] as? String,
+            let toID = jsonDictionary[toIDKey] as? String else { return nil }
+    }
 }

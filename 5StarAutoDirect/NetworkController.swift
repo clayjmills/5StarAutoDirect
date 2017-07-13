@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import Firebase
+
 class NetworkController {
     
     // MARK: Properties
     
     // TODO: - change this to the firebase for this project
-    static let baseURL = URL(string: "https://devmtn-post.firebaseio.com/posts/")
-
+    static let baseURL = URL(string: "https://starautodirect-5b1fc.firebaseio.com")
+    let reference = Database.database().reference()
     
     enum HTTPMethod: String {
         case Get = "GET"

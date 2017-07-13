@@ -55,7 +55,7 @@ class SignUpViewController: UIViewController {
                 } else {
                     broker = false
                 }
-                let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], currentStep: .One)
+                let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [])
                 if user.isBroker {
                     self.completeSignIn(id: user.name)
                     self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)

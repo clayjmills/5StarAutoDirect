@@ -15,10 +15,17 @@ class BrokerTableViewController: UITableViewController {
     
     var user: User?
     
-    var users: [User]?
+    var users: [User] = [] {
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchUserList()
     }
     
     
@@ -47,8 +54,8 @@ class BrokerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dismiss(animated: true) {
-            guard let user = self.users?[indexPath.row] else { return }
-            self.showChatController(user: user)
+            let currentUser = self.users[indexPath.row]
+            self.showChatController(user: currentUser)
         }
     }
     
@@ -59,5 +66,9 @@ class BrokerTableViewController: UITableViewController {
     }
     
     
-    
+    func fetchUserList() {
+        UserController.fetchUsers { (users) in
+            self.users = users
+        }
+    }
 }
