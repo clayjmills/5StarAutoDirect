@@ -29,9 +29,9 @@ class MessagesTableViewController: UITableViewController {
         ref.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let message = Message()
+                guard let message = Message(jsonDictionary: dictionary) else { return }
                 message.setValuesForKeys(dictionary)
-                self.messages.append(message)
+                    self.messages.append(message)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

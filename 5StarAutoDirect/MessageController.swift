@@ -15,9 +15,21 @@ struct MessageController {
     
     var messages: [Message] = []
     
-//    mutating func createMessage(text: String) {
-//        let message = Message(text: text, toID: <#String?#>)
-//        messages.insert(message, at: 0)
-//    }
-//    
+    static func fetchMessages(completion: @escaping ([Message]) -> Void) {
+        guard let unwrappedURL = NetworkController.baseURL else { return }
+        let url = unwrappedURL.appendingPathExtension("json")
+        
+        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription) File: \(#file) Line: \(#line)")
+                completion([]); return
+            }
+            
+            guard let data = data,
+                let jsondictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: [String: String]] else { completion([]); return }
+            
+            let messages = jsondictionary.flatMap({ Message(jsonDictionary: $0.value)})
+            completion(messages)
+        }
+    }
 }
