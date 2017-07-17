@@ -15,7 +15,9 @@ import FirebaseDatabase
 
 // We may want to put the code to tell what the initial VC is in the AppDelegate, appDidFinishLaunching instead of here
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -63,11 +65,14 @@ class SignUpViewController: UIViewController {
                 } else if !(user.email?.contains("@"))! {
                     self.badEmail()
                 }
-                if (user.phone?.characters.count)! < 10 {
+                if (user.phone?.characters.count)! < 12 {
                     self.badPhoneNumberAC()
                 }
                 if password == "" {
                     self.badPasswordAC()
+                }
+                if name == "" {
+                    self.badNameAC()
                 }
                 
                 if user.isBroker {
@@ -152,6 +157,27 @@ class SignUpViewController: UIViewController {
         let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         badPasswordAlertController.addAction(dismissAction)
         present(badPasswordAlertController, animated: true, completion: nil)
+    }
+    
+    func badNameAC() {
+        let badNameAlertController = UIAlertController(title: "Please enter first and last name", message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        badNameAlertController.addAction(dismissAction)
+        present(badNameAlertController, animated: true, completion: nil)
+    }
+    
+    
+    // keyboard under text fields
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        scrollView.setContentOffset(CGPoint(x:0, y:200), animated: true)
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
 
 }
