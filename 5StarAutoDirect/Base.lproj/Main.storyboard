@@ -202,6 +202,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="SHA-ig-RUQ" kind="show" id="QyX-3g-9Iz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -210,12 +213,63 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Customers" id="OGT-ND-VDg">
-                        <barButtonItem key="rightBarButtonItem" title="skipping for testing" id="EcV-b4-Fvm"/>
+                        <barButtonItem key="rightBarButtonItem" title="skipping for testing" id="EcV-b4-Fvm">
+                            <connections>
+                                <segue destination="SHA-ig-RUQ" kind="show" id="3PT-7t-b59"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lN8-6g-UKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2422" y="-603"/>
+        </scene>
+        <!--Broker Message Detail View Controller-->
+        <scene sceneID="nMs-TR-UFg">
+            <objects>
+                <viewController id="SHA-ig-RUQ" customClass="BrokerMessageDetailViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LBY-9D-Ueq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qeu-YN-SjI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N5b-9B-dKM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-wh-bRE">
+                                <rect key="frame" x="23" y="590" width="336" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="SHA-ig-RUQ" eventType="touchUpInside" id="7vJ-df-wwa"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zkF-Xs-Hlk">
+                                <rect key="frame" x="23" y="66" width="336" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send to ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laO-Ef-UGd">
+                                <rect key="frame" x="67" y="28" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextView" destination="zkF-Xs-Hlk" id="sN7-VV-z6b"/>
+                        <outlet property="sendToLabel" destination="laO-Ef-UGd" id="1Cd-g4-lCE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gz6-lS-y1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3245.5999999999999" y="-594.15292353823088"/>
         </scene>
         <!--User Home View Controller-->
         <scene sceneID="0CB-xF-OFD">
@@ -430,4 +484,7 @@
         <image name="Submit Label" width="377" height="68"/>
         <image name="Your Car Image" width="344" height="90"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="QyX-3g-9Iz"/>
+    </inferredMetricsTieBreakers>
 </document>

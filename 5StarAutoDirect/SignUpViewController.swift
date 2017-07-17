@@ -58,6 +58,18 @@ class SignUpViewController: UIViewController {
                     broker = false
                 }
                 let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [])
+                if !(user.email?.contains("."))! {
+                    self.badEmail()
+                } else if !(user.email?.contains("@"))! {
+                    self.badEmail()
+                }
+                if (user.phone?.characters.count)! < 10 {
+                    self.badPhoneNumberAC()
+                }
+                if password == "" {
+                    self.badPasswordAC()
+                }
+                
                 if user.isBroker {
                     self.completeSignIn(id: user.name)
                     self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
@@ -81,6 +93,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    // delete signout button when ready to publish app
     @IBAction func signOutButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -90,18 +103,25 @@ class SignUpViewController: UIViewController {
         }
         DatabaseManager().keyChain.delete("uid")
         dismiss(animated: true, completion: nil)
+        
+        nameTextField.text = ""
+        phoneTextField.text = ""
+        emailTextField.text = ""
+        passwordTextField.text = ""
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signinToBrokerTVC" {
-            
             let createdUser = BrokerTableViewController.shared.user
             if let detailVC = segue.destination as? BrokerTableViewController {
                 detailVC.user = createdUser
             }
         } else {
             if segue.identifier == "signinToUserHomeVC"{
-            
+                let createdUser = UserHomeViewController.shared.user
+                if let detailVC = segue.destination as? UserHomeViewController {
+                    detailVC.user = createdUser
+                }
             }
         }
     }
@@ -112,4 +132,26 @@ class SignUpViewController: UIViewController {
         phoneTextField.resignFirstResponder()
         nameTextField.resignFirstResponder()
     }
+    
+    func badEmail() {
+        let pleaseEnterValidEmailAlertController = UIAlertController(title: "Please enter a valid email", message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        pleaseEnterValidEmailAlertController.addAction(dismissAction)
+        present(pleaseEnterValidEmailAlertController, animated: true, completion: nil)
+    }
+    
+    func badPhoneNumberAC() {
+        let badPhoneNumberAlertController = UIAlertController(title: "Please check that your phone number includes an area code and is a valid phone number", message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        badPhoneNumberAlertController.addAction(dismissAction)
+        present(badPhoneNumberAlertController, animated: true, completion: nil)
+    }
+    
+    func badPasswordAC() {
+        let badPasswordAlertController = UIAlertController(title: "Please enter a password", message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        badPasswordAlertController.addAction(dismissAction)
+        present(badPasswordAlertController, animated: true, completion: nil)
+    }
+
 }

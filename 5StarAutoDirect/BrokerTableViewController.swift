@@ -55,16 +55,8 @@ class BrokerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dismiss(animated: true) {
             let currentUser = self.users[indexPath.row]
-            self.showChatController(user: currentUser)
         }
     }
-    
-    func showChatController(user: User) {
-        let messageDetailVC = MessageDetailViewController()
-        MessagesTableViewController.shared.user = user
-        navigationController?.pushViewController(messageDetailVC, animated: true)
-    }
-    
     
     func fetchUserList() {
         UserController.fetchUsers { (users) in
