@@ -63,7 +63,6 @@
                                         <state key="normal" title="Submit"/>
                                         <connections>
                                             <action selector="submitButtonTapped:" destination="5oK-9V-gFU" eventType="touchUpInside" id="3aN-e3-S5X"/>
-                                            <segue destination="WKs-eb-y5g" kind="show" identifier="toWelcomeVC" id="Ro2-wz-ET1"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-jA-RDi">
@@ -110,6 +109,7 @@
                         <outlet property="modelTextField" destination="H8x-zl-yXl" id="9uz-a5-x4E"/>
                         <outlet property="otherTextField" destination="jKq-vj-4lW" id="PZ9-aU-Nzk"/>
                         <outlet property="scrollView" destination="JqI-Hi-AeP" id="RQl-mD-igq"/>
+                        <segue destination="WKs-eb-y5g" kind="show" identifier="toWelcomeVC" id="sXt-vc-96I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ge-wN-5Ip" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,10 +454,10 @@
             </objects>
             <point key="canvasLocation" x="1266.4000000000001" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="6T0-0m-JeC">
             <objects>
-                <viewController id="WKs-eb-y5g" sceneMemberID="viewController">
+                <viewController id="WKs-eb-y5g" customClass="WelcomeViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ywQ-kO-YNh"/>
                         <viewControllerLayoutGuide type="bottom" id="Dfb-zN-is5"/>

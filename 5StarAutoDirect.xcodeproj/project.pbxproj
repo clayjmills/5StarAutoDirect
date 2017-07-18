@@ -17,6 +17,7 @@
 		66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B871EF1AE42000FA884 /* UserHomeViewController.swift */; };
 		66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B891EF1AE53000FA884 /* CarDetailViewController.swift */; };
 		66D2A4D41F1E84C200FCAE76 /* Ferrari.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */; };
+		66D2A4D61F1E890300FCAE76 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */; };
 		66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDEA361EE8755500BF8357 /* AppDelegate.swift */; };
 		66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3A1EE8755500BF8357 /* Main.storyboard */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		66813B891EF1AE53000FA884 /* CarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
 		66D2A4CF1F1E76DC00FCAE76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ferrari.m4a; sourceTree = "<group>"; };
+		66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		66EDEA331EE8755500BF8357 /* 5StarAutoDirect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5StarAutoDirect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EDEA361EE8755500BF8357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EDEA3B1EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				6645A5711F1D119300B5A82A /* BrokerMessageDetailViewController.swift */,
 				C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */,
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
+				66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
 				6645A5721F1D119300B5A82A /* BrokerMessageDetailViewController.swift in Sources */,
 				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,
+				66D2A4D61F1E890300FCAE76 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

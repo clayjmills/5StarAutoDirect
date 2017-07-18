@@ -13,7 +13,7 @@ import AVFoundation
 class CarDetailViewController: UIViewController, UITextFieldDelegate {
     
     var audioPlayer = AVAudioPlayer()
-
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var makeTextField: UITextField!
@@ -36,18 +36,16 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
         catch {
             print(error)
         }
-
+        
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         
-        //plays the sound
-        audioPlayer.play()
-
+        
         guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
         
         if carCreated {
-        
+            
             if make == "" {
                 self.emptyMake()
             }
@@ -62,32 +60,27 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
             }
             if other == "" {
                 self.emptyOther()
+            } else {
+                
+                //plays the sound
+                audioPlayer.play()
+                
+                self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
             }
-            
-            self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
-            
         }
-//
-//        // TODO: - check if text fields are empty
-//        // if {
-//        textFieldsEmptyAlertController()
-//        // } else {
-//        CarController.shared.createCar(make: make, model: model, budget: budget, color: color, other: other)
-//    //}
-    
     }
     
-//    func textFieldsEmptyAlertController() {
-//        guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
-//        let emptyTextFieldsAlertController = UIAlertController(title: "Fill out all fields", message: "Thank you", preferredStyle: .alert)
-//        
-//        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//        
-//        emptyTextFieldsAlertController.addAction(dismissAction)
-//        //emptyTextFieldsAlertController.addAction(submitAction)
-//        present(emptyTextFieldsAlertController, animated: true, completion: nil)
-//    }
- 
+    //    func textFieldsEmptyAlertController() {
+    //        guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
+    //        let emptyTextFieldsAlertController = UIAlertController(title: "Fill out all fields", message: "Thank you", preferredStyle: .alert)
+    //
+    //        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    //
+    //        emptyTextFieldsAlertController.addAction(dismissAction)
+    //        //emptyTextFieldsAlertController.addAction(submitAction)
+    //        present(emptyTextFieldsAlertController, animated: true, completion: nil)
+    //    }
+    
     
     func emptyMake() {
         let emptyMakeAlertController = UIAlertController(title: "Please enter a make", message: nil, preferredStyle: .alert)
