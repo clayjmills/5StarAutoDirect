@@ -69,19 +69,6 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    //    func textFieldsEmptyAlertController() {
-    //        guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
-    //        let emptyTextFieldsAlertController = UIAlertController(title: "Fill out all fields", message: "Thank you", preferredStyle: .alert)
-    //
-    //        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-    //
-    //        emptyTextFieldsAlertController.addAction(dismissAction)
-    //        //emptyTextFieldsAlertController.addAction(submitAction)
-    //        present(emptyTextFieldsAlertController, animated: true, completion: nil)
-    //    }
-    
-    
     func emptyMake() {
         let emptyMakeAlertController = UIAlertController(title: "Please enter a make", message: nil, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
