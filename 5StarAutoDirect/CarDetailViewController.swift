@@ -8,8 +8,12 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 class CarDetailViewController: UIViewController, UITextFieldDelegate {
+    
+    var audioPlayer = AVAudioPlayer()
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var makeTextField: UITextField!
@@ -22,9 +26,24 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // ferrari sound plays when button tapped
+        do {
+            
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch {
+            print(error)
+        }
+
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
+        
+        //plays the sound
+        audioPlayer.play()
+
         guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
         
         if carCreated {
@@ -44,6 +63,9 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
             if other == "" {
                 self.emptyOther()
             }
+            
+            self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
+            
         }
 //
 //        // TODO: - check if text fields are empty
@@ -65,6 +87,7 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
 //        //emptyTextFieldsAlertController.addAction(submitAction)
 //        present(emptyTextFieldsAlertController, animated: true, completion: nil)
 //    }
+ 
     
     func emptyMake() {
         let emptyMakeAlertController = UIAlertController(title: "Please enter a make", message: nil, preferredStyle: .alert)

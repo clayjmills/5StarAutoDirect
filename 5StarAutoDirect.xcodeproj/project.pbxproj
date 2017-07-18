@@ -16,6 +16,7 @@
 		66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B851EF1AE35000FA884 /* SignUpViewController.swift */; };
 		66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B871EF1AE42000FA884 /* UserHomeViewController.swift */; };
 		66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B891EF1AE53000FA884 /* CarDetailViewController.swift */; };
+		66D2A4D41F1E84C200FCAE76 /* Ferrari.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */; };
 		66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDEA361EE8755500BF8357 /* AppDelegate.swift */; };
 		66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3A1EE8755500BF8357 /* Main.storyboard */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 		66813B851EF1AE35000FA884 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		66813B871EF1AE42000FA884 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		66813B891EF1AE53000FA884 /* CarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
+		66D2A4CF1F1E76DC00FCAE76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ferrari.m4a; sourceTree = "<group>"; };
 		66EDEA331EE8755500BF8357 /* 5StarAutoDirect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5StarAutoDirect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EDEA361EE8755500BF8357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EDEA3B1EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		43FE73B582A59C248EE2DFB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66D2A4CF1F1E76DC00FCAE76 /* AudioToolbox.framework */,
 				A851FF27F3B7F743547CA549 /* Pods_5StarAutoDirect.framework */,
 			);
 			name = Frameworks;
@@ -118,6 +122,14 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		66D2A4D21F1E83A200FCAE76 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
 		66EDEA2A1EE8755500BF8357 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 				66813B7D1EF1AD75000FA884 /* Models */,
 				66813B821EF1ADD8000FA884 /* Model Controllers */,
 				C82920721EF339F90089A695 /* Helpers */,
+				66D2A4D21F1E83A200FCAE76 /* Music */,
 				66EDEA481EE8756E00BF8357 /* Resources */,
 			);
 			path = 5StarAutoDirect;
@@ -242,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D2A4D41F1E84C200FCAE76 /* Ferrari.m4a in Resources */,
 				66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */,
 				C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */,
 				66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */,

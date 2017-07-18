@@ -10,12 +10,15 @@ import UIKit
 import FirebaseAuth
 import KeychainSwift
 import FirebaseDatabase
+import AVFoundation
 
 // making a comment to test Tower
 
 // We may want to put the code to tell what the initial VC is in the AppDelegate, appDidFinishLaunching instead of here
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
+    
+    var audioPlayer = AVAudioPlayer()
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -31,6 +34,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
         super.viewDidLoad()
+        
+        //uploading sound to play on button
+        do {
+            
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch {
+            print(error)
+        }
         
         //making navigation controller transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics .default)
@@ -51,7 +64,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
+        // add sound to submit button
+        audioPlayer.play()
+        
         guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        
+        
         // TODO: - add password field
         
         if isSignUp {
@@ -60,7 +79,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 // This is my attempt to check if the user's email contains 5StarAuto, and then make them either a broker or not, based on that. If this doesn't work, delete next few lines
                 
                 let broker: Bool
-                if email.uppercased().contains("5STARAUTO") {
+                if email.uppercased().contains("FIVESTARAUTODIRECT") {
                     broker = true
                 } else {
                     broker = false

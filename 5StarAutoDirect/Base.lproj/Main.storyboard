@@ -63,7 +63,7 @@
                                         <state key="normal" title="Submit"/>
                                         <connections>
                                             <action selector="submitButtonTapped:" destination="5oK-9V-gFU" eventType="touchUpInside" id="3aN-e3-S5X"/>
-                                            <segue destination="WKs-eb-y5g" kind="show" id="Ro2-wz-ET1"/>
+                                            <segue destination="WKs-eb-y5g" kind="show" identifier="toWelcomeVC" id="Ro2-wz-ET1"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-jA-RDi">
@@ -336,14 +336,6 @@
                                 <rect key="frame" x="39" y="588" width="289" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5V-Cf-ZEz">
-                                <rect key="frame" x="152" y="454" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="messagebuttonTapped:" destination="blU-ME-HwJ" eventType="touchUpInside" id="wf1-CW-5BN"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Freeway sky view" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-hK-ObL">
                                 <rect key="frame" x="0.0" y="247" width="375" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
