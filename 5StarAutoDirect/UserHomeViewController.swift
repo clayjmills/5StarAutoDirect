@@ -34,6 +34,5 @@ class UserHomeViewController: UIViewController {
                 detailVC.user = selectedUser
             }
         }
-    }
-    
+    }    
 }

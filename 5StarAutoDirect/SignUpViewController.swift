@@ -26,10 +26,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
     
+
     var isSignUp: Bool = true
     
     override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
         super.viewDidLoad()
+        
+        //making navigation controller transparent
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         
         let keyChain = DatabaseManager().keyChain
         if keyChain.get("uid") != nil {

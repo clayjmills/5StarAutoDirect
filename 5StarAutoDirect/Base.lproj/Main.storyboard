@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Budget" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YlC-Qd-m5Z">
-                                        <rect key="frame" x="16" y="346" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="338" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -37,7 +37,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-VK-OBT">
-                                        <rect key="frame" x="16" y="396" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="389" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -47,7 +47,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-vj-4lW">
-                                        <rect key="frame" x="16" y="456" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="438" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -67,7 +67,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-jA-RDi">
-                                        <rect key="frame" x="16" y="226" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="238" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -91,7 +91,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Porsche backside" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-oq-JYh">
-                                        <rect key="frame" x="0.0" y="2" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="14" width="375" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="mZS-IW-7ZJ">
+                                        <rect key="frame" x="16" y="-38" width="45" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -228,7 +232,7 @@
                             <outlet property="delegate" destination="Mx5-3g-S1x" id="ixI-nV-QUR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Customers" id="OGT-ND-VDg">
+                    <navigationItem key="navigationItem" title="Customers" id="OGT-ND-VDg" colorLabel="IBBuiltInLabel-Blue">
                         <barButtonItem key="rightBarButtonItem" title="skipping for testing" id="EcV-b4-Fvm">
                             <connections>
                                 <segue destination="SHA-ig-RUQ" kind="show" id="3PT-7t-b59"/>
@@ -260,21 +264,28 @@
                                     <action selector="sendButtonTapped:" destination="SHA-ig-RUQ" eventType="touchUpInside" id="7vJ-df-wwa"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zkF-Xs-Hlk">
-                                <rect key="frame" x="23" y="66" width="336" height="516"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zkF-Xs-Hlk">
+                                <rect key="frame" x="23" y="105" width="336" height="464"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send to ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laO-Ef-UGd">
-                                <rect key="frame" x="67" y="28" width="78" height="21"/>
+                                <rect key="frame" x="23" y="76" width="78" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Send Message Label" translatesAutoresizingMaskIntoConstraints="NO" id="b4A-ZQ-Dxy">
+                                <rect key="frame" x="0.0" y="590" width="375" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="rTh-D6-zg1">
+                                <rect key="frame" x="23" y="20" width="45" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -285,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gz6-lS-y1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3246" y="-603"/>
+            <point key="canvasLocation" x="3245.5999999999999" y="-603.14842578710648"/>
         </scene>
         <!--User Home View Controller-->
         <scene sceneID="0CB-xF-OFD">
@@ -334,7 +345,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Freeway sky view" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-hK-ObL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="334"/>
+                                <rect key="frame" x="0.0" y="247" width="375" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="pnq-Xd-UBi">
+                                <rect key="frame" x="16" y="20" width="45" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -361,8 +376,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnZ-FZ-y5Q">
+                                        <rect key="frame" x="16" y="268" width="343" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="AS1-Dz-w0k" id="7Y0-Ss-o3a"/>
+                                        </connections>
+                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c81-FC-3N3">
-                                        <rect key="frame" x="16" y="315" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="313" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -400,8 +425,8 @@
                                             <action selector="submitButtonTapped:" destination="AS1-Dz-w0k" eventType="touchUpInside" id="91i-At-sce"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign in Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="tm2-Yo-YJZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign in Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="tm2-Yo-YJZ">
+                                        <rect key="frame" x="0.0" y="-64" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Get Started label" translatesAutoresizingMaskIntoConstraints="NO" id="lcd-Ts-wiW">
@@ -416,16 +441,6 @@
                                             <action selector="SignOutButtonTapped:" destination="AS1-Dz-w0k" eventType="touchUpInside" id="fBP-WQ-Geh"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnZ-FZ-y5Q">
-                                        <rect key="frame" x="16" y="268" width="343" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="AS1-Dz-w0k" id="7Y0-Ss-o3a"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -445,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wso-DT-BjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1269.5999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="1266.4000000000001" y="122.78860569715144"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6T0-0m-JeC">
@@ -459,26 +474,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="eON-UK-Lv2">
-                                <rect key="frame" x="67" y="119" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We look forward to serving you! A broker will contact you shortly" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fg-B9-pto">
-                                <rect key="frame" x="16" y="367" width="343" height="164"/>
+                                <rect key="frame" x="16" y="316" width="343" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.045984376221895218" green="0.15135660767555237" blue="0.40680733323097229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3We-ZG-lew">
-                                <rect key="frame" x="67" y="107" width="240" height="39"/>
+                                <rect key="frame" x="16" y="183" width="343" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.045984376221895218" green="0.15135660767555237" blue="0.40680733323097229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.18002799964741781" blue="0.48821116371203199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Call a Broker" translatesAutoresizingMaskIntoConstraints="NO" id="ZqH-9c-hhJ">
                                 <rect key="frame" x="0.0" y="580" width="375" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FIVE STAR AUTO DIRECT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-jY-s01">
+                                <rect key="frame" x="16" y="217" width="343" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <color key="textColor" red="0.032023027539253235" green="0.15320351719856262" blue="0.42305135726928711" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-jo-BR0">
+                                <rect key="frame" x="16" y="20" width="45" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -494,9 +516,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ucr-IM-ycY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Pu-Aj-dFM">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" misplaced="YES" id="9Pu-Aj-dFM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -505,7 +529,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbv-tW-HFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="465" y="72"/>
+            <point key="canvasLocation" x="425" y="123"/>
         </scene>
     </scenes>
     <resources>
@@ -515,6 +539,7 @@
         <image name="Freeway sky view" width="376" height="422"/>
         <image name="Get Started label" width="377" height="68"/>
         <image name="Porsche backside" width="376" height="178"/>
+        <image name="Send Message Label" width="755" height="137"/>
         <image name="Sign in Dashboard" width="376" height="244"/>
         <image name="Submit Label" width="377" height="68"/>
         <image name="Your Car Image" width="344" height="90"/>
