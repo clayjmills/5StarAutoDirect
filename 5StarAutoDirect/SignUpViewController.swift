@@ -126,24 +126,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // delete signout button when ready to publish app
-    @IBAction func signOutButtonTapped(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        DatabaseManager().keyChain.delete("uid")
-        dismiss(animated: true, completion: nil)
-        
-        nameTextField.text = ""
-        phoneTextField.text = ""
-        emailTextField.text = ""
-        passwordTextField.text = ""
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signinToBrokerTVC" {
             let createdUser = BrokerTableViewController.shared.user
             if let detailVC = segue.destination as? BrokerTableViewController {
