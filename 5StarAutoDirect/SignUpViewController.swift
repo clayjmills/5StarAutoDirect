@@ -93,7 +93,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 } else if !(user.email?.contains("@"))! {
                     self.badEmail()
                 }
-                if (user.phone?.characters.count)! < 12 {
+                if (user.phone?.characters.count)! < 10 {
                     self.badPhoneNumberAC()
                 }
                 if password == "" {
