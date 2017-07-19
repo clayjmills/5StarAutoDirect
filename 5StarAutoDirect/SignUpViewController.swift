@@ -55,7 +55,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
         }
         
-        signOutButton.imageView?.image = #imageLiteral(resourceName: "SignOut")
     }
     
     func completeSignIn (id: String) {
