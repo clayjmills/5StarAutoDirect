@@ -10,9 +10,6 @@ import UIKit
 import Firebase
 
 class UserHomeViewController: UIViewController {
-    @IBAction func messagebuttonTapped(_ sender: Any) {
-        navigationController?.pushViewController(MessageDetailViewController(), animated: true)
-    }
     
     static let shared = UserHomeViewController()
     
@@ -33,6 +30,13 @@ class UserHomeViewController: UIViewController {
             if let detailVC = segue.destination as? MessagesTableViewController {
                 detailVC.user = selectedUser
             }
+        } else {
+            if segue.identifier == "toCarDetail" {
+                let selectedUser = CarDetailViewController.shared.user
+                if let detailVC = segue.destination as? CarDetailViewController {
+                    detailVC.user = selectedUser
+                }
+            }
         }
-    }    
+    }
 }

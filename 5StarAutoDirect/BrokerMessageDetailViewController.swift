@@ -22,6 +22,7 @@ class BrokerMessageDetailViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
+        handleSend()
     }
     
 
@@ -61,7 +62,4 @@ class BrokerMessageDetailViewController: UIViewController {
             let user = user else {return}
         sendTo.text = "Send to \(user.name)"
     }
-    // comment to test stuff
-
-
 }

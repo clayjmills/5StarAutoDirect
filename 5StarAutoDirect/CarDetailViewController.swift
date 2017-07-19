@@ -22,6 +22,8 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var otherTextField: UITextField!
     
+    static let shared = CarDetailViewController()
+    
     var carCreated: Bool = true
     
     override func viewDidLoad() {
@@ -38,6 +40,8 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    var user: User?
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         

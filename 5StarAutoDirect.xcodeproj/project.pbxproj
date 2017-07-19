@@ -30,7 +30,6 @@
 		C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830971E1EF829970004B56D /* FiveStepTableViewController.swift */; };
 		C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83274941F054B3E000E3FE5 /* DatabaseManager.swift */; };
 		C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */; };
-		C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */; };
 		C83E6C7C1F02DA9700DFC078 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +61,6 @@
 		C830971E1EF829970004B56D /* FiveStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStepTableViewController.swift; sourceTree = "<group>"; };
 		C83274941F054B3E000E3FE5 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EE53A596BE94FA5286FF9B2D /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +116,6 @@
 				C83E6C7B1F02DA9700DFC078 /* MessagesTableViewController.swift */,
 				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
 				6645A5711F1D119300B5A82A /* BrokerMessageDetailViewController.swift */,
-				C83E6C791F02BCCB00DFC078 /* MessageDetailViewController.swift */,
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 				66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */,
 			);
@@ -332,7 +329,6 @@
 				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
-				C83E6C7A1F02BCCB00DFC078 /* MessageDetailViewController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,

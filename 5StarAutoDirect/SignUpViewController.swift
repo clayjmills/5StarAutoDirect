@@ -84,7 +84,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     broker = false
                 }
-                let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [])
+                let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
+                
+                let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar)
+                
                 if !(user.email?.contains("."))! {
                     self.badEmail()
                 } else if !(user.email?.contains("@"))! {

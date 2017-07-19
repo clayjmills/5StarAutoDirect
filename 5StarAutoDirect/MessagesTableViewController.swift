@@ -62,16 +62,7 @@ class MessagesTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-    @IBAction func testButtonTapped(_ sender: Any) {
-            showChatController()
-    }
-    
-    func showChatController() {
-        let messageDetailVC = MessageDetailViewController()
-         navigationController?.pushViewController(messageDetailVC, animated: true)
-    }
-    
+        
     func handleNewMessage() {
         
     }

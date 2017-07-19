@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class BrokerTableViewController: UITableViewController {
+class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     
     static let shared = BrokerTableViewController()
     
@@ -18,6 +18,7 @@ class BrokerTableViewController: UITableViewController {
     var users: [User] = [] {
         didSet{
             DispatchQueue.main.async {
+                self.fetchUserList()
                 self.tableView.reloadData()
             }
         }
@@ -26,6 +27,11 @@ class BrokerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUserList()
+        tableView.reloadData()
+    }
+    
+    func usersWereUpdatedTo(users: [User], on controller: UserController) {
+        tableView.reloadData()
     }
     
     
@@ -44,20 +50,6 @@ class BrokerTableViewController: UITableViewController {
         return cell
     }
 
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            UserController.shared.deleteUser()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss(animated: true) {
-            let currentUser = self.users[indexPath.row]
-        }
-    }
-    
     func fetchUserList() {
         UserController.fetchUsers { (users) in
             self.users = users
