@@ -168,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wua-OD-D2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3232.8000000000002" y="866.71664167916049"/>
+            <point key="canvasLocation" x="4086" y="863"/>
         </scene>
         <!--Customers-->
         <scene sceneID="jRd-PR-7hF">
@@ -206,7 +206,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lN8-6g-UKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="-603"/>
+            <point key="canvasLocation" x="1577" y="885"/>
         </scene>
         <!--Broker Message Detail View Controller-->
         <scene sceneID="nMs-TR-UFg">
@@ -229,19 +229,12 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zkF-Xs-Hlk">
-                                <rect key="frame" x="23" y="105" width="336" height="464"/>
+                                <rect key="frame" x="23" y="91" width="336" height="478"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send to ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laO-Ef-UGd">
-                                <rect key="frame" x="23" y="76" width="78" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Send Message Label" translatesAutoresizingMaskIntoConstraints="NO" id="b4A-ZQ-Dxy">
                                 <rect key="frame" x="0.0" y="590" width="375" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -255,12 +248,11 @@
                     </view>
                     <connections>
                         <outlet property="messageTextView" destination="zkF-Xs-Hlk" id="sN7-VV-z6b"/>
-                        <outlet property="sendToLabel" destination="laO-Ef-UGd" id="1Cd-g4-lCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gz6-lS-y1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3245.5999999999999" y="-603.14842578710648"/>
+            <point key="canvasLocation" x="2421.5999999999999" y="884.70764617691157"/>
         </scene>
         <!--User Home View Controller-->
         <scene sceneID="0CB-xF-OFD">
@@ -407,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wso-DT-BjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266.4000000000001" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1578" y="72"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="6T0-0m-JeC">
@@ -476,7 +468,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbv-tW-HFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="123"/>
+            <point key="canvasLocation" x="799" y="72"/>
         </scene>
     </scenes>
     <resources>
@@ -492,6 +484,6 @@
         <image name="Your Car Updates image" width="344" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S1H-D3-Zpz"/>
+        <segue reference="QyX-3g-9Iz"/>
     </inferredMetricsTieBreakers>
 </document>
