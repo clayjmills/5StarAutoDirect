@@ -40,6 +40,10 @@ struct UserController {
             }
         }
     }
+    
+    static func saveUserToFirebase() {
+        
+    }
 }
 
 protocol UserControllerDelegate: class {

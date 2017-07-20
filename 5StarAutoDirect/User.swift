@@ -52,6 +52,8 @@ import Foundation
         }
         
         var jsonRepresentation: [String: Any] {
+            
+            
             return [nameKey: name, phoneKey: phone, emailKey: email, isBrokerKey: isBroker, carKey: car]
         }
         

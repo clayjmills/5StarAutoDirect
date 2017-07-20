@@ -27,9 +27,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
     
-    
-    var isSignUp: Bool = true
-    
     override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
         super.viewDidLoad()
         
@@ -52,7 +49,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if keyChain.get("uid") != nil {
             performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
         }
-    
+        
     }
     
     
@@ -61,7 +58,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let keyChain = DatabaseManager().keyChain
         keyChain.set(id , forKey: "uid")
     }
-
+    
     @IBAction func submitButtonTapped(_ sender: Any) {
         
         
@@ -71,83 +68,68 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         audioPlayer.play()
         
         
-        if isSignUp {
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             
-            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+            if let error = error {
+                print(error)
+                return
+            }
             
-                if let error = error {
-                    print(error)
-                    return
-                }
-                
-                guard let uid = user?.uid else {
-                    return
-                }
+            guard let uid = user?.uid else {
+                return
+            }
             
-                //authenticated user in firebase database
+            
+            
+            //authenticated user in firebase database
+            
+            let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
+            let usersReference = ref.child("users").child(uid)
+            let values = ["name": name, "email": email]
+            ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 
-                let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
-                let usersReference = ref.child("users").child(uid)
-                let values = ["name": name, "email": email]
-                ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                    
-                    if err != nil
-                    {
-                        print(err)
-                        return }
-                    print("Saved user successfully into Firebase db")
-                })
-                
-                
-                
-                
-                
-                let broker: Bool
-                if email.uppercased().contains("FIVESTARAUTODIRECT") {
-                    broker = true
-                } else {
-                    broker = false
-                }
-                let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
-                
-                let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar)
-                
-                if !(user.email?.contains("."))! {
-                    self.badEmail()
-                } else if !(user.email?.contains("@"))! {
-                    self.badEmail()
-                }
-                if (user.phone?.characters.count)! < 10 {
-                    self.badPhoneNumberAC()
-                }
-                if password == "" {
-                    self.badPasswordAC()
-                }
-                if name == "" {
-                    self.badNameAC()
-                }
-                
-                if user.isBroker {
-                    self.completeSignIn(id: user.name)
-                    self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
-                    self.completeSignIn(id: user.name)
-                }
-                
+                if err != nil
+                {
+                    print(err)
+                    return }
+                print("Saved user successfully into Firebase db")
             })
-        } else {
-            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                if user != nil {
-                    self.completeSignIn(id: user!.uid)
-                    //User is found, go to home screen
-                    
-                    self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
-                } else {
-                    //Error: check error and show message
-                }
-            })
-        }
+            
+            let broker: Bool
+            if email.uppercased().contains("FIVESTARAUTODIRECT") {
+                broker = true
+            } else {
+                broker = false
+            }
+            let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
+            
+            let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar)
+            
+            if !(user.email?.contains("."))! {
+                self.badEmail()
+            } else if !(user.email?.contains("@"))! {
+                self.badEmail()
+            }
+            if (user.phone?.characters.count)! < 10 {
+                self.badPhoneNumberAC()
+            }
+            if password == "" {
+                self.badPasswordAC()
+            }
+            if name == "" {
+                self.badNameAC()
+            }
+            
+            if user.isBroker {
+                self.completeSignIn(id: user.name)
+                self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+            } else {
+                self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
+                self.completeSignIn(id: user.name)
+            }
+            
+        })
+        
     }
     
     
