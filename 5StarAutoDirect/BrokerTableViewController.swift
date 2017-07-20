@@ -42,10 +42,10 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserInfoTableViewCell else { return UITableViewCell() }
 
         let user = UserController.shared.users[indexPath.row]
-        cell.textLabel?.text = user.name
+        cell.user = user
         
         return cell
     }
