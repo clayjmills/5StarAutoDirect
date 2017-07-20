@@ -24,6 +24,11 @@ class UserHomeViewController: UIViewController {
         }
     }
     
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+    try! Auth.auth().signOut()
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userHomeVCToMessagesTVC" {
             let selectedUser = UserHomeViewController.shared.user

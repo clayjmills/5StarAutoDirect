@@ -288,7 +288,7 @@
             </objects>
             <point key="canvasLocation" x="2421.5999999999999" y="884.70764617691157"/>
         </scene>
-        <!--User Home View Controller-->
+        <!--Title-->
         <scene sceneID="0CB-xF-OFD">
             <objects>
                 <viewController id="blU-ME-HwJ" customClass="UserHomeViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
@@ -337,6 +337,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="W2s-6f-53y">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="Nsl-Fr-Ghe">
+                            <connections>
+                                <action selector="signOutButtonTapped:" destination="blU-ME-HwJ" id="pIN-sO-fiv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idr-B6-c3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -518,6 +525,6 @@
         <image name="Your Car Updates image" width="344" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QyX-3g-9Iz"/>
+        <segue reference="S1H-D3-Zpz"/>
     </inferredMetricsTieBreakers>
 </document>

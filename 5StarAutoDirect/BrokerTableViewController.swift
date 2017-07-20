@@ -18,10 +18,10 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     
     var users: [User] = [] {
         didSet{
-            DispatchQueue.main.async {
-                // self.fetchUserList()
-                self.tableView.reloadData()
-            }
+//            DispatchQueue.main.async {
+//                // self.fetchUserList()
+//                self.tableView.reloadData()
+//            }
         }
     }
     
@@ -30,23 +30,24 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
         fetchUserList()
         tableView.reloadData()
     }
+    
     // getting users from firebase to broker TVC
-//    func fetchUser() {
-//        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-//            
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let user = User()
-//                user.setValuesForKeysWithDictionary(dictionary)
-//                self.users.append(user)
-//                
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    self.teableView.reloadData()
-//                })
-//                
-//                print(user.name, user.email)
-//            }
-//        }, withCancelBlock: nil)
-//    }
+    func fetchUser() {
+        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let user = User(jsonDictionary: dictionary, identifier: "user")
+                //user.setValuesForKeysWithDictionary(dictionary)
+                self.users.append(user!)
+                
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+                
+                print(user?.name, user?.email)
+            }
+        }, withCancel: nil)
+    }
     
     
     
@@ -64,9 +65,11 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "userCell")
-        cell.textLabel?.text = user?.name
-        cell.detailTextLabel?.text = user?.email
+        let user = users[indexPath.row]
+        cell.textLabel?.text = user.name
+        cell.detailTextLabel?.text = user.email
         
         
         //        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserInfoTableViewCell else { return UITableViewCell() }

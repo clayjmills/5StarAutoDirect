@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if keyChain.get("uid") != nil {
             performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
         }
-        
+    
     }
     
     
@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let keyChain = DatabaseManager().keyChain
         keyChain.set(id , forKey: "uid")
     }
-    
+
     @IBAction func submitButtonTapped(_ sender: Any) {
         
         
