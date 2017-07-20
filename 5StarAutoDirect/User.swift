@@ -17,21 +17,21 @@ import Foundation
         private let carKey = "car"
         
         let name: String
-        let phone: String?
-        let email: String?
+        let phone: String
+        let email: String
         let isBroker: Bool
         var messages: [Message] = []
         var car: Car
-        let identifier: UUID
+        let identifier: String
         //    var currentStep: CurrentStep
         
-        init(name: String, phone: String, email: String, isBroker: Bool, messages: [Message], car: Car, identifier: UUID = UUID()) {
+        init(name: String, phone: String, email: String, isBroker: Bool, messages: [Message], car: Car, identifier: String) {
             self.name = name
             self.phone = phone
             self.email = email
             self.isBroker = isBroker
             self.messages = messages
-            self.car = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
+            self.car = car
             self.identifier = identifier
         }
         
@@ -41,7 +41,7 @@ import Foundation
                 let email = jsonDictionary[emailKey] as? String,
                 let isBroker = jsonDictionary[isBrokerKey] as? Bool,
                 let car = jsonDictionary[carKey] as? Car,
-                let identifier = UUID(uuidString: identifier) else { return nil } // TODO: - add something for [message] and isBroker
+                let identifier = jsonDictionary["uid"] as? String else { return nil } // TODO: - add something for [message] and isBroker
             
             self.name = name
             self.phone = phone
@@ -53,8 +53,7 @@ import Foundation
         
         var jsonRepresentation: [String: Any] {
             
-            
-            return [nameKey: name, phoneKey: phone, emailKey: email, isBrokerKey: isBroker, carKey: car]
+            return [nameKey: name, phoneKey: phone, emailKey: email, isBrokerKey: isBroker, carKey: car.dictionaryRepresentation]
         }
         
         var jsonData: Data? {

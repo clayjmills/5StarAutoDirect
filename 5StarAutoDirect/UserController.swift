@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import Firebase
 
 struct UserController {
     
     static var shared = UserController()
+    
+    static let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
     
     var users: [User] = [] {
         didSet {
@@ -41,8 +44,83 @@ struct UserController {
         }
     }
     
-    static func saveUserToFirebase() {
+    static func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
         
+        var brokerOrUserRefString = ""
+        let broker: Bool
+        
+        if email.uppercased().contains("FIVESTARAUTODIRECT") {
+            brokerOrUserRefString = "brokers"
+            broker = true
+        } else {
+            brokerOrUserRefString = "users"
+            broker = false
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+            
+            if let error = error {
+                print(error)
+                completion(nil)
+                return
+            }
+            
+            guard let uidString = user?.uid
+                else { completion(nil); return }
+            
+            let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
+            
+            let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar, identifier: uidString)
+            
+            // Put authenticated user in firebase database under appropriate node.
+            
+            let referenceForCurrentUser = ref.child(brokerOrUserRefString).child(uidString)
+//            referenceForCurrentUser.setValue(user.jsonRepresentation)
+            referenceForCurrentUser.setValue(user.jsonRepresentation, withCompletionBlock: { (error, ref) in
+                self.completeSignIn(id: user.name)
+                completion(broker)
+            })
+            
+            //            let usersReference = self.ref.child(brokerOrUserRefString).child(uid)
+            //            let values = ["name": name, "email": email]
+            //            ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            //
+            //                if err != nil
+            //                {
+            //                    print(err)
+            //                    return }
+            //                print("Saved user successfully into Firebase db")
+            //            })
+            
+            
+            
+            
+            
+            
+            //            if !(email.contains(".")) {
+            //                self.badEmail()
+            //            } else if !(user.email?.contains("@"))! {
+            //                self.badEmail()
+            //            }
+            //            if (user.phone?.characters.count)! < 10 {
+            //                self.badPhoneNumberAC()
+            //            }
+            //            if password == "" {
+            //                self.badPasswordAC()
+            //            }
+            //            if name == "" {
+            //                self.badNameAC()
+            //            }
+            
+            
+            
+            
+        })
+    }
+    
+    static func completeSignIn(id: String) {
+        let keyChain = DatabaseManager().keyChain
+        keyChain.set(id , forKey: "uid")
     }
 }
 

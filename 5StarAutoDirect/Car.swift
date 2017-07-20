@@ -14,4 +14,8 @@ struct Car {
     var budget: String
     var color: String
     var otherAttributes: String
+    
+    var dictionaryRepresentation: [String:String] {
+        return ["make":make, "model":model, "budget":budget, "color": color, "otherAttributes": otherAttributes]
+    }
 }

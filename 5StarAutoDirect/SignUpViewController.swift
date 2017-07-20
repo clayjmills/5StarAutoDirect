@@ -54,85 +54,28 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    func completeSignIn (id: String) {
-        let keyChain = DatabaseManager().keyChain
-        keyChain.set(id , forKey: "uid")
-    }
+    
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         
+        guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text, name != "", phone != "", email != "", password != "" else { presentMissingInfoAlert(); return }
         
-        guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
-        
-        // add sound to submit button
-        audioPlayer.play()
-        
-        
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+        UserController.saveUserToFirebase(name: name, phone: phone, email: email, password: password) { (isBroker) in
             
-            if let error = error {
-                print(error)
-                return
-            }
+            // add sound to submit button
+            self.audioPlayer.play()
             
-            guard let uid = user?.uid else {
-                return
-            }
+            guard let isBroker = isBroker else { return }
             
-            
-            
-            //authenticated user in firebase database
-            
-            let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
-            let usersReference = ref.child("users").child(uid)
-            let values = ["name": name, "email": email]
-            ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                
-                if err != nil
-                {
-                    print(err)
-                    return }
-                print("Saved user successfully into Firebase db")
-            })
-            
-            let broker: Bool
-            if email.uppercased().contains("FIVESTARAUTODIRECT") {
-                broker = true
-            } else {
-                broker = false
-            }
-            let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
-            
-            let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar)
-            
-            if !(user.email?.contains("."))! {
-                self.badEmail()
-            } else if !(user.email?.contains("@"))! {
-                self.badEmail()
-            }
-            if (user.phone?.characters.count)! < 10 {
-                self.badPhoneNumberAC()
-            }
-            if password == "" {
-                self.badPasswordAC()
-            }
-            if name == "" {
-                self.badNameAC()
-            }
-            
-            if user.isBroker {
-                self.completeSignIn(id: user.name)
+            if isBroker {
                 self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
             } else {
                 self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
-                self.completeSignIn(id: user.name)
             }
             
-        })
+        }
         
     }
-    
-    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -158,33 +101,43 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         nameTextField.resignFirstResponder()
     }
     
-    func badEmail() {
-        let pleaseEnterValidEmailAlertController = UIAlertController(title: "Please enter a valid email", message: nil, preferredStyle: .alert)
+    func presentMissingInfoAlert() {
+        let pleaseEnterValidEmailAlertController = UIAlertController(title: "*All fields are required!", message: nil, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         pleaseEnterValidEmailAlertController.addAction(dismissAction)
         present(pleaseEnterValidEmailAlertController, animated: true, completion: nil)
     }
     
-    func badPhoneNumberAC() {
-        let badPhoneNumberAlertController = UIAlertController(title: "Please check that your phone number includes an area code and is a valid phone number", message: nil, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        badPhoneNumberAlertController.addAction(dismissAction)
-        present(badPhoneNumberAlertController, animated: true, completion: nil)
-    }
     
-    func badPasswordAC() {
-        let badPasswordAlertController = UIAlertController(title: "Please enter a password", message: nil, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        badPasswordAlertController.addAction(dismissAction)
-        present(badPasswordAlertController, animated: true, completion: nil)
-    }
+    //    func badEmail() {
+    //        let pleaseEnterValidEmailAlertController = UIAlertController(title: "Please enter a valid email", message: nil, preferredStyle: .alert)
+    //        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    //        pleaseEnterValidEmailAlertController.addAction(dismissAction)
+    //        present(pleaseEnterValidEmailAlertController, animated: true, completion: nil)
+    //    }
+    //
+    //    func badPhoneNumberAC() {
+    //        let badPhoneNumberAlertController = UIAlertController(title: "Please check that your phone number includes an area code and is a valid phone number", message: nil, preferredStyle: .alert)
+    //        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    //        badPhoneNumberAlertController.addAction(dismissAction)
+    //        present(badPhoneNumberAlertController, animated: true, completion: nil)
+    //    }
+    //
+    //    func badPasswordAC() {
+    //        let badPasswordAlertController = UIAlertController(title: "Please enter a password", message: nil, preferredStyle: .alert)
+    //        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    //        badPasswordAlertController.addAction(dismissAction)
+    //        present(badPasswordAlertController, animated: true, completion: nil)
+    //    }
+    //
+    //    func badNameAC() {
+    //        let badNameAlertController = UIAlertController(title: "Please enter first and last name", message: nil, preferredStyle: .alert)
+    //        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    //        badNameAlertController.addAction(dismissAction)
+    //        present(badNameAlertController, animated: true, completion: nil)
+    //    }
     
-    func badNameAC() {
-        let badNameAlertController = UIAlertController(title: "Please enter first and last name", message: nil, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        badNameAlertController.addAction(dismissAction)
-        present(badNameAlertController, animated: true, completion: nil)
-    }
+    
     
     
     // keyboard under text fields
