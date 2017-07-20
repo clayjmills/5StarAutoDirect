@@ -12,8 +12,6 @@ import KeychainSwift
 import FirebaseDatabase
 import AVFoundation
 
-// making a comment to test Tower
-
 // We may want to put the code to tell what the initial VC is in the AppDelegate, appDidFinishLaunching instead of here
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -29,7 +27,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
     
-
+    
     var isSignUp: Bool = true
     
     override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
@@ -57,25 +55,52 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    
     func completeSignIn (id: String) {
         let keyChain = DatabaseManager().keyChain
         keyChain.set(id , forKey: "uid")
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        // add sound to submit button
-        audioPlayer.play()
+        
         
         guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         
+        // add sound to submit button
+        audioPlayer.play()
         
-        
-        // TODO: - add password field
         
         if isSignUp {
+            
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+            
+                if let error = error {
+                    print(error)
+                    return
+                }
                 
-                // This is my attempt to check if the user's email contains 5StarAuto, and then make them either a broker or not, based on that. If this doesn't work, delete next few lines
+                guard let uid = user?.uid else {
+                    return
+                }
+            
+                //authenticated user in firebase database
+                
+                let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
+                let usersReference = ref.child("users").child(uid)
+                let values = ["name": name, "email": email]
+                ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                    
+                    if err != nil
+                    {
+                        print(err)
+                        return }
+                    print("Saved user successfully into Firebase db")
+                })
+                
+                
+                
+                
                 
                 let broker: Bool
                 if email.uppercased().contains("FIVESTARAUTODIRECT") {
@@ -125,7 +150,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signinToBrokerTVC" {
             let createdUser = BrokerTableViewController.shared.user
             if let detailVC = segue.destination as? BrokerTableViewController {
@@ -189,5 +217,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
-
+    
 }

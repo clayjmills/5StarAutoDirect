@@ -170,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="4086" y="863"/>
         </scene>
-        <!--Customers-->
+        <!--Broker Table View Controller-->
         <scene sceneID="jRd-PR-7hF">
             <objects>
                 <tableViewController id="Mx5-3g-S1x" customClass="BrokerTableViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
@@ -230,7 +230,7 @@
                             <outlet property="delegate" destination="Mx5-3g-S1x" id="ixI-nV-QUR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Customers" id="OGT-ND-VDg" colorLabel="IBBuiltInLabel-Blue">
+                    <navigationItem key="navigationItem" id="OGT-ND-VDg" colorLabel="IBBuiltInLabel-Blue">
                         <barButtonItem key="rightBarButtonItem" title="skipping for testing" id="EcV-b4-Fvm">
                             <connections>
                                 <segue destination="SHA-ig-RUQ" kind="show" id="3PT-7t-b59"/>

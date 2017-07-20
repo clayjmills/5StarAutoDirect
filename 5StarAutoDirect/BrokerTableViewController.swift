@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     
@@ -18,7 +19,7 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     var users: [User] = [] {
         didSet{
             DispatchQueue.main.async {
-                self.fetchUserList()
+                // self.fetchUserList()
                 self.tableView.reloadData()
             }
         }
@@ -29,6 +30,25 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
         fetchUserList()
         tableView.reloadData()
     }
+    // getting users from firebase to broker TVC
+//    func fetchUser() {
+//        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+//            
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                let user = User()
+//                user.setValuesForKeysWithDictionary(dictionary)
+//                self.users.append(user)
+//                
+//                dispatch_async(dispatch_get_main_queue(), {
+//                    self.teableView.reloadData()
+//                })
+//                
+//                print(user.name, user.email)
+//            }
+//        }, withCancelBlock: nil)
+//    }
+    
+    
     
     func usersWereUpdatedTo(users: [User], on controller: UserController) {
         tableView.reloadData()
@@ -36,20 +56,27 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserController.shared.users.count
+        //return UserController.shared.users.count
+        return users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserInfoTableViewCell else { return UITableViewCell() }
-
-        let user = UserController.shared.users[indexPath.row]
-        cell.user = user
+        
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "userCell")
+        cell.textLabel?.text = user?.name
+        cell.detailTextLabel?.text = user?.email
+        
+        
+        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserInfoTableViewCell else { return UITableViewCell() }
+        //
+        //        let user = UserController.shared.users[indexPath.row]
+        //        cell.user = user
         
         return cell
     }
-
+    
     func fetchUserList() {
         UserController.fetchUsers { (users) in
             self.users = users
