@@ -15,16 +15,7 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
     static let shared = BrokerTableViewController()
     
     var user: User?
-    
-//    var users: [User] = [] {
-//        didSet{
-////            DispatchQueue.main.async {
-////                // self.fetchUserList()
-////                self.tableView.reloadData()
-////            }
-//        }
-//    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

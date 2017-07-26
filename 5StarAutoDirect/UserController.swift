@@ -27,27 +27,6 @@ class UserController {
         self.fetchUsers()
     }
     
-//    static func fetchUsers(completion: (([User]) -> Void)? = nil) {
-//        guard let unwrappedURL = NetworkController.baseURL else { return }
-//        let url = unwrappedURL.appendingPathExtension("json")
-//        
-//        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription) File: \(#file) Line: \(#line)")
-//                completion?([]); return
-//            }
-//            
-//            guard let data = data else { completion?([]) ; return }
-//            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion?([]); print("got to the data, didn't return it"); return }
-//            
-//            let users = jsonDictionary.flatMap({ User(jsonDictionary: $0.1 as! [String : Any], identifier: $0.0)})
-//            
-//            DispatchQueue.main.async {
-//                completion?(users)
-//            }
-//        }
-//    }
-    
     func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
         
         var brokerOrUserRefString = ""
@@ -85,22 +64,9 @@ class UserController {
                 completion(broker)
             })
             
-            //            let usersReference = self.ref.child(brokerOrUserRefString).child(uid)
-            //            let values = ["name": name, "email": email]
-            //            ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
-            //
-            //                if err != nil
-            //                {
-            //                    print(err)
-            //                    return }
-            //                print("Saved user successfully into Firebase db")
-            //            })
             
             
-            
-            
-            
-            
+            //// DO NOT DELETE might need this for the login screen, only Clay can delete this
             //            if !(email.contains(".")) {
             //                self.badEmail()
             //            } else if !(user.email?.contains("@"))! {
@@ -116,30 +82,12 @@ class UserController {
             //                self.badNameAC()
             //            }
             
-            
-            
-            
         })
     }
     
     // getting users from firebase
     func fetchUsers() {
-        //        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-        
-        //            if let dictionary = snapshot.value as? [String: AnyObject] {
-        //                let user = User(jsonDictionary: dictionary, identifier: "user")
-        //                //user.setValuesForKeysWithDictionary(dictionary)
-        //                self.users.append(user!)
-        //
-        //                DispatchQueue.main.async(execute: {
-        //                    self.tableView.reloadData()
-        //                })
-        //                print(snapshot)
-        //                print(user?.name, user?.email)
-        //            }
-        //        }, withCancel: nil)
-        
-        ref.child("users").observe(.value, with: { (snapshot) in
+                ref.child("users").observe(.value, with: { (snapshot) in
             
             if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
                 let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
