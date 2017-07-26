@@ -40,9 +40,11 @@ import Foundation
                 let phone = jsonDictionary[phoneKey] as? String,
                 let email = jsonDictionary[emailKey] as? String,
                 let isBroker = jsonDictionary[isBrokerKey] as? Bool,
-                let car = jsonDictionary[carKey] as? Car,
-                let identifier = jsonDictionary["uid"] as? String else { return nil } // TODO: - add something for [message] and isBroker
+                let carDictionary = jsonDictionary[carKey] as? [String:String],
+                let car = Car(dictionary: carDictionary)
+                else { return nil } // TODO: - add something for [message] and isBroker
             
+        
             self.name = name
             self.phone = phone
             self.email = email

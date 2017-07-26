@@ -9,11 +9,11 @@
 import Foundation
 import Firebase
 
-struct UserController {
+class UserController {
     
     static var shared = UserController()
     
-    static let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
+    let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
     
     var users: [User] = [] {
         didSet {
@@ -23,28 +23,32 @@ struct UserController {
     
     weak var delegate: UserControllerDelegate?
     
-    static func fetchUsers(completion: (([User]) -> Void)? = nil) {
-        guard let unwrappedURL = NetworkController.baseURL else { return }
-        let url = unwrappedURL.appendingPathExtension("json")
-        
-        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
-            if let error = error {
-                print("Error: \(error.localizedDescription) File: \(#file) Line: \(#line)")
-                completion?([]); return
-            }
-            
-            guard let data = data else { completion?([]) ; return }
-            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion?([]); print("got to the data, didn't return it"); return }
-            
-            let users = jsonDictionary.flatMap({ User(jsonDictionary: $0.1 as! [String : Any], identifier: $0.0)})
-            
-            DispatchQueue.main.async {
-                completion?(users)
-            }
-        }
+    init() {
+        self.fetchUsers()
     }
     
-    static func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
+//    static func fetchUsers(completion: (([User]) -> Void)? = nil) {
+//        guard let unwrappedURL = NetworkController.baseURL else { return }
+//        let url = unwrappedURL.appendingPathExtension("json")
+//        
+//        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
+//            if let error = error {
+//                print("Error: \(error.localizedDescription) File: \(#file) Line: \(#line)")
+//                completion?([]); return
+//            }
+//            
+//            guard let data = data else { completion?([]) ; return }
+//            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion?([]); print("got to the data, didn't return it"); return }
+//            
+//            let users = jsonDictionary.flatMap({ User(jsonDictionary: $0.1 as! [String : Any], identifier: $0.0)})
+//            
+//            DispatchQueue.main.async {
+//                completion?(users)
+//            }
+//        }
+//    }
+    
+    func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
         
         var brokerOrUserRefString = ""
         let broker: Bool
@@ -74,10 +78,10 @@ struct UserController {
             
             // Put authenticated user in firebase database under appropriate node.
             
-            let referenceForCurrentUser = ref.child(brokerOrUserRefString).child(uidString)
-//            referenceForCurrentUser.setValue(user.jsonRepresentation)
+            let referenceForCurrentUser = self.ref.child(brokerOrUserRefString).child(uidString)
+            //            referenceForCurrentUser.setValue(user.jsonRepresentation)
             referenceForCurrentUser.setValue(user.jsonRepresentation, withCompletionBlock: { (error, ref) in
-                self.completeSignIn(id: user.name)
+                UserController.completeSignIn(id: user.name)
                 completion(broker)
             })
             
@@ -115,6 +119,32 @@ struct UserController {
             
             
             
+        })
+    }
+    
+    // getting users from firebase
+    func fetchUsers() {
+        //        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+        
+        //            if let dictionary = snapshot.value as? [String: AnyObject] {
+        //                let user = User(jsonDictionary: dictionary, identifier: "user")
+        //                //user.setValuesForKeysWithDictionary(dictionary)
+        //                self.users.append(user!)
+        //
+        //                DispatchQueue.main.async(execute: {
+        //                    self.tableView.reloadData()
+        //                })
+        //                print(snapshot)
+        //                print(user?.name, user?.email)
+        //            }
+        //        }, withCancel: nil)
+        
+        ref.child("users").observe(.value, with: { (snapshot) in
+            
+            if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
+                let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
+                self.users = users
+            }
         })
     }
     

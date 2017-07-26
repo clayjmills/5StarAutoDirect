@@ -52,15 +52,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    
-    
-    
     @IBAction func submitButtonTapped(_ sender: Any) {
         
         guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text, name != "", phone != "", email != "", password != "" else { presentMissingInfoAlert(); return }
         
-        UserController.saveUserToFirebase(name: name, phone: phone, email: email, password: password) { (isBroker) in
+        UserController.shared.saveUserToFirebase(name: name, phone: phone, email: email, password: password) { (isBroker) in
             
             // add sound to submit button
             self.audioPlayer.play()
@@ -76,7 +72,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signinToBrokerTVC" {
