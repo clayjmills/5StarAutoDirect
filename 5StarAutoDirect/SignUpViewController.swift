@@ -6,6 +6,10 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
+
+///// fix login, right now it always goes to user home screen, even if logged in as broker the next time you login to your phone it goes to user home screen instead of user list
+
+
 import UIKit
 import FirebaseAuth
 import KeychainSwift
