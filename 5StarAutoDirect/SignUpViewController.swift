@@ -51,8 +51,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         let keyChain = DatabaseManager().keyChain
         if keyChain.get("uid") != nil {
-            performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
+            if (Auth.auth().currentUser?.email?.uppercased().contains("FIVESTARAUTODIRECT"))! {
+                performSegue(withIdentifier: "signinToBrokerTVC", sender: nil)
+            } else {
+                performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
+            }
         }
+//        if keyChain.get("uid") != nil {
+//            performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
+//        }
         
     }
     

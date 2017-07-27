@@ -26,7 +26,7 @@ class UserInfoTableViewCell: UITableViewCell {
         nameLabel.text = user.name
         emailLabel.text = user.email
         phoneLabel.text = user.phone
-        carSpecsLabel.text = "\(user.car.make) \(user.car.model) Budget: \(user.car.budget) Color: \(user.car.color) Other: \(user.car.otherAttributes)"
+        carSpecsLabel.text = "Make: \(user.car.make), Model: \(user.car.model), Budget: \(user.car.budget), Color: blah blah blah \(user.car.color), Other: \(user.car.otherAttributes) blah blah blah"
     }
     
 
