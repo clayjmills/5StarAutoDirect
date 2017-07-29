@@ -18,6 +18,8 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserController.shared.fetchUsers()
+        tableView.reloadData()
         
     }
     

@@ -57,10 +57,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
             }
         }
-//        if keyChain.get("uid") != nil {
-//            performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
-//        }
-        
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
