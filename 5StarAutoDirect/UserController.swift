@@ -17,14 +17,14 @@ class UserController /* FIXME: - add delegate back here*/ {
     
     var users = [User]() {
         didSet {
-//            delegate?.usersWereUpdatedTo(users: users)
-//            usersWereUpdatedTo(users: users)
+            //            delegate?.usersWereUpdatedTo(users: users)
+            //            usersWereUpdatedTo(users: users)
         }
     }
     
-    func usersWereUpdatedTo(users: [User]) {
-        self.users = users
-    }
+//    func usersWereUpdatedTo(users: [User]) {
+//        self.users = users
+//    }
     
     weak var delegate: UserControllerDelegate?
     
@@ -92,7 +92,7 @@ class UserController /* FIXME: - add delegate back here*/ {
     
     // getting users from firebase
     func fetchUsers() {
-                ref.child("users").observe(.value, with: { (snapshot) in
+        ref.child("users").observe(.value, with: { (snapshot) in
             
             if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
                 let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )

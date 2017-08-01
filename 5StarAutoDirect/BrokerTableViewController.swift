@@ -15,7 +15,7 @@ class BrokerTableViewController: UITableViewController {
     static let shared = BrokerTableViewController()
     
     var user: User?
-    var users = [User]()
+    let users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class BrokerTableViewController: UITableViewController {
         
         return cell
     }
-    func usersWereUpdatedTo(users: [User], on controller: UserController) {
-        tableView.reloadData()
-    }
+//    func usersWereUpdatedTo(users: [User], on controller: UserController) {
+//        tableView.reloadData()
+//    }
 }
