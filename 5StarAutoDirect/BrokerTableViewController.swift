@@ -10,23 +10,20 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class BrokerTableViewController: UITableViewController, UserControllerDelegate {
+class BrokerTableViewController: UITableViewController {
     
     static let shared = BrokerTableViewController()
     
     var user: User?
-        
+    var users = [User]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UserController.shared.fetchUsers()
         tableView.reloadData()
+    
         
     }
-    
-    func usersWereUpdatedTo(users: [User], on controller: UserController) {
-        tableView.reloadData()
-    }
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,5 +41,8 @@ class BrokerTableViewController: UITableViewController, UserControllerDelegate {
         cell.user = user
         
         return cell
+    }
+    func usersWereUpdatedTo(users: [User], on controller: UserController) {
+        tableView.reloadData()
     }
 }

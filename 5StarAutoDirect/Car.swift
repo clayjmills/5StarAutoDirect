@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Car {
+class Car {
     var make: String
     var model: String
     var budget: String

@@ -8,7 +8,7 @@
 
 import Foundation
 
-    struct User {
+    class User {
         
         private let nameKey = "name"
         private let phoneKey = "phone"
@@ -22,7 +22,7 @@ import Foundation
         let isBroker: Bool
         var messages: [Message] = []
         var car: Car
-        let identifier: String
+        var identifier: String
         //    var currentStep: CurrentStep
         
         init(name: String, phone: String, email: String, isBroker: Bool, messages: [Message], car: Car, identifier: String) {

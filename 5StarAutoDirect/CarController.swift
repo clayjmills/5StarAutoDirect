@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CarController {
+class CarController {
     static let shared = CarController()
     
     func createCar(make: String, model: String, budget: String, color: String, other: String) {

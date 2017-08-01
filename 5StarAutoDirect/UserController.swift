@@ -9,16 +9,21 @@
 import Foundation
 import Firebase
 
-class UserController {
+class UserController /* FIXME: - add delegate back here*/ {
     
     static var shared = UserController()
     
     let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
     
-    var users: [User] = [] {
+    var users = [User]() {
         didSet {
-            delegate?.usersWereUpdatedTo(users: users, on: self)
+//            delegate?.usersWereUpdatedTo(users: users)
+//            usersWereUpdatedTo(users: users)
         }
+    }
+    
+    func usersWereUpdatedTo(users: [User]) {
+        self.users = users
     }
     
     weak var delegate: UserControllerDelegate?
@@ -103,5 +108,5 @@ class UserController {
 }
 
 protocol UserControllerDelegate: class {
-    func usersWereUpdatedTo(users: [User], on controller: UserController)
+    func usersWereUpdatedTo(users: [User])
 }
