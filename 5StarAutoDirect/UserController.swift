@@ -28,9 +28,9 @@ class UserController /* FIXME: - add delegate back here*/ {
     
     weak var delegate: UserControllerDelegate?
     
-    init() {
-        self.fetchUsers()
-    }
+//    init() {
+//        self.fetchUsers()
+//    }
     
     func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
         
@@ -91,12 +91,12 @@ class UserController /* FIXME: - add delegate back here*/ {
     }
     
     // getting users from firebase
-    func fetchUsers() {
+    func fetchUsers(completion: @escaping ([User]?) -> Void) {
         ref.child("users").observe(.value, with: { (snapshot) in
             
             if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
                 let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
-                self.users = users
+                completion(users)
             }
         })
     }

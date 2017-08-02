@@ -21,9 +21,9 @@ import AVFoundation
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var audioPlayer = AVAudioPlayer()
+    var users: [User] = []
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -52,7 +52,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let keyChain = DatabaseManager().keyChain
         if keyChain.get("uid") != nil {
             if (Auth.auth().currentUser?.email?.uppercased().contains("FIVESTARAUTODIRECT"))! {
-                performSegue(withIdentifier: "signinToBrokerTVC", sender: nil)
+                self.displayPopUp()
+                self.fetchUsers(completion: { (users) in
+                    self.users = users
+                    self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+                })
             } else {
                 performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
             }
@@ -60,36 +64,35 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
-        self.addChildViewController(popUpVC)
-        popUpVC.view.frame = self.view.frame
-        self.view.addSubview(popUpVC.view)
-        popUpVC.didMove(toParentViewController: self)
-        
         guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text, name != "", phone != "", email != "", password != "" else { presentMissingInfoAlert(); return }
         
         UserController.shared.saveUserToFirebase(name: name, phone: phone, email: email, password: password) { (isBroker) in
-            
             // add sound to submit button
             self.audioPlayer.play()
             
-            guard let isBroker = isBroker else { return }
+            guard let isBroker = isBroker else {
+                return
+            }
             
             if isBroker {
-                self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+                self.displayPopUp()
+                self.fetchUsers(completion: { (users) in
+                    self.users = users
+                    self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+                })
             } else {
                 self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
             }
-            
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "signinToBrokerTVC" {
             let createdUser = BrokerTableViewController.shared.user
+            let users = self.users
             if let detailVC = segue.destination as? BrokerTableViewController {
                 detailVC.user = createdUser
+                detailVC.users = users
             }
         } else {
             if segue.identifier == "signinToUserHomeVC"{
@@ -115,6 +118,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         present(pleaseEnterValidEmailAlertController, animated: true, completion: nil)
     }
     
+    func displayPopUp() {
+        guard let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
+        self.addChildViewController(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    func fetchUsers(completion: @escaping ([User]) -> Void) {
+        UserController.shared.fetchUsers { (users) in
+            guard let users = users else { return }
+            completion(users)
+        }
+    }
     
     //    func badEmail() {
     //        let pleaseEnterValidEmailAlertController = UIAlertController(title: "Please enter a valid email", message: nil, preferredStyle: .alert)
@@ -143,8 +160,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //        badNameAlertController.addAction(dismissAction)
     //        present(badNameAlertController, animated: true, completion: nil)
     //    }
-    
-    
     
     
     // keyboard under text fields

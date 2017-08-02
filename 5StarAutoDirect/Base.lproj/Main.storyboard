@@ -271,10 +271,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Mx5-3g-S1x" id="dQu-3k-ySP"/>
-                            <outlet property="delegate" destination="Mx5-3g-S1x" id="ixI-nV-QUR"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="OGT-ND-VDg" colorLabel="IBBuiltInLabel-Blue"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ITV-TU-Zcs">
@@ -407,30 +403,42 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRd-cE-TZ8">
                                 <rect key="frame" x="87" y="233" width="200" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4lj-7E-z1B"/>
                                     <constraint firstAttribute="width" constant="200" id="I7M-CZ-eZv"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCQ-YT-H3t">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-2J-haz">
+                                <rect key="frame" x="149" y="313.5" width="75.5" height="40.5"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zu0-va-gjK">
+                                        <rect key="frame" x="28" y="0.0" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signing In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCQ-YT-H3t">
+                                        <rect key="frame" x="0.0" y="20" width="75.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Jqj-2J-haz" firstAttribute="centerY" secondItem="f4D-lb-6yu" secondAttribute="centerY" id="4fa-26-rIV"/>
                             <constraint firstItem="dRd-cE-TZ8" firstAttribute="centerY" secondItem="f4D-lb-6yu" secondAttribute="centerY" id="76v-IB-OVz"/>
                             <constraint firstItem="dRd-cE-TZ8" firstAttribute="centerX" secondItem="f4D-lb-6yu" secondAttribute="centerX" id="79t-Hr-QHH"/>
+                            <constraint firstItem="Jqj-2J-haz" firstAttribute="centerX" secondItem="f4D-lb-6yu" secondAttribute="centerX" id="pw7-c7-kcS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signInIndicator" destination="dRd-cE-TZ8" id="5m5-e9-Ce6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlS-oK-FKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="-686"/>
+            <point key="canvasLocation" x="1576.8" y="-686.80659670164926"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="pAY-58-dvi">

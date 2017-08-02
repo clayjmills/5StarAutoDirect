@@ -15,28 +15,32 @@ class BrokerTableViewController: UITableViewController {
     static let shared = BrokerTableViewController()
     
     var user: User?
-    let users = [User]()
+    var users: [User] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserController.shared.fetchUsers()
         tableView.reloadData()
-    
-        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         print("number of rows found \(UserController.shared.users.count) users")
-        return UserController.shared.users.count
+        return users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserInfoTableViewCell else { return UITableViewCell() }
 
-        let user = UserController.shared.users[indexPath.row]
+        let user = users[indexPath.row]
         
         cell.user = user
         
