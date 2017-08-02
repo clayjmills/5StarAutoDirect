@@ -60,11 +60,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let popUpVC = UIStoryboard(name: "Main").instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
+        guard let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
         self.addChildViewController(popUpVC)
-        popUpVC.view.fram = self.view.frame
+        popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
-        popUpVC.didMoveToParentViewController(self)
+        popUpVC.didMove(toParentViewController: self)
         
         guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text, name != "", phone != "", email != "", password != "" else { presentMissingInfoAlert(); return }
         
