@@ -30,9 +30,9 @@ class UserHomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "userHomeVCToMessagesTVC" {
+        if segue.identifier == "userHomeVCToMessageConvoVC" {
             let selectedUser = UserHomeViewController.shared.user
-            if let detailVC = segue.destination as? MessagesTableViewController {
+            if let detailVC = segue.destination as? MessageConvoViewController {
                 detailVC.user = selectedUser
             }
         } else {

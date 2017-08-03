@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ucr-IM-ycY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ucr-IM-ycY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -267,7 +267,7 @@
                                     <outlet property="emailLabel" destination="6TG-Ck-1hl" id="aMk-se-IwJ"/>
                                     <outlet property="nameLabel" destination="nS7-2a-w5w" id="eYi-Wu-FiD"/>
                                     <outlet property="phoneLabel" destination="1KJ-2C-9lh" id="hVi-aD-S0z"/>
-                                    <segue destination="SHA-ig-RUQ" kind="show" id="QyX-3g-9Iz"/>
+                                    <segue destination="HE8-yK-ANU" kind="show" identifier="userCellToMessageVC" id="lvu-5F-rNk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -282,49 +282,59 @@
             </objects>
             <point key="canvasLocation" x="1576.8" y="884.70764617691157"/>
         </scene>
-        <!--Broker Message Detail View Controller-->
-        <scene sceneID="nMs-TR-UFg">
+        <!--Message Convo View Controller-->
+        <scene sceneID="Xiy-W8-QRH">
             <objects>
-                <viewController id="SHA-ig-RUQ" customClass="BrokerMessageDetailViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HE8-yK-ANU" customClass="MessageConvoViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LBY-9D-Ueq"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qeu-YN-SjI"/>
+                        <viewControllerLayoutGuide type="top" id="quk-zw-AoP"/>
+                        <viewControllerLayoutGuide type="bottom" id="iio-IQ-ppe"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N5b-9B-dKM">
+                    <view key="view" contentMode="scaleToFill" id="Fxe-Bu-HaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-wh-bRE">
-                                <rect key="frame" x="23" y="590" width="336" height="69"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-9w-Q7T">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="sendButtonTapped:" destination="SHA-ig-RUQ" eventType="touchUpInside" id="7vJ-df-wwa"/>
-                                </connections>
+                                <state key="normal" title="send"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zkF-Xs-Hlk">
-                                <rect key="frame" x="23" y="91" width="336" height="421"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="28x-j7-764">
+                                <rect key="frame" x="16" y="528" width="343" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Send Message Label" translatesAutoresizingMaskIntoConstraints="NO" id="b4A-ZQ-Dxy">
-                                <rect key="frame" x="0.0" y="590" width="375" height="77"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="164" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-z8-2kl">
+                                <rect key="frame" x="16" y="173" width="343" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="rTh-D6-zg1">
-                                <rect key="frame" x="23" y="20" width="45" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="UV2-8v-P4B">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="164"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UV2-8v-P4B" id="5tj-yq-bmh">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="164"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRE-PV-FZo">
+                                                    <rect key="frame" x="25" y="8" width="310" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="messageTextView" destination="zkF-Xs-Hlk" id="sN7-VV-z6b"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gz6-lS-y1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOM-SK-gsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2421.5999999999999" y="884.70764617691157"/>
         </scene>
@@ -346,7 +356,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Find car button"/>
                                 <connections>
-                                    <segue destination="5oK-9V-gFU" kind="show" id="nh5-mC-Pqg"/>
+                                    <segue destination="5oK-9V-gFU" kind="show" identifier="toCarDetail" id="nh5-mC-Pqg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-rV-gFi">
@@ -355,7 +365,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Your car button"/>
                                 <connections>
-                                    <segue destination="SHA-ig-RUQ" kind="show" identifier="userToMessages" id="S1H-D3-Zpz"/>
+                                    <segue destination="HE8-yK-ANU" kind="show" identifier="userHomeVCToMessageConvoVC" id="H8u-SR-k5v"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Find Your Car image" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-qv-Rae">
@@ -610,12 +620,11 @@
         <image name="Freeway sky view" width="376" height="422"/>
         <image name="Get Started label" width="377" height="68"/>
         <image name="Porsche backside" width="376" height="178"/>
-        <image name="Send Message Label" width="755" height="137"/>
         <image name="Sign in Dashboard" width="376" height="244"/>
         <image name="Submit Label" width="377" height="68"/>
         <image name="Your Car Updates image" width="344" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QyX-3g-9Iz"/>
+        <segue reference="H8u-SR-k5v"/>
     </inferredMetricsTieBreakers>
 </document>
