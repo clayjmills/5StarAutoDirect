@@ -119,7 +119,7 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y:150), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y:190), animated: true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

@@ -3,11 +3,12 @@ import Firebase
 
 // I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
 
-class MessageConvoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MessageConvoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var messagesTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
     static let shared = MessageConvoViewController()
@@ -66,26 +67,46 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func handleSend() {
-        if messageTextView.text != "" {
+        if messagesTextField.text != "" {
             let ref = Database.database().reference().child("messages")
             
             let childRef = ref.childByAutoId()
-            guard let input = messageTextView.text else {return}
+            guard let input = messagesTextField.text else {return}
             let name = user?.name
             let values = ["text":input, "name": name]
             ref.updateChildValues(values as Any as! [AnyHashable : Any])
-            messageTextView.text = ""
+            messagesTextField.text = ""
         }
     }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        messagesTextField.resignFirstResponder()
+    }
+
     
-    func textFieldShouldReturn(_ messageTextView: UITextView) -> Bool {
-        handleSend()
+//    func textFieldShouldReturn(_ messageTextView: UITextView) -> Bool {
+//        handleSend()
+//        return true
+//    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
+//    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
+//    }
+//        
+    // keyboard under text fields
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x:0, y:140), animated: true)
+        
+        scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
+
+    
+
 }

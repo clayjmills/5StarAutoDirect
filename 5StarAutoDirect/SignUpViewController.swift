@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let keyChain = DatabaseManager().keyChain
         if keyChain.get("uid") != nil {
             if (Auth.auth().currentUser?.email?.uppercased().contains("FIVESTARAUTODIRECT"))! {
-                self.displayPopUp()
+//                self.displayPopUp()
                 self.fetchUsers(completion: { (users) in
                     self.users = users
                     self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
@@ -75,7 +75,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
             
             if isBroker {
-                self.displayPopUp()
+//                self.displayPopUp()
                 self.fetchUsers(completion: { (users) in
                     self.users = users
                     self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
@@ -118,13 +118,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         present(pleaseEnterValidEmailAlertController, animated: true, completion: nil)
     }
     
-    func displayPopUp() {
-        guard let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
-        self.addChildViewController(popUpVC)
-        popUpVC.view.frame = self.view.frame
-        self.view.addSubview(popUpVC.view)
-        popUpVC.didMove(toParentViewController: self)
-    }
+//    func displayPopUp() {
+//        guard let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
+//        self.addChildViewController(popUpVC)
+//        popUpVC.view.frame = self.view.frame
+//        self.view.addSubview(popUpVC.view)
+//        popUpVC.didMove(toParentViewController: self)
+//    }
     
     func fetchUsers(completion: @escaping ([User]) -> Void) {
         UserController.shared.fetchUsers { (users) in
@@ -169,7 +169,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        scrollView.setContentOffset(CGPoint(x:0, y:200), animated: true)
+        scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
