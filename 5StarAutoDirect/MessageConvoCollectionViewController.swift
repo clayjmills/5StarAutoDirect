@@ -3,7 +3,7 @@ import Firebase
 
 // I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
 
-class MessageConvoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class MessageConvoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -86,31 +86,17 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         messageTextView.resignFirstResponder()
     }
 
-    
-    func textFieldShouldReturn(_ messageTextView: UITextView) -> Bool {
-        handleSend()
+    // keyboard under text View
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
         return true
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
         scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
     }
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
     
-    // keyboard under text fields
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        
-//        scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
-//    }
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
-//    }
-//
-    
-
 }
