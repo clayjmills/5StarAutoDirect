@@ -26,3 +26,9 @@ class Message: NSObject {
             let toID = jsonDictionary[toIDKey] as? String else { return nil }
     }
 }
+
+//extension Message : Equatable {
+//    static func ==(lhs: Message, rhs: Message) -> Bool {
+//        return lhs.text == rhs.text && lhs.toID == rhs.toID
+//    }
+//}

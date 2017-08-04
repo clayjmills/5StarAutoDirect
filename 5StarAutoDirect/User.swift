@@ -64,9 +64,7 @@ class User {
 }
 
 extension User: Equatable {
-    static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email
-            && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages // maybe car?
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
     }
-}
-   
+} 

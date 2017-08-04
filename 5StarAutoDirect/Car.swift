@@ -42,3 +42,9 @@ class Car {
         self.otherAttributes = otherAttributes
     }
 }
+
+extension Car: Equatable {
+    static func ==(lhs: Car, rhs: Car) -> Bool {
+        return lhs.make == rhs.make && lhs.model == rhs.model && lhs.budget == rhs.budget && lhs.color == rhs.color && lhs.otherAttributes == rhs.otherAttributes
+    }
+}

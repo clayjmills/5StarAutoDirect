@@ -46,9 +46,6 @@ class BrokerTableViewController: UITableViewController {
         
         return cell
     }
-//    func usersWereUpdatedTo(users: [User], on controller: UserController) {
-//        tableView.reloadData()
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userCellToMessageVC" {

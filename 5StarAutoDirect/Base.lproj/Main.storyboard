@@ -305,14 +305,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-9w-Q7T">
                                         <rect key="frame" x="0.0" y="546" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="BUTTON"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="HE8-yK-ANU" eventType="touchUpInside" id="kyq-42-Xns"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8u-G2-Y04">
-                                        <rect key="frame" x="18" y="495" width="339" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="164" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-z8-2kl">
                                         <rect key="frame" x="16" y="27" width="343" height="431"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -341,13 +338,20 @@
                                             <outlet property="delegate" destination="HE8-yK-ANU" id="Sgp-OB-fRh"/>
                                         </connections>
                                     </tableView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hca-8N-H3l">
+                                        <rect key="frame" x="16" y="478" width="343" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="messagesTextField" destination="h8u-G2-Y04" id="2om-Z7-Gi5"/>
+                        <outlet property="messageTextView" destination="hca-8N-H3l" id="kzx-sa-trG"/>
                         <outlet property="scrollView" destination="cEz-HR-Nkz" id="iEe-iC-OW8"/>
                         <outlet property="sendButton" destination="R6J-9w-Q7T" id="fr3-sK-4eZ"/>
                         <outlet property="tableView" destination="Ncj-z8-2kl" id="mzg-a1-uve"/>

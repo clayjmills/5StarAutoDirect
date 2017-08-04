@@ -7,8 +7,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
-    //@IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var messagesTextField: UITextField!
+    @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
     static let shared = MessageConvoViewController()
@@ -26,6 +25,8 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    var customer: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = user?.name
@@ -34,6 +35,9 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
         observeMessages()
+        guard let toID = user?.name else { return }
+        MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
+        messageTextView.text = "button was clicked"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,46 +71,46 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func handleSend() {
-        if messagesTextField.text != "" {
+        if messageTextView.text != "" {
             let ref = Database.database().reference().child("messages")
             
             let childRef = ref.childByAutoId()
-            guard let input = messagesTextField.text else {return}
+            guard let input = messageTextView.text else {return}
             let name = user?.name
             let values = ["text":input, "name": name]
             ref.updateChildValues(values as Any as! [AnyHashable : Any])
-            messagesTextField.text = ""
+            messageTextView.text = ""
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        messagesTextField.resignFirstResponder()
+        messageTextView.resignFirstResponder()
     }
 
     
-//    func textFieldShouldReturn(_ messageTextView: UITextView) -> Bool {
-//        handleSend()
-//        return true
-//    }
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
-//    }
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
-//    }
-//        
-    // keyboard under text fields
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func textFieldShouldReturn(_ messageTextView: UITextView) -> Bool {
+        handleSend()
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
-
+    
+    // keyboard under text fields
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        
+//        scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
+//    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
+//    }
+//
     
 
 }
