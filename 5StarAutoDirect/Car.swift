@@ -27,13 +27,13 @@ class Car {
         self.otherAttributes = otherAttributes
     }
     
-    init?(dictionary: [String:String]) {
-        guard let make = dictionary["make"],
-            let model = dictionary["model"],
-            let budget = dictionary["budget"],
-            let color = dictionary["color"],
-            let otherAttributes = dictionary["otherAttributes"]
-        else { return nil }
+    init?(dictionary: [String: Any]) {
+        guard let make = dictionary[Keys.make] as? String,
+            let model = dictionary[Keys.model] as? String,
+            let budget = dictionary[Keys.budget] as? String,
+            let color = dictionary[Keys.color] as? String,
+            let otherAttributes = dictionary[Keys.otherAttributes] as? String
+        else { return nil } 
         
         self.make = make
         self.model = model
