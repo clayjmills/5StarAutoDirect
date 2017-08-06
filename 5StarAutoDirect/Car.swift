@@ -9,15 +9,12 @@
 import Foundation
 
 class Car {
+    
     var make: String
     var model: String
     var budget: String
     var color: String
-    var otherAttributes: String
-    
-    var dictionaryRepresentation: [String:String] {
-        return ["make":make, "model":model, "budget":budget, "color": color, "otherAttributes": otherAttributes]
-    }
+    var otherAttributes: String?
     
     init(make: String, model: String, budget: String, color: String, otherAttributes: String) {
         self.make = make
@@ -43,8 +40,28 @@ class Car {
     }
 }
 
-extension Car: Equatable {
-    static func ==(lhs: Car, rhs: Car) -> Bool {
-        return lhs.make == rhs.make && lhs.model == rhs.model && lhs.budget == rhs.budget && lhs.color == rhs.color && lhs.otherAttributes == rhs.otherAttributes
+//FIXME: - potential
+extension Car: Equatable { }
+
+func ==(lhs: Car, rhs: Car) -> Bool {
+    return lhs.make == rhs.make && lhs.model == rhs.model && lhs.budget == rhs.budget && lhs.color == rhs.color && lhs.otherAttributes == rhs.otherAttributes
+}
+
+
+// MARK: - Helper functions. Turns our model object into dictionary form for later use.
+
+extension Car {
+    
+    func dictionaryRepresentation() -> [String: Any] {
+        
+        var dictionary = [String: Any]()
+        dictionary[Keys.make] = make
+        dictionary[Keys.model] = model
+        dictionary[Keys.budget] = budget
+        dictionary[Keys.color] = color
+        dictionary[Keys.otherAttributes] = otherAttributes
+        
+        return dictionary
     }
+    
 }
