@@ -45,19 +45,51 @@ class User {
         self.identifier = identifier
     }
     
-    var jsonRepresentation: [String: Any] {
-        
-        return [nameKey: name, phoneKey: phone, emailKey: email, isBrokerKey: isBroker, carKey: car.dictionaryRepresentation]
-    }
-    
     var jsonData: Data? {
-        let data = try? JSONSerialization.data(withJSONObject: jsonRepresentation, options: .prettyPrinted)
+        let data = try? JSONSerialization.data(withJSONObject: jsonObject(), options: .prettyPrinted)
         return data
     }
+    
 }
 
-extension User: Equatable {
-    static func ==(lhs: User, rhs: User) -> Bool {
-        return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
+
+extension User: JSONExportable {
+    
+    func jsonObject() -> [String : Any] {
+        var dict = [String: Any] ()
+        dict[Keys.name] = name
+        dict[Keys.phone] = phone
+        dict[Keys.email] = email
+        dict[Keys.isBroker] = isBroker
+        dict[Keys.car] = car.dictionaryRepresentation()
+        return dict
     }
-} 
+    
+}
+
+extension User: Equatable { }
+//func ==(lhs: User, rhs: User) -> Bool {
+//    return lhs.id == rhs.id
+//}
+
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
+}
+
+//extension User: Diffable {
+//    
+//    func isIdentical(to updatedObject: User) -> Bool {
+//        return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
+//    }
+//    
+//}
+
+// TODO: 
+
+protocol Diffable {
+    func isIdentical(to updatedObject: Self) -> Bool
+}
+
+protocol JSONExportable {
+    func jsonObject() -> [String: Any]
+}

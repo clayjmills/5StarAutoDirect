@@ -64,7 +64,7 @@ class UserController /* FIXME: - add delegate back here*/ {
             
             let referenceForCurrentUser = self.ref.child(brokerOrUserRefString).child(uidString)
             //            referenceForCurrentUser.setValue(user.jsonRepresentation)
-            referenceForCurrentUser.setValue(user.jsonRepresentation, withCompletionBlock: { (error, ref) in
+            referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
                 UserController.completeSignIn(id: user.name)
                 completion(broker)
             })
