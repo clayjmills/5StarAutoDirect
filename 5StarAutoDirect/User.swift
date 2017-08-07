@@ -10,12 +10,6 @@ import Foundation
 
 class User {
     
-    private let nameKey = "name"
-    private let phoneKey = "phone"
-    private let emailKey = "email"
-    private let isBrokerKey = "isBroker"
-    private let carKey = "car"
-    
     let name: String
     let phone: String
     let email: String
@@ -35,14 +29,13 @@ class User {
     }
     
     init?(jsonDictionary: [String: Any], identifier: String) {
-        guard let name = jsonDictionary[nameKey] as? String,
-            let phone = jsonDictionary[phoneKey] as? String,
-            let email = jsonDictionary[emailKey] as? String,
-            let isBroker = jsonDictionary[isBrokerKey] as? Bool,
-            let carDictionary = jsonDictionary[carKey] as? [String:String],
+        guard let name = jsonDictionary[Keys.name] as? String,
+            let phone = jsonDictionary[Keys.phone] as? String,
+            let email = jsonDictionary[Keys.email] as? String,
+            let isBroker = jsonDictionary[Keys.isBroker] as? Bool,
+            let carDictionary = jsonDictionary[Keys.car] as? [String:String],
             let car = Car(dictionary: carDictionary)
-            else { return nil } // TODO: - add something for [message] and isBroker
-        
+        else { return nil } // TODO: - add something for [message]
         
         self.name = name
         self.phone = phone
@@ -52,19 +45,51 @@ class User {
         self.identifier = identifier
     }
     
-    var jsonRepresentation: [String: Any] {
-        
-        return [nameKey: name, phoneKey: phone, emailKey: email, isBrokerKey: isBroker, carKey: car.dictionaryRepresentation]
-    }
-    
     var jsonData: Data? {
-        let data = try? JSONSerialization.data(withJSONObject: jsonRepresentation, options: .prettyPrinted)
+        let data = try? JSONSerialization.data(withJSONObject: jsonObject(), options: .prettyPrinted)
         return data
     }
+    
 }
 
-extension User: Equatable {
-    static func ==(lhs: User, rhs: User) -> Bool {
-        return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
+
+extension User: JSONExportable {
+    
+    func jsonObject() -> [String : Any] {
+        var dict = [String: Any] ()
+        dict[Keys.name] = name
+        dict[Keys.phone] = phone
+        dict[Keys.email] = email
+        dict[Keys.isBroker] = isBroker
+        dict[Keys.car] = car.dictionaryRepresentation()
+        return dict
     }
-} 
+    
+}
+
+extension User: Equatable { }
+//func ==(lhs: User, rhs: User) -> Bool {
+//    return lhs.id == rhs.id
+//}
+
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
+}
+
+//extension User: Diffable {
+//    
+//    func isIdentical(to updatedObject: User) -> Bool {
+//        return lhs.name == rhs.name && lhs.phone == rhs.phone && lhs.email == rhs.email && lhs.isBroker == rhs.isBroker && lhs.messages == rhs.messages && lhs.car == rhs.car && lhs.identifier == rhs.identifier
+//    }
+//    
+//}
+
+// TODO: 
+
+protocol Diffable {
+    func isIdentical(to updatedObject: Self) -> Bool
+}
+
+protocol JSONExportable {
+    func jsonObject() -> [String: Any]
+}
