@@ -10,6 +10,8 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
+   
+    
     static let shared = MessageConvoViewController()
     
     var messages: [Message] = [] {
@@ -39,13 +41,20 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         navigationItem.title = user?.name
     }
     
+    @IBAction func sendButtonAnimationTapped(_ sender: UIButton) {
+        if sender.currentImage == #imageLiteral(resourceName: "Send Message Label") {
+            sender.setImage(#imageLiteral(resourceName: "Send Message Tapped Image"), for: .normal)
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "Send Message Label"), for: .normal)
+        }
+    }
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
         observeMessages()
         
         guard let toID = user?.name else { return }
-        MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
-        messageTextView.text = "button was clicked"
+//        MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
+//        messageTextView.text = "button was clicked"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,7 +94,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             guard let input = messageTextView.text else {return}
             let name = user?.name
             let values = ["text":input, "name": name]
-            ref.updateChildValues(values as Any as! [AnyHashable : Any])
+            childRef.updateChildValues(values)
             messageTextView.text = ""
         }
     }

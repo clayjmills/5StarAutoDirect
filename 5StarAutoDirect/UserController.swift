@@ -17,20 +17,11 @@ class UserController /* FIXME: - add delegate back here*/ {
     
     var users = [User]() {
         didSet {
-            //            delegate?.usersWereUpdatedTo(users: users)
-            //            usersWereUpdatedTo(users: users)
         }
     }
     
-//    func usersWereUpdatedTo(users: [User]) {
-//        self.users = users
-//    }
-    
     weak var delegate: UserControllerDelegate?
     
-//    init() {
-//        self.fetchUsers()
-//    }
     
     func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
         

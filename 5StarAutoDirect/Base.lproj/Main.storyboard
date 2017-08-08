@@ -151,7 +151,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XuJ-J5-8ID">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="51.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -293,14 +293,15 @@
                                         <rect key="frame" x="0.0" y="546" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-9w-Q7T">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-9w-Q7T">
                                         <rect key="frame" x="0.0" y="546" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="BUTTON">
+                                        <gestureRecognizers/>
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="sendButtonAnimationTapped:" destination="HE8-yK-ANU" eventType="touchUpInside" id="xLp-iQ-yX1"/>
                                             <action selector="sendButtonTapped:" destination="HE8-yK-ANU" eventType="touchUpInside" id="kyq-42-Xns"/>
                                         </connections>
                                     </button>
@@ -309,7 +310,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="UV2-8v-P4B">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationLevel="10" indentationWidth="25" rowHeight="164" id="UV2-8v-P4B">
                                                 <rect key="frame" x="0.0" y="28" width="343" height="164"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UV2-8v-P4B" id="5tj-yq-bmh">
@@ -325,6 +326,7 @@
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -650,13 +652,13 @@
         <image name="Freeway sky view" width="376" height="422"/>
         <image name="Get Started label" width="377" height="68"/>
         <image name="Porsche backside" width="376" height="178"/>
-        <image name="Send Message Label" width="755" height="137"/>
+        <image name="Send Message Label" width="377" height="68"/>
         <image name="Sign in Dashboard" width="376" height="244"/>
         <image name="Submit Label" width="377" height="68"/>
         <image name="User List Label" width="755" height="137"/>
         <image name="Your Car Updates image" width="344" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="H8u-SR-k5v"/>
+        <segue reference="lvu-5F-rNk"/>
     </inferredMetricsTieBreakers>
 </document>
