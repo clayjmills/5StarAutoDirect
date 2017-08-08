@@ -15,24 +15,36 @@ struct MessageController {
     static var shared = MessageController()
     
     var messages: [Message] = []
+    let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
     
-    static func fetchMessages(completion: @escaping ([Message]) -> Void) {
-        guard let unwrappedURL = NetworkController.baseURL else { return }
-        let url = unwrappedURL.appendingPathExtension("json")
-        
-        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
-            if let error = error {
-                print("Error: \(error.localizedDescription) File: \(#file) Line: \(#line)")
-                completion([]); return
+    func fetchMessages(completion: @escaping ([Message]?) -> Void) {
+        ref.child("messages").observe(.value, with: {(snapshot) in
+            
+            // i'm going one level too far here i think
+            if let dictionaryOfMessages = snapshot.value as? [String:[String: Any]] {
+                let messages = dictionaryOfMessages.flatMap({ Message(jsonDictionary: $0.value) } )
+                completion(messages)
             }
-            
-            guard let data = data,
-                let jsondictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: [String: String]] else { completion([]); return }
-            
-            let messages = jsondictionary.flatMap({ Message(jsonDictionary: $0.value)})
-            completion(messages)
-        }
+        })
     }
+    
+//    static func fetchMessages(completion: @escaping ([Message]) -> Void) {
+//        guard let unwrappedURL = NetworkController.baseURL else { return }
+//        let url = unwrappedURL.appendingPathExtension("json")
+//        
+//        NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: nil, body: nil) { (data, error) in
+//            if let error = error {
+//                print("Error: \(error.localizedDescription) File: \(#file) Line: \(#line)")
+//                completion([]); return
+//            }
+//            
+//            guard let data = data,
+//                let jsondictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: [String: String]] else { completion([]); return }
+//            
+//            let messages = jsondictionary.flatMap({ Message(jsonDictionary: $0.value)})
+//            completion(messages)
+//        }
+//    }
     
     mutating func createMessage(text: String, toID: String) {
         guard let unwrappedURL = NetworkController.baseURL else { return }
@@ -40,7 +52,7 @@ struct MessageController {
         
         let message = Message(text: text, toID: toID)
         
-        NetworkController.performRequest(for: url, httpMethod: .Put, urlParameters: nil, body: nil) { (data, error) in
+        NetworkController.performRequest(for: url, httpMethod: .Post, urlParameters: nil, body: nil) { (data, error) in
             guard let data = data, let responseDataString = String(data: data, encoding: .utf8) else { return }
             
             if let error = error {

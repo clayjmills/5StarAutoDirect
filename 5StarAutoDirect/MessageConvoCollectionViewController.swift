@@ -12,11 +12,18 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     static let shared = MessageConvoViewController()
     
-    var messages = [Message]()
+    var messages: [Message] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     var user: User? {
         didSet {
             observeMessages()
+            
             //            if (user?.isBroker)! {
             //                sendButton.setTitle("Message \(String(describing: user?.name))", for: .normal)
             //            } else {
@@ -35,6 +42,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
         observeMessages()
+        
         guard let toID = user?.name else { return }
         MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
         messageTextView.text = "button was clicked"
@@ -48,8 +56,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     // Mark: - TableView Data Source Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell", for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
-        let message = messages[indexPath.row]
-        cell.textLabel?.text = message.text
+        cell.message = messages[indexPath.row]
         return cell
     }
     

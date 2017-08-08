@@ -21,16 +21,16 @@ class MessageTableViewCell: UITableViewCell {
     
     
     func updateViews() {
-        if let message = message {
-            messageTextLabel.text = message.text
-            //            if message.toID == logged in user.name {
-            //            messageTextLabel.textAlignment == .left
-            //            } else {
-            //            messageTextLabel.textAlignment == .right
-            //            }
-            
-            // If not showing anything, delete this to get the first line of message text, then expand from there
-            messageTextLabel.numberOfLines = 0
-        }
+        guard let message = message else { return }
+        messageTextLabel.text = message.text
+        //            if message.toID == logged in user.name {
+        //            messageTextLabel.textAlignment == .left
+        //            } else {
+        //            messageTextLabel.textAlignment == .right
+        //            }
+        
+        // If not showing anything, delete this to get the first line of message text, then expand from there
+        //            messageTextLabel.numberOfLines = 0
     }
+    
 }
