@@ -142,6 +142,16 @@
                                 <constraint firstItem="1g0-bf-VbO" firstAttribute="top" secondItem="aDQ-Wa-xCM" secondAttribute="topMargin" id="w9d-0c-zWL"/>
                             </constraints>
                         </view>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bS3-p6-jmy">
+                            <rect key="frame" x="0.0" y="376" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="HOME">
+                                <color key="titleColor" red="0.45944792032241821" green="0.46690136194229126" blue="0.49522292613983154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <segue destination="blU-ME-HwJ" kind="showDetail" id="wld-j0-EyF"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" textLabel="XuJ-J5-8ID" rowHeight="52" style="IBUITableViewCellStyleDefault" id="hH5-2W-SAo">
                                 <rect key="frame" x="0.0" y="324" width="375" height="52"/>
@@ -601,10 +611,6 @@
                                 <color key="textColor" red="0.0" green="0.18002799964741781" blue="0.48821116371203199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Call a Broker" translatesAutoresizingMaskIntoConstraints="NO" id="ZqH-9c-hhJ">
-                                <rect key="frame" x="0.0" y="580" width="375" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FIVE STAR AUTO DIRECT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-jY-s01">
                                 <rect key="frame" x="16" y="217" width="343" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -616,9 +622,56 @@
                                 <rect key="frame" x="16" y="20" width="45" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSq-g9-buw">
+                                <rect key="frame" x="0.0" y="512" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Read over our 5 step process ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.45944792032241821" green="0.46690136194229126" blue="0.49522292613983154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="HERE">
+                                            <attributes>
+                                                <color key="NSColor" red="0.45944792032241821" green="0.46690136194229126" blue="0.49522292613983154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="rxn-w3-yD4" kind="showDetail" id="yau-bz-wn5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUZ-uh-dy9">
+                                <rect key="frame" x="0.0" y="543" width="375" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.45944792032241821" green="0.46690136194229126" blue="0.49522292613983154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Call a Broker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzk-ln-QAt">
+                                <rect key="frame" x="0.0" y="566" width="375" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.45944792032241821" green="0.46690136194229126" blue="0.49522292613983154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Utah (801) 802-7827  Idaho (208) 559-6637  COLORADO (720) 237-1317  Nationwide (855) 411-STAR(7827)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDW-7M-v9j">
+                                <rect key="frame" x="0.0" y="577" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.45944792032241821" green="0.46690136194229126" blue="0.49522292613983154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="viewStepsButtonTapped" destination="KSq-g9-buw" id="uu8-Ct-YtC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofp-ZK-F6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -646,7 +699,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Call a Broker" width="375" height="75"/>
         <image name="FIVE STAR LOGO COLOR JPG" width="1078" height="834"/>
         <image name="Find Your Car image" width="344" height="90"/>
         <image name="Freeway sky view" width="376" height="422"/>
@@ -660,5 +712,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lvu-5F-rNk"/>
+        <segue reference="wld-j0-EyF"/>
     </inferredMetricsTieBreakers>
 </document>

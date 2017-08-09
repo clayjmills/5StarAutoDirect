@@ -10,10 +10,13 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var viewStepsButtonTapped: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 
