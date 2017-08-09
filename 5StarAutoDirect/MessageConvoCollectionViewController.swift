@@ -39,13 +39,16 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = user?.name
+        self.messageTextView.layer.cornerRadius = 8
+        self.messageTextView.layer.borderWidth = 1
+     //   self.messageTextView.layer.borderColor = UIColor.AutoBlue
     }
     
     @IBAction func sendButtonAnimationTapped(_ sender: UIButton) {
-        if sender.currentImage == #imageLiteral(resourceName: "Send Message Label") {
-            sender.setImage(#imageLiteral(resourceName: "Send Message Tapped Image"), for: .normal)
-        } else {
+        if sender.currentImage == #imageLiteral(resourceName: "Send Message Tapped Image") {
             sender.setImage(#imageLiteral(resourceName: "Send Message Label"), for: .normal)
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "Send Message Tapped Image"), for: .normal)
         }
     }
     @IBAction func sendButtonTapped(_ sender: Any) {
