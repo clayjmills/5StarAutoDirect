@@ -10,10 +10,7 @@ import UIKit
 import Firebase
 import AVFoundation
 
-class CarDetailViewController: UIViewController, UITextFieldDelegate {
-    
-    var audioPlayer = AVAudioPlayer()
-    
+class CarDetailViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var makeTextField: UITextField!
@@ -24,33 +21,26 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
     
     static let shared = CarDetailViewController()
     
-    var carCreated: Bool = true
-    var isHighlighted = true
+    fileprivate let emptyTextFieldController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
+    fileprivate let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+    //FIXME: - why is this user being called by another VC and not a Controller? --> userHomeVC line 40
+    var user: User?
+    fileprivate var audioPlayer = AVAudioPlayer()
+    fileprivate var carCreated: Bool = true
+    fileprivate var isHighlighted = true
     
+    // Life - Cycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // ferrari sound plays when button tapped
-        do {
-            
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
-            audioPlayer.prepareToPlay()
-        }
-        catch {
-            print(error)
-        }
-        
+
+        playCarSound()
     }
     
-    var user: User?
-    
+    //FIXME: - clean up function
     @IBAction func submitButtonTapped(_ sender: Any) {
-    
-        
         guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
         
         if carCreated {
-            
             if make == "" {
                 self.emptyMake()
             }
@@ -66,36 +56,28 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
             if other == "" {
                 self.emptyOther()
             } else {
-                
                 //plays the sound
                 audioPlayer.play()
-                
                 self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
             }
         }
     }
     
     // MARK: - Textfield border color change functions
-    
-    func changeToRed() {
-        let redCGColor = UIColor.red.cgColor
+   fileprivate func emptyTextfieldDetected() {
         
         switch UITextField() {
         case makeTextField:
-            makeTextField.layer.borderColor = redCGColor
-            makeTextField.layer.borderWidth = 1.0
+            changeTextfieldBorderWidthAndColor(textfield: makeTextField)
             shake(textfieldLayer: makeTextField.layer)
         case modelTextField:
-            modelTextField.layer.borderColor = redCGColor
-            modelTextField.layer.borderWidth = 1.0
+            changeTextfieldBorderWidthAndColor(textfield: modelTextField)
             shake(textfieldLayer: modelTextField.layer)
         case budgetTextField:
-            budgetTextField.layer.borderColor = redCGColor
-            budgetTextField.layer.borderWidth = 1.0
+            changeTextfieldBorderWidthAndColor(textfield: modelTextField)
             shake(textfieldLayer: budgetTextField.layer)
         case colorTextField:
-            colorTextField.layer.borderColor = redCGColor
-            colorTextField.layer.borderWidth = 1.0
+            changeTextfieldBorderWidthAndColor(textfield: colorTextField)
             shake(textfieldLayer: colorTextField.layer)
         default:
             print("Break Statement")
@@ -103,8 +85,14 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: - Animation Functions
+   fileprivate func changeTextfieldBorderWidthAndColor(textfield: UITextField) {
+        let redCGColor = UIColor.red.cgColor
+        
+        textfield.layer.borderColor = redCGColor
+        textfield.layer.borderWidth = 1.0
+    }
     
+    // MARK: - Animation & Sound Functions
     fileprivate func shake(textfieldLayer: CALayer) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -113,94 +101,67 @@ class CarDetailViewController: UIViewController, UITextFieldDelegate {
         textfieldLayer.add(animation, forKey: "shake")
     }
     
-    // MARK: - Alert Controller Functions
-    let emptyTextFieldController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
-    let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+    fileprivate func playCarSound() {
+        do {
+            // ferrari sound plays when button tapped
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch {
+            print(error)
+        }
+    }
     
-    func presentAlertControllerWithDismiss(alertController: UIAlertController, action: UIAlertAction) {
+    // MARK: - Alert Controller Functions
+    fileprivate func presentAlertControllerWithAction(alertController: UIAlertController, action: UIAlertAction) {
     present(alertController, animated: true, completion: nil)
     alertController.addAction(dismissAction)
     }
     
-    
-    func emptyMake() {
-        
+    fileprivate func emptyMake() {
         let emptyMakeAlertController = UIAlertController(title: AlertText.make.title, message: nil, preferredStyle: .alert)
-       presentAlertControllerWithDismiss(alertController: emptyMakeAlertController, action: dismissAction)
+       presentAlertControllerWithAction(alertController: emptyMakeAlertController, action: dismissAction)
     }
-    
-    func emptyModel() {
+    fileprivate func emptyModel() {
         let emptyModelAlertController = UIAlertController(title: AlertText.model.title, message: nil, preferredStyle: .alert)
-       presentAlertControllerWithDismiss(alertController: emptyModelAlertController, action: dismissAction)
+       presentAlertControllerWithAction(alertController: emptyModelAlertController, action: dismissAction)
     }
-    
-    func emptyBudget() {
+    fileprivate func emptyBudget() {
         let emptyBudgetAlertController = UIAlertController(title: AlertText.budget.title, message: nil, preferredStyle: .alert)
-        presentAlertControllerWithDismiss(alertController: emptyBudgetAlertController, action: dismissAction)
+        presentAlertControllerWithAction(alertController: emptyBudgetAlertController, action: dismissAction)
     }
-    
-    func emptyColor() {
+    fileprivate func emptyColor() {
         let emptyColorAlertController = UIAlertController(title: AlertText.color.title, message: nil, preferredStyle: .alert)
-        presentAlertControllerWithDismiss(alertController: emptyColorAlertController, action: dismissAction)
+        presentAlertControllerWithAction(alertController: emptyColorAlertController, action: dismissAction)
     }
     //FIXME: - finish this alert
-    func emptyOther() {
+    fileprivate func emptyOther() {
         let emptyOtherAlertController = UIAlertController(title: AlertText.other.message, message: nil, preferredStyle: .alert)
         emptyOtherAlertController.addAction(dismissAction)
         present(emptyOtherAlertController, animated: true, completion: nil)
     }
     
-    // keep textfields on top of keyboard
+}
+
+
+// MARK: - TextField Delegate
+
+extension CarDetailViewController: UITextFieldDelegate {
     
+    // keep textfields on top of keyboard
     // TODO: customize each text field to stay in view when keyboard is up
     // TODO: customize each keyboard (take away predictive text options)
     // TODO: add inirializer for Car obj with textfield input
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y:190), animated: true)
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y:0), animated: true)
     }
     
 }
 
-enum AlertText: String {
-    
-    case make
-    case model
-    case budget
-    case color
-    case other
-    
-    var title: String? {
-        switch self {
-        case .make:
-           return "Please enter a make"
-        case .model:
-            return "Please enter a model"
-        case .budget:
-            return"Please enter a budget"
-        case .color:
-            return "Please enter a color"
-        default:
-            return nil
-        }
-    }
-    
-    var message: String? {
-        switch self {
-        case .other:
-            return "Would you like to add any other notes before moving on?"
-        default:
-            return nil
-        }
-    }
-    
-}

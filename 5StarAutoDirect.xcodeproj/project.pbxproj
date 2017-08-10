@@ -24,6 +24,7 @@
 		66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3A1EE8755500BF8357 /* Main.storyboard */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
 		66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */; };
+		733A0DEB1F3BE0980094DCB9 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A0DEA1F3BE0980094DCB9 /* AlertControllerHelper.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
@@ -59,6 +60,7 @@
 		66EDEA401EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5StarAutoDirect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		733A0DEA1F3BE0980094DCB9 /* AlertControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				66EDEA421EE8755500BF8357 /* Info.plist */,
 				C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */,
 				7359AACA1F36DFDF009891AC /* Keys.swift */,
+				733A0DEA1F3BE0980094DCB9 /* AlertControllerHelper.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
 				9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */,
+				733A0DEB1F3BE0980094DCB9 /* AlertControllerHelper.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
 				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,
 				66D2A4D61F1E890300FCAE76 /* WelcomeViewController.swift in Sources */,
