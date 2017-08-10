@@ -25,6 +25,7 @@
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
 		66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */; };
 		733A0DEB1F3BE0980094DCB9 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A0DEA1F3BE0980094DCB9 /* AlertControllerHelper.swift */; };
+		733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
@@ -61,6 +62,7 @@
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5StarAutoDirect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		733A0DEA1F3BE0980094DCB9 /* AlertControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
+		733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -127,13 +129,13 @@
 		66813B8D1EF1AE74000FA884 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
+				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
+				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
+				6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */,
 				9659243E1F31285200CC7266 /* PopUpViewController.swift */,
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
 				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
-				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
-				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
-				6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */,
-				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 				66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */,
 			);
 			name = "View Controllers";
@@ -184,12 +186,12 @@
 		66EDEA481EE8756E00BF8357 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				66EDEA3D1EE8755500BF8357 /* Assets.xcassets */,
-				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
-				66EDEA421EE8755500BF8357 /* Info.plist */,
-				C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */,
-				7359AACA1F36DFDF009891AC /* Keys.swift */,
 				733A0DEA1F3BE0980094DCB9 /* AlertControllerHelper.swift */,
+				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
+				66EDEA3D1EE8755500BF8357 /* Assets.xcassets */,
+				C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */,
+				66EDEA421EE8755500BF8357 /* Info.plist */,
+				7359AACA1F36DFDF009891AC /* Keys.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
+				733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */,
 				C82920701EF30B090089A695 /* Extensions.swift */,
 			);
 			name = Helpers;
@@ -349,6 +352,7 @@
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
 				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
+				733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,

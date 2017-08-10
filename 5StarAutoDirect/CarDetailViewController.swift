@@ -12,6 +12,11 @@ import AVFoundation
 
 class CarDetailViewController: UIViewController {
     
+    static let shared = CarDetailViewController()
+    
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var makeTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
@@ -19,8 +24,10 @@ class CarDetailViewController: UIViewController {
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var otherTextField: UITextField!
     
-    static let shared = CarDetailViewController()
     
+    // MARK: - Properties
+    
+    fileprivate let carSoundPlayer = SoundPlayer(sound: .ferrari)
     fileprivate let emptyTextFieldController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
     fileprivate let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
     //FIXME: - why is this user being called by another VC and not a Controller? --> userHomeVC line 40
@@ -29,14 +36,17 @@ class CarDetailViewController: UIViewController {
     fileprivate var carCreated: Bool = true
     fileprivate var isHighlighted = true
     
-    // Life - Cycle Functions
+    
+    // MARK: - Life - Cycle Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        playCarSound()
+        carSoundPlayer.prepare()
     }
     
-    //FIXME: - clean up function
+    
+    // MARK: - IBActions
+    
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
         
@@ -63,7 +73,13 @@ class CarDetailViewController: UIViewController {
         }
     }
     
-    // MARK: - Textfield border color change functions
+}
+
+
+// MARK: - Textfield
+
+extension CarDetailViewController {
+
    fileprivate func emptyTextfieldDetected() {
         
         switch UITextField() {
@@ -102,20 +118,15 @@ class CarDetailViewController: UIViewController {
     }
     
     fileprivate func playCarSound() {
-        do {
-            // ferrari sound plays when button tapped
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
-            audioPlayer.prepareToPlay()
-        }
-        catch {
-            print(error)
-        }
+        carSoundPlayer.play()
     }
     
+    
     // MARK: - Alert Controller Functions
+    
     fileprivate func presentAlertControllerWithAction(alertController: UIAlertController, action: UIAlertAction) {
-    present(alertController, animated: true, completion: nil)
-    alertController.addAction(dismissAction)
+        present(alertController, animated: true, completion: nil)
+        alertController.addAction(dismissAction)
     }
     
     fileprivate func emptyMake() {
@@ -164,4 +175,3 @@ extension CarDetailViewController: UITextFieldDelegate {
     }
     
 }
-
