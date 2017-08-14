@@ -18,8 +18,6 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
-    
-    
     func updateViews() {
         guard let message = message else { return }
         messageTextLabel.text = message.text
@@ -30,7 +28,7 @@ class MessageTableViewCell: UITableViewCell {
         //            }
         
         // If not showing anything, delete this to get the first line of message text, then expand from there
-        //            messageTextLabel.numberOfLines = 0
+                    messageTextLabel.numberOfLines = 0
     }
     
 }

@@ -32,7 +32,7 @@ class BrokerTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("number of rows found \(UserController.shared.users.count) users")
+    //    print("number of rows found \(UserController.shared.users.count) users")
         return users.count
     }
     

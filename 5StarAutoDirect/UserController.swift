@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class UserController /* FIXME: - add delegate back here*/ {
+class UserController {
     
     static var shared = UserController()
     

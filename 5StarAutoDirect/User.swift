@@ -34,6 +34,7 @@ class User {
             let email = jsonDictionary[Keys.email] as? String,
             let isBroker = jsonDictionary[Keys.isBroker] as? Bool,
             let carDictionary = jsonDictionary[Keys.car] as? [String:String],
+            
             let car = Car(dictionary: carDictionary)
         else { return nil } // TODO: - add something for [message]
         

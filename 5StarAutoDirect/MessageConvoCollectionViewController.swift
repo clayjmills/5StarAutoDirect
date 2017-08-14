@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 // I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
 
@@ -14,6 +15,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     static let shared = MessageConvoViewController()
     
+    var message: Message?
     var messages: [Message] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -25,12 +27,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     var user: User? {
         didSet {
             observeMessages()
-            
-            //            if (user?.isBroker)! {
-            //                sendButton.setTitle("Message \(String(describing: user?.name))", for: .normal)
-            //            } else {
-            //                sendButton.setTitle("Message Broker", for: .normal)
-            //            }
+
         }
     }
     
@@ -38,10 +35,20 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
+        tableView.dataSource = self
+        tableView.delegate = self
         navigationItem.title = user?.name
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
-     //   self.messageTextView.layer.borderColor = UIColor.AutoBlue
+        observeMessages()
+        
+        guard let user = user else { return }
+        if user.isBroker {
+            navigationItem.title = "Broker"
+        } else {
+            navigationItem.title = "Customer" // change this to customer nam
+        }
     }
     
     @IBAction func sendButtonAnimationTapped(_ sender: UIButton) {
@@ -54,6 +61,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
         observeMessages()
+        tableView.reloadData()
         
         guard let toID = user?.name else { return }
 //        MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
@@ -68,7 +76,8 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     // Mark: - TableView Data Source Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell", for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
-        cell.message = messages[indexPath.row]
+        let message = messages[indexPath.row]
+        cell.message = message
         return cell
     }
     
@@ -78,7 +87,10 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         ref.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                guard let message = Message(jsonDictionary: dictionary) else { return }
+                //Alex code for messages
+                guard let message = Message(jsonDictionary: dictionary, identifier: snapshot.key as! String) else { return }
+                
+//                guard let message = Message(jsonDictionary: dictionary, identifier) else { return }
                 message.setValuesForKeys(dictionary)
                 self.messages.append(message)
                 
