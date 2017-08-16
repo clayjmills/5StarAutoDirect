@@ -7,12 +7,36 @@
 //
 
 import UIKit
-import Firebase
 import AVFoundation
 
 class CarDetailViewController: UIViewController {
     
     static let shared = CarDetailViewController()
+    static let userController = UserController()
+    
+    enum TextType: Int {
+        
+        case make
+        case model
+        case budget
+        case color
+        case other
+        
+        var alertTitle: String? {
+            switch self {
+            case .make:
+                return "Please enter a make"
+            case .model:
+                return "Please enter a model"
+            case .budget:
+                return"Please enter a budget"
+            case .color:
+                return "Please enter a color"
+            default:
+                return nil
+            }
+        }
+    }
     
     
     // MARK: - IBOutlets
@@ -24,17 +48,19 @@ class CarDetailViewController: UIViewController {
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var otherTextField: UITextField!
     
-    
     // MARK: - Properties
     
     fileprivate let carSoundPlayer = SoundPlayer(sound: .ferrari)
-    fileprivate let emptyTextFieldController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
-    fileprivate let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
     //FIXME: - why is this user being called by another VC and not a Controller? --> userHomeVC line 40
     var user: User?
-    fileprivate var audioPlayer = AVAudioPlayer()
-    fileprivate var carCreated: Bool = true
     fileprivate var isHighlighted = true
+    fileprivate var originalBorderColor: CGColor?
+    fileprivate var textFields: [UITextField] {
+        return [makeTextField, modelTextField, budgetTextField, colorTextField, otherTextField]
+    }
+    fileprivate var requiredTextFields: [UITextField] {
+         return [makeTextField, modelTextField, budgetTextField, colorTextField]
+    }
     
     
     // MARK: - Life - Cycle Functions
@@ -42,114 +68,80 @@ class CarDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         carSoundPlayer.prepare()
+        originalBorderColor = textFields.first?.layer.borderColor
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reactToKeyboardShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reactToKeyboardHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     
     // MARK: - IBActions
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let make = makeTextField.text, let model = modelTextField.text, let budget =  budgetTextField.text, let color = colorTextField.text, let other = otherTextField.text else { return }
+        let textFieldsToShake = requiredTextFields.filter { $0.text == nil || $0.text!.isEmpty }
         
-        if carCreated {
-            if make == "" {
-                self.emptyMake()
-            }
-            if model == "" {
-                self.emptyModel()
-            }
-            if budget == "" {
-                self.emptyBudget()
-            }
-            if color == "" {
-                self.emptyColor()
-            }
-            if other == "" {
-                self.emptyOther()
-            } else {
-                //plays the sound
-                audioPlayer.play()
-                self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
+        if textFieldsToShake.isEmpty, let newCar = constructedCar() {
+            //TODO: - verify func is working correctly
+            UserController.shared.saveCarToUser(car: newCar, completion: nil)
+            playCarSound()
+            performSegue(withIdentifier: "toWelcomeVC", sender: self)
+        } else {
+            textFieldsToShake.forEach { textField in
+                emptyTextfieldDetected(textField)
             }
         }
+    }
+    
+    @IBAction func viewTapped(_ sender: Any) {
+        view.endEditing(false)
+    }
+    
+    func reactToKeyboardShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo, let keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else
+        { return }
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+    
+    func reactToKeyboardHide(_ notification: Notification) {
+        scrollView.contentInset = .zero
     }
     
 }
 
 
-// MARK: - Textfield
+// MARK: - Internal
 
 extension CarDetailViewController {
 
-   fileprivate func emptyTextfieldDetected() {
-        
-        switch UITextField() {
-        case makeTextField:
-            changeTextfieldBorderWidthAndColor(textfield: makeTextField)
-            shake(textfieldLayer: makeTextField.layer)
-        case modelTextField:
-            changeTextfieldBorderWidthAndColor(textfield: modelTextField)
-            shake(textfieldLayer: modelTextField.layer)
-        case budgetTextField:
-            changeTextfieldBorderWidthAndColor(textfield: modelTextField)
-            shake(textfieldLayer: budgetTextField.layer)
-        case colorTextField:
-            changeTextfieldBorderWidthAndColor(textfield: colorTextField)
-            shake(textfieldLayer: colorTextField.layer)
-        default:
-            print("Break Statement")
-            break
-        }
+    fileprivate func emptyTextfieldDetected(_ textField: UITextField) {
+        toggleTextField(textfield: textField, isRed: true)
+        shake(textField)
     }
     
-   fileprivate func changeTextfieldBorderWidthAndColor(textfield: UITextField) {
-        let redCGColor = UIColor.red.cgColor
-        
-        textfield.layer.borderColor = redCGColor
-        textfield.layer.borderWidth = 1.0
+    fileprivate func toggleTextField(textfield: UITextField, isRed: Bool) {
+        let color = isRed ? UIColor.red.cgColor : originalBorderColor
+        textfield.layer.borderColor = color
+        textfield.layer.borderWidth = isRed ? 1.0 : 0
     }
     
-    // MARK: - Animation & Sound Functions
-    fileprivate func shake(textfieldLayer: CALayer) {
+    fileprivate func shake(_ textField: UITextField) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        textfieldLayer.add(animation, forKey: "shake")
+        textField.layer.add(animation, forKey: "shake")
     }
     
     fileprivate func playCarSound() {
         carSoundPlayer.play()
     }
     
-    
-    // MARK: - Alert Controller Functions
-    
-    fileprivate func presentAlertControllerWithAction(alertController: UIAlertController, action: UIAlertAction) {
-        present(alertController, animated: true, completion: nil)
-        alertController.addAction(dismissAction)
-    }
-    
-    fileprivate func emptyMake() {
-        let emptyMakeAlertController = UIAlertController(title: AlertText.make.title, message: nil, preferredStyle: .alert)
-       presentAlertControllerWithAction(alertController: emptyMakeAlertController, action: dismissAction)
-    }
-    fileprivate func emptyModel() {
-        let emptyModelAlertController = UIAlertController(title: AlertText.model.title, message: nil, preferredStyle: .alert)
-       presentAlertControllerWithAction(alertController: emptyModelAlertController, action: dismissAction)
-    }
-    fileprivate func emptyBudget() {
-        let emptyBudgetAlertController = UIAlertController(title: AlertText.budget.title, message: nil, preferredStyle: .alert)
-        presentAlertControllerWithAction(alertController: emptyBudgetAlertController, action: dismissAction)
-    }
-    fileprivate func emptyColor() {
-        let emptyColorAlertController = UIAlertController(title: AlertText.color.title, message: nil, preferredStyle: .alert)
-        presentAlertControllerWithAction(alertController: emptyColorAlertController, action: dismissAction)
-    }
-    //FIXME: - finish this alert
-    fileprivate func emptyOther() {
-        let emptyOtherAlertController = UIAlertController(title: AlertText.other.message, message: nil, preferredStyle: .alert)
-        emptyOtherAlertController.addAction(dismissAction)
-        present(emptyOtherAlertController, animated: true, completion: nil)
+    func constructedCar() -> Car? {
+        guard let make = makeTextField.text, let model = modelTextField.text, let budget = budgetTextField.text, let color = colorTextField.text, let otherAttributes = otherTextField.text else { return nil }
+        return Car(make: make, model: model, budget: budget, color: color, otherAttributes: otherAttributes)
     }
     
 }
@@ -159,19 +151,18 @@ extension CarDetailViewController {
 
 extension CarDetailViewController: UITextFieldDelegate {
     
-    // keep textfields on top of keyboard
-    // TODO: customize each text field to stay in view when keyboard is up
-    // TODO: customize each keyboard (take away predictive text options)
-    // TODO: add inirializer for Car obj with textfield input
+    // TODO: add initializer for Car obj with textfield input
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if let index = textFields.index(of: textField), index < textFields.count - 1, case let nextTextField = textFields[index + 1] {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
         return true
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y:190), animated: true)
-    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y:0), animated: true)
+        toggleTextField(textfield: textField, isRed: false)
     }
     
 }

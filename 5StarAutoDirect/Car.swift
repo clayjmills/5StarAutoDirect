@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Car {
+struct Car: JSONInitializable {
     
     var make: String
     var model: String
@@ -16,7 +16,7 @@ class Car {
     var color: String
     var otherAttributes: String?
     
-    init(make: String, model: String, budget: String, color: String, otherAttributes: String) {
+    init(make: String, model: String, budget: String, color: String, otherAttributes: String? = nil) {
         self.make = make
         self.model = model
         self.budget = budget
@@ -24,14 +24,14 @@ class Car {
         self.otherAttributes = otherAttributes
     }
     
-    init?(dictionary: [String: Any]) {
-        guard let make = dictionary[Keys.make] as? String,
-            let model = dictionary[Keys.model] as? String,
-            let budget = dictionary[Keys.budget] as? String,
-            let color = dictionary[Keys.color] as? String,
-            let otherAttributes = dictionary[Keys.otherAttributes] as? String
+    init?(json: JSONObject) {
+        guard let make = json[Keys.make] as? String,
+            let model = json[Keys.model] as? String,
+            let budget = json[Keys.budget] as? String,
+            let color = json[Keys.color] as? String
         else { return nil } 
         
+        let otherAttributes = json[Keys.otherAttributes] as? String
         self.make = make
         self.model = model
         self.budget = budget
@@ -48,20 +48,19 @@ func ==(lhs: Car, rhs: Car) -> Bool {
 }
 
 
-// MARK: - Helper functions. Turns our model object into dictionary form for later use.
+// MARK: - Helper functions. Turns our model object into json form for later use.
 
-extension Car {
+extension Car: JSONExportable {
     
-    func dictionaryRepresentation() -> [String: Any] {
+    func jsonObject() -> [String: Any] {
+        var json = [String: Any]()
+        json[Keys.make] = make
+        json[Keys.model] = model
+        json[Keys.budget] = budget
+        json[Keys.color] = color
+        json[Keys.otherAttributes] = otherAttributes
         
-        var dictionary = [String: Any]()
-        dictionary[Keys.make] = make
-        dictionary[Keys.model] = model
-        dictionary[Keys.budget] = budget
-        dictionary[Keys.color] = color
-        dictionary[Keys.otherAttributes] = otherAttributes
-        
-        return dictionary
+        return json
     }
     
 }

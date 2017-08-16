@@ -26,6 +26,7 @@
 		733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */; };
 		733A0DF41F3C271E0094DCB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DF11F3C271E0094DCB9 /* Main.storyboard */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
+		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
 		C82920691EF1B7BB0089A695 /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920681EF1B7BB0089A695 /* CarController.swift */; };
@@ -62,6 +63,7 @@
 		733A0DF01F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733A0DF21F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		C82920681EF1B7BB0089A695 /* CarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				C82920681EF1B7BB0089A695 /* CarController.swift */,
 				C83274941F054B3E000E3FE5 /* DatabaseManager.swift */,
+				73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */,
 				66813B801EF1ADCE000FA884 /* MessageController.swift */,
 				66813B7E1EF1ADC0000FA884 /* UserController.swift */,
 			);
@@ -340,6 +343,7 @@
 				665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
+				73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */,
 				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
