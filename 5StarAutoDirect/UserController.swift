@@ -6,15 +6,16 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import Foundation
 
 class UserController {
     
-    static var shared = UserController()
+    static let shared = UserController()
     
-    let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
-    
+    let firebaseController = FirebaseController()
+    var currentUser: User?
+    var ref = DatabaseReference()
     var users = [User]() {
         didSet {
         }
@@ -22,7 +23,36 @@ class UserController {
     
     weak var delegate: UserControllerDelegate?
     
+    // TODO: - verify function is working correctly. check about optional completion block
+    func saveCarToUser(car: Car, completion: ((User?) -> Void)?) {
+        guard var currentUser = currentUser else { return }
+        currentUser.car = car
+        updateUser(user: currentUser)
+        firebaseController.save(at: ref.child("User"), json: currentUser.jsonObject()) { error in
+            completion?(currentUser)
+        
+            if let error = error {
+                print(error.localizedDescription, "\(#line)")
+            } else {
+                self.currentUser = currentUser
+                completion?(currentUser)
+                print(currentUser.car)
+            }
+        }
+    }
     
+    func updateUser(user: User) {
+        let ref = firebaseController.usersRef.child(user.identifier)
+        firebaseController.save(at: ref, json: user.jsonObject()) { (error) in
+            if let error = error {
+                print(error.localizedDescription, "\(#line) in \(#file)")
+            } else {
+                print("success updating User \(#line)")
+            }
+        }
+    }
+    
+    //Model objects into jsonExportable
     func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
         
         var brokerOrUserRefString = ""

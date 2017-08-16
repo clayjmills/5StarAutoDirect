@@ -33,9 +33,8 @@ class User {
             let phone = jsonDictionary[Keys.phone] as? String,
             let email = jsonDictionary[Keys.email] as? String,
             let isBroker = jsonDictionary[Keys.isBroker] as? Bool,
-            let carDictionary = jsonDictionary[Keys.car] as? [String:String],
-            
-            let car = Car(dictionary: carDictionary)
+            let carDictionary = jsonDictionary[Keys.car] as? [String: Any],
+            let car = Car(json: carDictionary)
         else { return nil } // TODO: - add something for [message]
         
         self.name = name
@@ -62,7 +61,7 @@ extension User: JSONExportable {
         dict[Keys.phone] = phone
         dict[Keys.email] = email
         dict[Keys.isBroker] = isBroker
-        dict[Keys.car] = car.dictionaryRepresentation()
+        dict[Keys.car] = car.jsonObject()
         return dict
     }
     
