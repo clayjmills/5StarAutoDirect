@@ -6,7 +6,6 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import FirebaseDatabase
 

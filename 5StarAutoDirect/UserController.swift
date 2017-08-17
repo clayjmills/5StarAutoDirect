@@ -6,15 +6,16 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import Foundation
 
 class UserController {
     
-    static var shared = UserController()
+    static let shared = UserController()
     
-    let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
-    
+    let firebaseController = FirebaseController()
+    var currentUser: User?
+    var rootRef = Database.database().reference()
     var users = [User]() {
         didSet {
         }
@@ -22,42 +23,65 @@ class UserController {
     
     weak var delegate: UserControllerDelegate?
     
-    
-    func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
+    // TODO: - verify function is working correctly. check about optional completion block
+    func saveCarToUser(car: Car, completion: ((User?) -> Void)?) {
+        guard let currentUser = currentUser else { return }
+        currentUser.car = car
+        updateUser(user: currentUser)
+        firebaseController.save(at: rootRef.child("User"), json: currentUser.jsonObject()) { error in
+            completion?(currentUser)
         
-        var brokerOrUserRefString = ""
-        let broker: Bool
-        
-        if email.uppercased().contains("FIVESTARAUTODIRECT") {
-            brokerOrUserRefString = "brokers"
-            broker = true
-        } else {
-            brokerOrUserRefString = "users"
-            broker = false
+            if let error = error {
+                print(error.localizedDescription, "\(#line)")
+            } else {
+                self.currentUser = currentUser
+                completion?(currentUser)
+                print(currentUser.car)
+            }
         }
+    }
+    
+    func updateUser(user: User) {
+        let ref = firebaseController.usersRef.child(user.identifier)
+        firebaseController.save(at: ref, json: user.jsonObject()) { (error) in
+            if let error = error {
+                print(error.localizedDescription, "\(#line) in \(#file)")
+            } else {
+                print("success updating User \(#line)")
+            }
+        }
+    }
+    
+    enum UserControllerError: Error {
+        case uidNil // FIXME:
+    }
+    
+    //Model objects into jsonExportable
+    func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?, Error?) -> Void) {
+        
+        let isBroker = email.uppercased().contains("FIVESTARAUTODIRECT")
+        let refString = isBroker ? "brokers" : "users"
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             
             if let error = error {
                 print(error)
-                completion(nil)
+                completion(nil, error)
                 return
             }
             
             guard let uidString = user?.uid
-                else { completion(nil); return }
+                else { completion(nil, UserControllerError.uidNil); return }
             
-            let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
-            
-            let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar, identifier: uidString)
+            let user = User(name: name, phone: phone, email: email, isBroker: isBroker, identifier: uidString)
             
             // Put authenticated user in firebase database under appropriate node.
             
-            let referenceForCurrentUser = self.ref.child(brokerOrUserRefString).child(uidString)
+            let referenceForCurrentUser = self.rootRef.child(refString).child(uidString)
             //            referenceForCurrentUser.setValue(user.jsonRepresentation)
             referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
                 UserController.completeSignIn(id: user.name)
-                completion(broker)
+                completion(isBroker, nil)
             })
             
             
@@ -83,7 +107,7 @@ class UserController {
     
     // getting users from firebase
     func fetchUsers(completion: @escaping ([User]?) -> Void) {
-        ref.child("users").observe(.value, with: { (snapshot) in
+        rootRef.child("users").observe(.value, with: { (snapshot) in
             
             if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
                 let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )

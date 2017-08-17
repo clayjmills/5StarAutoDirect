@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 import KeychainSwift
-import FirebaseDatabase
 
 let DB_BASE = Database.database().reference()
 

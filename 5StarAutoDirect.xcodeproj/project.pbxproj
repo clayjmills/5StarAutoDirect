@@ -21,13 +21,17 @@
 		66D2A4D41F1E84C200FCAE76 /* Ferrari.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */; };
 		66D2A4D61F1E890300FCAE76 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */; };
 		66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDEA361EE8755500BF8357 /* AppDelegate.swift */; };
-		66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3A1EE8755500BF8357 /* Main.storyboard */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
-		66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */; };
+		733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */; };
+		733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */; };
+		733A0DF41F3C271E0094DCB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DF11F3C271E0094DCB9 /* Main.storyboard */; };
+		7345A93A1F454F3100C98E86 /* BrokerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */; };
+		7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93B1F45511C00C98E86 /* SegueHandling.swift */; };
+		7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
+		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
-		C82920691EF1B7BB0089A695 /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920681EF1B7BB0089A695 /* CarController.swift */; };
 		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
@@ -54,15 +58,19 @@
 		66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		66EDEA331EE8755500BF8357 /* 5StarAutoDirect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5StarAutoDirect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EDEA361EE8755500BF8357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66EDEA3B1EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66EDEA3D1EE8755500BF8357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		66EDEA401EE8755500BF8357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5StarAutoDirect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		733A0DF01F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		733A0DF21F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		7345A9391F454F3100C98E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BrokerTableViewController.storyboard; sourceTree = "<group>"; };
+		7345A93B1F45511C00C98E86 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
+		7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		C82920681EF1B7BB0089A695 /* CarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
 		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -92,57 +100,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		665AB62A1F2103BA00EAEE12 /* User Custom Cell */ = {
-			isa = PBXGroup;
-			children = (
-				665AB6281F2103A700EAEE12 /* UserInfoTableViewCell.swift */,
-				6668D37E1F33849400347FCD /* MessageTableViewCell.swift */,
-			);
-			name = "User Custom Cell";
-			sourceTree = "<group>";
-		};
 		66813B7D1EF1AD75000FA884 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				66813B771EF1AD4A000FA884 /* User.swift */,
-				66813B791EF1AD59000FA884 /* Message.swift */,
 				66813B7B1EF1AD6B000FA884 /* Car.swift */,
+				66813B791EF1AD59000FA884 /* Message.swift */,
+				66813B771EF1AD4A000FA884 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		66813B821EF1ADD8000FA884 /* Model Controllers */ = {
+		66813B821EF1ADD8000FA884 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C83274941F054B3E000E3FE5 /* DatabaseManager.swift */,
-				66813B7E1EF1ADC0000FA884 /* UserController.swift */,
+				73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */,
 				66813B801EF1ADCE000FA884 /* MessageController.swift */,
-				C82920681EF1B7BB0089A695 /* CarController.swift */,
+				66813B7E1EF1ADC0000FA884 /* UserController.swift */,
 			);
-			name = "Model Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		66813B8D1EF1AE74000FA884 /* View Controllers */ = {
+		66813B8D1EF1AE74000FA884 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
+				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
+				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
+				6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */,
+				6668D37E1F33849400347FCD /* MessageTableViewCell.swift */,
 				9659243E1F31285200CC7266 /* PopUpViewController.swift */,
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
 				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
-				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
-				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
-				6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */,
-				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
+				665AB6281F2103A700EAEE12 /* UserInfoTableViewCell.swift */,
 				66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */,
 			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		66D2A4D21F1E83A200FCAE76 /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */,
-			);
-			name = Music;
+			name = UI;
 			sourceTree = "<group>";
 		};
 		66EDEA2A1EE8755500BF8357 = {
@@ -166,14 +159,12 @@
 		66EDEA351EE8755500BF8357 /* 5StarAutoDirect */ = {
 			isa = PBXGroup;
 			children = (
-				66EDEA3A1EE8755500BF8357 /* Main.storyboard */,
-				66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */,
-				665AB62A1F2103BA00EAEE12 /* User Custom Cell */,
-				66813B8D1EF1AE74000FA884 /* View Controllers */,
+				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
+				733A0DEE1F3C271E0094DCB9 /* Base.lproj */,
+				66813B8D1EF1AE74000FA884 /* UI */,
 				66813B7D1EF1AD75000FA884 /* Models */,
-				66813B821EF1ADD8000FA884 /* Model Controllers */,
-				C82920721EF339F90089A695 /* Helpers */,
-				66D2A4D21F1E83A200FCAE76 /* Music */,
+				66813B821EF1ADD8000FA884 /* Controllers */,
+				C82920721EF339F90089A695 /* Infrastructure */,
 				66EDEA481EE8756E00BF8357 /* Resources */,
 			);
 			path = 5StarAutoDirect;
@@ -183,12 +174,21 @@
 			isa = PBXGroup;
 			children = (
 				66EDEA3D1EE8755500BF8357 /* Assets.xcassets */,
-				66EDEA361EE8755500BF8357 /* AppDelegate.swift */,
-				66EDEA421EE8755500BF8357 /* Info.plist */,
+				66D2A4D31F1E842B00FCAE76 /* Ferrari.m4a */,
 				C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */,
-				7359AACA1F36DFDF009891AC /* Keys.swift */,
+				66EDEA421EE8755500BF8357 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		733A0DEE1F3C271E0094DCB9 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */,
+				733A0DF11F3C271E0094DCB9 /* Main.storyboard */,
+				7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 		8B194457E3107E0FCE8A6E10 /* Pods */ = {
@@ -200,13 +200,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C82920721EF339F90089A695 /* Helpers */ = {
+		C82920721EF339F90089A695 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
 				C82920701EF30B090089A695 /* Extensions.swift */,
+				7359AACA1F36DFDF009891AC /* Keys.swift */,
+				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
+				7345A93B1F45511C00C98E86 /* SegueHandling.swift */,
+				733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */,
+				7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */,
 			);
-			name = Helpers;
+			name = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +248,7 @@
 				TargetAttributes = {
 					66EDEA321EE8755500BF8357 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = HK9J242HR4;
+						DevelopmentTeam = 4UKSSV9PZ8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -272,11 +276,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733A0DF41F3C271E0094DCB9 /* Main.storyboard in Resources */,
 				66D2A4D41F1E84C200FCAE76 /* Ferrari.m4a in Resources */,
-				66EDEA411EE8755500BF8357 /* LaunchScreen.storyboard in Resources */,
 				C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */,
+				733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */,
 				66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */,
-				66EDEA3C1EE8755500BF8357 /* Main.storyboard in Resources */,
+				7345A93A1F454F3100C98E86 /* BrokerTableViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -337,20 +342,23 @@
 			files = (
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
 				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
+				7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */,
 				66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */,
 				66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */,
 				7359AACB1F36DFDF009891AC /* Keys.swift in Sources */,
-				C82920691EF1B7BB0089A695 /* CarController.swift in Sources */,
 				6668D37D1F33841300347FCD /* MessageConvoCollectionViewController.swift in Sources */,
 				665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
+				73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */,
 				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
+				733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				6668D37F1F33849400347FCD /* MessageTableViewCell.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
+				7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
 				9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
@@ -362,20 +370,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		66EDEA3A1EE8755500BF8357 /* Main.storyboard */ = {
+		733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				66EDEA3B1EE8755500BF8357 /* Base */,
+				733A0DF01F3C271E0094DCB9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		733A0DF11F3C271E0094DCB9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				733A0DF21F3C271E0094DCB9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		66EDEA3F1EE8755500BF8357 /* LaunchScreen.storyboard */ = {
+		7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				66EDEA401EE8755500BF8357 /* Base */,
+				7345A9391F454F3100C98E86 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = BrokerTableViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -479,7 +495,7 @@
 			baseConfigurationReference = 2EDB9CA6D50489671D4F0017 /* Pods-5StarAutoDirect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HK9J242HR4;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,7 +510,7 @@
 			baseConfigurationReference = 7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HK9J242HR4;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

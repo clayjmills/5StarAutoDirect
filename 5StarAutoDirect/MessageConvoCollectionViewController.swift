@@ -27,7 +27,6 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     var user: User? {
         didSet {
             observeMessages()
-
         }
     }
     
@@ -58,12 +57,13 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             sender.setImage(#imageLiteral(resourceName: "Send Message Tapped Image"), for: .normal)
         }
     }
+    
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
         observeMessages()
         tableView.reloadData()
         
-        guard let toID = user?.name else { return }
+//        guard let toID = user?.name else { return }
 //        MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
 //        messageTextView.text = "button was clicked"
     }
@@ -88,7 +88,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 //Alex code for messages
-                guard let message = Message(jsonDictionary: dictionary, identifier: snapshot.key as! String) else { return }
+                guard let message = Message(jsonDictionary: dictionary, identifier: snapshot.key) else { return }
                 
 //                guard let message = Message(jsonDictionary: dictionary, identifier) else { return }
                 message.setValuesForKeys(dictionary)
@@ -102,30 +102,28 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func handleSend() {
+        // FIXME: !!!! PLEASE THIS IS AWFUL
         if messageTextView.text != "" {
             let ref = Database.database().reference().child("messages")
             
             let childRef = ref.childByAutoId()
-            guard let input = messageTextView.text else {return}
-            let name = user?.name
-            let values = ["text":input, "name": name]
+            guard let input = messageTextView.text, let name = user?.name else { return }
+            let values: [String: Any] = ["text":input, "name": name]
             childRef.updateChildValues(values)
             messageTextView.text = ""
         }
     }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         messageTextView.resignFirstResponder()
     }
 
     // keyboard under text View
-    func textViewShouldReturn(_ textView: UITextView) -> Bool {
-        textView.resignFirstResponder()
-        return true
-    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
         scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
