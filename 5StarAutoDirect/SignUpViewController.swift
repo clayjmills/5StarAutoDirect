@@ -122,7 +122,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         pleaseEnterValidEmailAlertController.addAction(dismissAction)
         present(pleaseEnterValidEmailAlertController, animated: true, completion: nil)
     }
-    
+    // When finished uncomment out func displayPopUP (it is good code)
 //    func displayPopUp() {
 //        guard let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpController") as? PopUpViewController else { return }
 //        self.addChildViewController(popUpVC)

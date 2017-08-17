@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vsM-T7-mHP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vsM-T7-mHP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -82,7 +82,7 @@
                                     <outlet property="emailLabel" destination="scA-Lr-mFE" id="p20-4D-1YG"/>
                                     <outlet property="nameLabel" destination="pO1-cc-2sj" id="sYb-lv-R95"/>
                                     <outlet property="phoneLabel" destination="YGp-ML-SOe" id="mci-NN-Vgp"/>
-                                    <segue destination="AKT-Dg-RVy" kind="show" id="1yA-2y-Gtk"/>
+                                    <segue destination="AKT-Dg-RVy" kind="showDetail" identifier="userCellToMessageVC" action="showViewController:sender:" id="1yA-2y-Gtk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="1576.8" y="884.70764617691157"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--MessageView-->
         <scene sceneID="QaS-1R-ons">
             <objects>
-                <viewControllerPlaceholder id="AKT-Dg-RVy" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MessageView" id="AKT-Dg-RVy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqR-3b-zg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2233" y="798"/>

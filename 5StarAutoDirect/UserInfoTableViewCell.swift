@@ -16,7 +16,7 @@ class UserInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var carSpecsLabel: UILabel!
     
-    var currentUser = UserController.shared.currentUser
+//    var currentUser = UserController.shared.currentUser
     var user: User? {
         didSet {
             updateViews()
@@ -24,7 +24,7 @@ class UserInfoTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-        guard let currentUser = currentUser else { return }
+        guard let currentUser = user else { return }
         nameLabel.text = currentUser.name
         emailLabel.text = currentUser.email
         phoneLabel.text = currentUser.phone

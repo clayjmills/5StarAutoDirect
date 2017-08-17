@@ -46,7 +46,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         if user.isBroker {
             navigationItem.title = "Broker"
         } else {
-            navigationItem.title = "Customer" // change this to customer nam
+            navigationItem.title = self.user?.name
         }
     }
     
@@ -76,8 +76,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     // Mark: - TableView Data Source Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell", for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
-        let message = messages[indexPath.row]
-        cell.message = message
+        cell.message = messages[indexPath.row]
         return cell
     }
     
@@ -90,7 +89,6 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
                 //Alex code for messages
                 guard let message = Message(jsonDictionary: dictionary, identifier: snapshot.key) else { return }
                 
-//                guard let message = Message(jsonDictionary: dictionary, identifier) else { return }
                 message.setValuesForKeys(dictionary)
                 self.messages.append(message)
                 
@@ -111,6 +109,8 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             let values: [String: Any] = ["text":input, "name": name]
             childRef.updateChildValues(values)
             messageTextView.text = ""
+            tableView.reloadData()
+            // or call observe func again
         }
     }
     
