@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ucr-IM-ycY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ucr-IM-ycY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -220,110 +219,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wua-OD-D2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4086" y="863"/>
-        </scene>
-        <!--Broker Table View Controller-->
-        <scene sceneID="jRd-PR-7hF">
-            <objects>
-                <tableViewController id="Mx5-3g-S1x" customClass="BrokerTableViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" sectionHeaderHeight="28" sectionFooterHeight="28" id="WqY-qq-MeO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationLevel="10" indentationWidth="25" reuseIdentifier="userCell" rowHeight="142" id="F8O-3Y-eSc" customClass="UserInfoTableViewCell" customModule="_StarAutoDirect" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="142"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F8O-3Y-eSc" id="eVO-Os-63B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="KIJ-ud-l2Y">
-                                            <rect key="frame" x="8" y="8" width="359" height="126"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS7-2a-w5w">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="57"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="35"/>
-                                                    <color key="textColor" red="0.020253561437129974" green="0.1209355965256691" blue="0.33934962749481201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-Ck-1hl">
-                                                    <rect key="frame" x="0.0" y="64" width="359" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="JGp-Fc-vT6"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-2C-9lh">
-                                                    <rect key="frame" x="0.0" y="87" width="359" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="fPH-CW-LoE"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="car specs" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="Qbz-k1-Zff">
-                                                    <rect key="frame" x="0.0" y="110" width="359" height="16"/>
-                                                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
-                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Qbz-k1-Zff" firstAttribute="height" secondItem="1KJ-2C-9lh" secondAttribute="height" id="DRR-wL-cuD"/>
-                                            </constraints>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="topMargin" secondItem="KIJ-ud-l2Y" secondAttribute="top" id="Tgo-sX-grR"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="KIJ-ud-l2Y" secondAttribute="trailing" id="gEZ-MQ-lhC"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="KIJ-ud-l2Y" secondAttribute="leading" id="oIk-y5-2CZ"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="KIJ-ud-l2Y" secondAttribute="bottom" id="yCB-zW-HIV"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="carSpecsLabel" destination="Qbz-k1-Zff" id="iXH-Kr-DZD"/>
-                                    <outlet property="emailLabel" destination="6TG-Ck-1hl" id="aMk-se-IwJ"/>
-                                    <outlet property="nameLabel" destination="nS7-2a-w5w" id="eYi-Wu-FiD"/>
-                                    <outlet property="phoneLabel" destination="1KJ-2C-9lh" id="hVi-aD-S0z"/>
-                                    <segue destination="HE8-yK-ANU" kind="show" identifier="userCellToMessageVC" id="lvu-5F-rNk"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="OGT-ND-VDg" colorLabel="IBBuiltInLabel-Blue">
-                        <nil key="title"/>
-                        <view key="titleView" contentMode="scaleAspectFill" id="kxQ-Zc-awb">
-                            <rect key="frame" x="8" y="5.5" width="359" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User List Label" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-8F-6N0">
-                                    <rect key="frame" x="-9" y="-26" width="376" height="66"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="6GW-8F-6N0" firstAttribute="top" secondItem="kxQ-Zc-awb" secondAttribute="top" constant="-26" id="2Z1-ub-51W"/>
-                                <constraint firstItem="6GW-8F-6N0" firstAttribute="width" secondItem="kxQ-Zc-awb" secondAttribute="height" multiplier="376:33" id="8Ch-3H-0AL"/>
-                                <constraint firstItem="6GW-8F-6N0" firstAttribute="centerX" secondItem="kxQ-Zc-awb" secondAttribute="centerX" id="KE7-od-yfL"/>
-                                <constraint firstItem="6GW-8F-6N0" firstAttribute="height" secondItem="kxQ-Zc-awb" secondAttribute="height" multiplier="2" id="epj-rh-kO4"/>
-                            </constraints>
-                        </view>
-                    </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ITV-TU-Zcs">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </refreshControl>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lN8-6g-UKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1576.8" y="884.70764617691157"/>
         </scene>
         <!--Message Convo View Controller-->
         <scene sceneID="Xiy-W8-QRH">
@@ -622,12 +517,20 @@
                         <outlet property="phoneTextField" destination="NQz-Gf-Vtu" id="kvA-pC-xKQ"/>
                         <outlet property="scrollView" destination="FYG-Hu-8NH" id="iSX-Sd-K6L"/>
                         <segue destination="blU-ME-HwJ" kind="show" identifier="signinToUserHomeVC" id="zqy-Aj-wSf"/>
-                        <segue destination="Mx5-3g-S1x" kind="show" identifier="signinToBrokerTVC" id="gLZ-Av-fq7"/>
+                        <segue destination="B1Y-E8-AKP" kind="show" identifier="pushBrokerTVC" id="Jzj-ll-ytH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wso-DT-BjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1578" y="72"/>
+        </scene>
+        <!--BrokerTableViewController-->
+        <scene sceneID="NA5-rr-4Ow">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BrokerTableViewController" id="B1Y-E8-AKP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-6j-5oB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613" y="564"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="6T0-0m-JeC">
@@ -751,11 +654,9 @@
         <image name="Send Message Label" width="377" height="68"/>
         <image name="Sign in Dashboard" width="376" height="244"/>
         <image name="Submit Label" width="377" height="68"/>
-        <image name="User List Label" width="755" height="137"/>
         <image name="Your Car Updates image" width="344" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wld-j0-EyF"/>
-        <segue reference="lvu-5F-rNk"/>
+        <segue reference="zqy-Aj-wSf"/>
     </inferredMetricsTieBreakers>
 </document>

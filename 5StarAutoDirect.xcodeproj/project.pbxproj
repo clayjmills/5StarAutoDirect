@@ -25,6 +25,9 @@
 		733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */; };
 		733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */; };
 		733A0DF41F3C271E0094DCB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DF11F3C271E0094DCB9 /* Main.storyboard */; };
+		7345A93A1F454F3100C98E86 /* BrokerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */; };
+		7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93B1F45511C00C98E86 /* SegueHandling.swift */; };
+		7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
 		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
@@ -61,6 +64,9 @@
 		733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		733A0DF01F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733A0DF21F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		7345A9391F454F3100C98E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BrokerTableViewController.storyboard; sourceTree = "<group>"; };
+		7345A93B1F45511C00C98E86 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
+		7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			children = (
 				733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */,
 				733A0DF11F3C271E0094DCB9 /* Main.storyboard */,
+				7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -199,7 +206,9 @@
 				C82920701EF30B090089A695 /* Extensions.swift */,
 				7359AACA1F36DFDF009891AC /* Keys.swift */,
 				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
+				7345A93B1F45511C00C98E86 /* SegueHandling.swift */,
 				733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */,
+				7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */,
 			);
 			name = Infrastructure;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 				C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */,
 				733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */,
 				66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */,
+				7345A93A1F454F3100C98E86 /* BrokerTableViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +342,7 @@
 			files = (
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
 				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
+				7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */,
 				66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */,
 				66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */,
 				7359AACB1F36DFDF009891AC /* Keys.swift in Sources */,
@@ -347,6 +358,7 @@
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				6668D37F1F33849400347FCD /* MessageTableViewCell.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
+				7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
 				9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
@@ -372,6 +384,14 @@
 				733A0DF21F3C271E0094DCB9 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7345A9391F454F3100C98E86 /* Base */,
+			);
+			name = BrokerTableViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
