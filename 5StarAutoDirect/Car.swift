@@ -16,7 +16,7 @@ struct Car: JSONInitializable {
     var color: String
     var otherAttributes: String?
     
-    init(make: String, model: String, budget: String, color: String, otherAttributes: String? = nil) {
+    init(make: String = "", model: String = "", budget: String = "", color: String = "", otherAttributes: String? = nil) {
         self.make = make
         self.model = model
         self.budget = budget

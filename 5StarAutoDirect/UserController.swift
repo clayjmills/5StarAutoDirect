@@ -15,7 +15,7 @@ class UserController {
     
     let firebaseController = FirebaseController()
     var currentUser: User?
-    var ref = DatabaseReference()
+    var rootRef = Database.database().reference()
     var users = [User]() {
         didSet {
         }
@@ -28,7 +28,7 @@ class UserController {
         guard let currentUser = currentUser else { return }
         currentUser.car = car
         updateUser(user: currentUser)
-        firebaseController.save(at: ref.child("User"), json: currentUser.jsonObject()) { error in
+        firebaseController.save(at: rootRef.child("User"), json: currentUser.jsonObject()) { error in
             completion?(currentUser)
         
             if let error = error {
@@ -52,42 +52,36 @@ class UserController {
         }
     }
     
+    enum UserControllerError: Error {
+        case uidNil // FIXME:
+    }
+    
     //Model objects into jsonExportable
-    func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?) -> Void) {
+    func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?, Error?) -> Void) {
         
-        var brokerOrUserRefString = ""
-        let broker: Bool
-        
-        if email.uppercased().contains("FIVESTARAUTODIRECT") {
-            brokerOrUserRefString = "brokers"
-            broker = true
-        } else {
-            brokerOrUserRefString = "users"
-            broker = false
-        }
+        let isBroker = email.uppercased().contains("FIVESTARAUTODIRECT")
+        let refString = isBroker ? "brokers" : "users"
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             
             if let error = error {
                 print(error)
-                completion(nil)
+                completion(nil, error)
                 return
             }
             
             guard let uidString = user?.uid
-                else { completion(nil); return }
+                else { completion(nil, UserControllerError.uidNil); return }
             
-            let defaultCar = Car(make: "", model: "", budget: "", color: "", otherAttributes: "")
-            
-            let user = User(name: name, phone: phone, email: email, isBroker: broker, messages: [], car: defaultCar, identifier: uidString)
+            let user = User(name: name, phone: phone, email: email, isBroker: isBroker, identifier: uidString)
             
             // Put authenticated user in firebase database under appropriate node.
             
-            let referenceForCurrentUser = self.ref.child(brokerOrUserRefString).child(uidString)
+            let referenceForCurrentUser = self.rootRef.child(refString).child(uidString)
             //            referenceForCurrentUser.setValue(user.jsonRepresentation)
             referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
                 UserController.completeSignIn(id: user.name)
-                completion(broker)
+                completion(isBroker, nil)
             })
             
             
@@ -113,7 +107,7 @@ class UserController {
     
     // getting users from firebase
     func fetchUsers(completion: @escaping ([User]?) -> Void) {
-        ref.child("users").observe(.value, with: { (snapshot) in
+        rootRef.child("users").observe(.value, with: { (snapshot) in
             
             if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
                 let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )

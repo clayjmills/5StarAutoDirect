@@ -55,51 +55,56 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //                self.displayPopUp()
                 self.fetchUsers(completion: { (users) in
                     self.users = users
-                    self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+                    self.performSegue(withIdentifier: .pushBrokerTVC, sender: self)
                 })
             } else {
-                performSegue(withIdentifier: "signinToUserHomeVC", sender: nil)
+                self.performSegue(withIdentifier: .pushUserHomeVC, sender: self)
             }
         }
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text, name != "", phone != "", email != "", password != "" else { presentMissingInfoAlert(); return }
+        guard let name = nameTextField.text, let phone = phoneTextField.text, let email = emailTextField.text, let password = passwordTextField.text, !name.isEmpty, !phone.isEmpty, !email.isEmpty, !password.isEmpty, password.characters.count > 6 else { presentMissingInfoAlert(); return }
         
-        UserController.shared.saveUserToFirebase(name: name, phone: phone, email: email, password: password) { (isBroker) in
+        UserController.shared.saveUserToFirebase(name: name, phone: phone, email: email, password: password) { isBroker, error in
             // add sound to submit button
-            self.audioPlayer.play()
             
-            guard let isBroker = isBroker else {
+           guard let isBroker = isBroker, error == nil else {
+                dump(error)
+                // FIXME: ERROR HANDLING
                 return
             }
             
+            self.audioPlayer.play()
             if isBroker {
 //                self.displayPopUp()
                 self.fetchUsers(completion: { (users) in
-                    self.users = users
-                    self.performSegue(withIdentifier: "signinToBrokerTVC", sender: self)
+                    DispatchQueue.main.async {
+                        self.users = users
+                        self.performSegue(withIdentifier: SegueIdentifier.pushBrokerTVC, sender: self)
+                    }
                 })
             } else {
-                self.performSegue(withIdentifier: "signinToUserHomeVC", sender: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.pushUserHomeVC, sender: self)
+                }
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "signinToBrokerTVC" {
-            let createdUser = BrokerTableViewController.shared.user
+        switch segueIdentifier(for: segue) {
+        case .pushBrokerTVC:
+            let createdUser = BrokerTableViewController.shared.user // FIXME: !AHHHHH!!!
             let users = self.users
             if let detailVC = segue.destination as? BrokerTableViewController {
                 detailVC.user = createdUser
                 detailVC.users = users
             }
-        } else {
-            if segue.identifier == "signinToUserHomeVC"{
-                let createdUser = UserHomeViewController.shared.user
-                if let detailVC = segue.destination as? UserHomeViewController {
-                    detailVC.user = createdUser
-                }
+        case .pushUserHomeVC:
+            let createdUser = UserHomeViewController.shared.user // FIXME: Use a user controller or something. ANYTHING BUT THIS
+            if let detailVC = segue.destination as? UserHomeViewController {
+                detailVC.user = createdUser
             }
         }
     }
@@ -173,6 +178,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x:0, y:0), animated: true)
+    }
+    
+}
+
+extension SignUpViewController: SegueHandling {
+    
+    enum SegueIdentifier: String {
+        case pushUserHomeVC
+        case pushBrokerTVC
     }
     
 }

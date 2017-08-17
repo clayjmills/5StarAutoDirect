@@ -18,7 +18,7 @@ class User {
     var car: Car
     var identifier: String
     
-    init(name: String, phone: String, email: String, isBroker: Bool, messages: [Message], car: Car, identifier: String) {
+    init(name: String, phone: String, email: String, isBroker: Bool, messages: [Message] = [], car: Car = Car(), identifier: String) {
         self.name = name
         self.phone = phone
         self.email = email
