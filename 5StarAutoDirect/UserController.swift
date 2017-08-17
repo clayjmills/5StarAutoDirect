@@ -25,7 +25,7 @@ class UserController {
     
     // TODO: - verify function is working correctly. check about optional completion block
     func saveCarToUser(car: Car, completion: ((User?) -> Void)?) {
-        guard var currentUser = currentUser else { return }
+        guard let currentUser = currentUser else { return }
         currentUser.car = car
         updateUser(user: currentUser)
         firebaseController.save(at: ref.child("User"), json: currentUser.jsonObject()) { error in
