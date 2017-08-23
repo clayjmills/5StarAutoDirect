@@ -29,7 +29,6 @@ class MessageTableViewCell: UITableViewCell {
         //            messageTextLabel.textAlignment == .right
         //            }
         
-                    messageTextLabel.numberOfLines = 0
     }
     
 }

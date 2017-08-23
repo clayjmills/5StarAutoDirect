@@ -16,7 +16,6 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     //Announcement
     
-    var message: Message?
     var messages: [Message] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -34,13 +33,13 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     var customer: User?
     
     override func viewDidLoad() {
+        observeMessages()
         super.viewDidLoad()
         tableView.reloadData()
         tableView.dataSource = self
         tableView.delegate = self
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
-        observeMessages()
         
         guard let user = user else { return }
         if user.isBroker {
@@ -60,7 +59,6 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
-        observeMessages()
         tableView.reloadData()
         
 //        guard let toID = user?.name else { return }
