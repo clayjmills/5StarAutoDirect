@@ -1,6 +1,7 @@
-import UIKit
 import Firebase
 import FirebaseDatabase
+import UIKit
+import Whisper
 
 // I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
 
@@ -11,9 +12,9 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
-   
-    
     static let shared = MessageConvoViewController()
+    
+    //Announcement
     
     var message: Message?
     var messages: [Message] = [] {
