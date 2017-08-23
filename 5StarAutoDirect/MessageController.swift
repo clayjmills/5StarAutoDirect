@@ -1,7 +1,7 @@
-import Foundation
-import UIKit
-import FirebaseDatabase
+
 import Firebase
+import FirebaseDatabase
+import UIKit
 
 class MessageController {
     
