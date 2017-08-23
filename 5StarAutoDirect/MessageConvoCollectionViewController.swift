@@ -44,9 +44,16 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         
         guard let user = user else { return }
         if user.isBroker {
-            navigationItem.title = "Broker"
-        } else {
             navigationItem.title = self.user?.name
+        } else {
+            navigationItem.title = "Broker"
+        }
+        
+        DispatchQueue.main.async {
+            MessageController.shared.fetchMessages(completion: { (messages) in
+                guard let messages = messages else { return }
+                self.messages = messages
+            })
         }
     }
     
@@ -87,9 +94,9 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 //Alex code for messages
-                guard let message = Message(jsonDictionary: dictionary, identifier: snapshot.key) else { return }
+                guard let message = Message(jsonDictionary: dictionary) else { return }
                 
-                message.setValuesForKeys(dictionary)
+ //               message.setValuesForKeys(dictionary)
                 self.messages.append(message)
                 
                 DispatchQueue.main.async {

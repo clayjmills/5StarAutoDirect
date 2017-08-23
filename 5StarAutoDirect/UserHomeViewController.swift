@@ -31,10 +31,16 @@ class UserHomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userHomeVCToMessageConvoVC" {
+            
+            self.fetchMessages(completion: { (messages) in
+                self.user?.messages = messages
+            })
+            
             let selectedUser = UserHomeViewController.shared.user
             if let detailVC = segue.destination as? MessageConvoViewController {
-                detailVC.user = selectedUser
+                detailVC.user /*or maybe .customer*/ = selectedUser
             }
+            
         } else {
             if segue.identifier == "toCarDetail" {
                 let selectedUser = CarDetailViewController.shared.user
@@ -42,6 +48,13 @@ class UserHomeViewController: UIViewController {
                     detailVC.user = selectedUser
                 }
             }
+        }
+    }
+    
+    func fetchMessages(completion: @escaping([Message]) -> Void) {
+        MessageController.shared.fetchMessages { (messages) in
+            guard let messages = messages else { return }
+            completion(messages)
         }
     }
 }

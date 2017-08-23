@@ -9,27 +9,23 @@
 import UIKit
 import Foundation
 
-// Alex added identifier property
 class Message: NSObject {
     
     private let textKey = "text"
-    private let toIDKey = "toID"
+    private let toIDKey = "name"
     
     var text: String
     var toID: String
-    var identifier: String
     
-    init(text: String, toID: String, identifier: String) {
+    init(text: String, toID: String) {
         self.text = text
         self.toID = toID
-        self.identifier = identifier
     }
     
-    init?(jsonDictionary: [String: Any], identifier: String) {
+    init?(jsonDictionary: [String: Any]) {
         guard let text = jsonDictionary[textKey] as? String,
             let toID = jsonDictionary[toIDKey] as? String else { return nil }
         self.text = text
         self.toID = toID
-        self.identifier = identifier
     }
 }

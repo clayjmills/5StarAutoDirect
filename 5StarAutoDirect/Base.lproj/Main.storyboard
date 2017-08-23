@@ -154,7 +154,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3382" y="72"/>
+            <point key="canvasLocation" x="3290" y="94"/>
         </scene>
         <!--Title-->
         <scene sceneID="YYr-tj-hGE">
@@ -218,7 +218,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wua-OD-D2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4086" y="863"/>
+            <point key="canvasLocation" x="4126" y="872"/>
         </scene>
         <!--Message Convo View Controller-->
         <scene sceneID="Xiy-W8-QRH">
@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOM-SK-gsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.5999999999999" y="884.70764617691157"/>
+            <point key="canvasLocation" x="2431" y="867"/>
         </scene>
         <!--Title-->
         <scene sceneID="0CB-xF-OFD">
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idr-B6-c3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.5999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="2434" y="94"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="WVb-D3-rNh">
@@ -516,7 +516,7 @@
                         <outlet property="passwordTextField" destination="uY4-fU-Rr3" id="4Kj-Mt-GZd"/>
                         <outlet property="phoneTextField" destination="NQz-Gf-Vtu" id="kvA-pC-xKQ"/>
                         <outlet property="scrollView" destination="FYG-Hu-8NH" id="iSX-Sd-K6L"/>
-                        <segue destination="blU-ME-HwJ" kind="show" identifier="signinToUserHomeVC" id="zqy-Aj-wSf"/>
+                        <segue destination="blU-ME-HwJ" kind="show" identifier="pushUserHomeVC" id="zqy-Aj-wSf"/>
                         <segue destination="B1Y-E8-AKP" kind="show" identifier="pushBrokerTVC" id="Jzj-ll-ytH"/>
                     </connections>
                 </viewController>
@@ -622,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofp-ZK-F6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4085.5999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="4130" y="93"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fH4-Yw-ab9">
