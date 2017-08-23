@@ -37,23 +37,15 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         tableView.reloadData()
         tableView.dataSource = self
         tableView.delegate = self
-        navigationItem.title = user?.name
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
         observeMessages()
         
         guard let user = user else { return }
         if user.isBroker {
-            navigationItem.title = self.user?.name
+            navigationItem.title = customer?.name
         } else {
             navigationItem.title = "Broker"
-        }
-        
-        DispatchQueue.main.async {
-            MessageController.shared.fetchMessages(completion: { (messages) in
-                guard let messages = messages else { return }
-                self.messages = messages
-            })
         }
     }
     
@@ -96,8 +88,10 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
                 //Alex code for messages
                 guard let message = Message(jsonDictionary: dictionary) else { return }
                 
- //               message.setValuesForKeys(dictionary)
-                self.messages.append(message)
+                guard let customer = self.customer else { return }
+                if message.toID == customer.name {
+                    self.messages.append(message)
+                }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -112,7 +106,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             let ref = Database.database().reference().child("messages")
             
             let childRef = ref.childByAutoId()
-            guard let input = messageTextView.text, let name = user?.name else { return }
+            guard let input = messageTextView.text, let name = customer?.name else { return }
             let values: [String: Any] = ["text":input, "name": name]
             childRef.updateChildValues(values)
             messageTextView.text = ""
@@ -136,3 +130,21 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

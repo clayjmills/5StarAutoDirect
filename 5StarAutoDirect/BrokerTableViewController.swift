@@ -52,7 +52,7 @@ class BrokerTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let selectedUser = self.users[indexPath.row]
                 if let detailVC = segue.destination as? MessageConvoViewController {
-                    detailVC.user = selectedUser
+                    detailVC.customer = selectedUser
                 }
             }
         }

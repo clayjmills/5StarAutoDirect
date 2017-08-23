@@ -21,13 +21,14 @@ class MessageTableViewCell: UITableViewCell {
     func updateViews() {
         guard let message = message else { return }
         messageTextLabel.text = message.text
+        
+        // use when we have users able to write back to the broker
         //            if message.toID == logged in user.name {
         //            messageTextLabel.textAlignment == .left
         //            } else {
         //            messageTextLabel.textAlignment == .right
         //            }
         
-        // If not showing anything, delete this to get the first line of message text, then expand from there
                     messageTextLabel.numberOfLines = 0
     }
     

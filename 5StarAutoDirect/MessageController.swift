@@ -19,9 +19,9 @@ class MessageController {
         ref.child("messages").observe(.value, with: { (snapshot) in
             
             if let dictionaryOfMessages = snapshot.value as? [String:[String:Any]] {
-                print(dictionaryOfMessages)
+ //               print(dictionaryOfMessages)
                 let messages = dictionaryOfMessages.flatMap({Message(jsonDictionary: $0.value) } )
-                print(messages)
+//                print(messages)
                 completion(messages)
             }
         })
