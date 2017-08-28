@@ -6,8 +6,9 @@
 //  Copyright © 2017 Michael Castillo. All rights reserved.
 //
 
-import UIKit
 import Firebase
+import UIKit
+import Whisper
 
 typealias JSONObject = [String: Any]
 

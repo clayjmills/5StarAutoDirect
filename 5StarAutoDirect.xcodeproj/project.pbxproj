@@ -29,6 +29,8 @@
 		7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93B1F45511C00C98E86 /* SegueHandling.swift */; };
 		7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
+		737D375F1F4FD84E00094891 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D375E1F4FD84E00094891 /* ViewControllerHelper.swift */; };
+		737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D37601F50737C00094891 /* UIApplicationExtension.swift */; };
 		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
@@ -68,6 +70,8 @@
 		7345A93B1F45511C00C98E86 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
 		7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		737D375E1F4FD84E00094891 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		737D37601F50737C00094891 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				7345A93B1F45511C00C98E86 /* SegueHandling.swift */,
 				733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */,
 				7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */,
+				737D375E1F4FD84E00094891 /* ViewControllerHelper.swift */,
+				737D37601F50737C00094891 /* UIApplicationExtension.swift */,
 			);
 			name = Infrastructure;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737D375F1F4FD84E00094891 /* ViewControllerHelper.swift in Sources */,
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
 				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
 				7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */,
@@ -350,6 +357,7 @@
 				665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
+				737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */,
 				73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */,
 				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */,
