@@ -17,7 +17,6 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
 
     var message: Message?
-    var customer: User?
     var messages: [Message] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -26,6 +25,12 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     var user: User? {
+        didSet {
+            observeMessages()
+        }
+    }
+    
+    var customer: User? {
         didSet {
             observeMessages()
         }

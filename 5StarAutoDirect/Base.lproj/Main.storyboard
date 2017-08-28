@@ -232,8 +232,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-HR-Nkz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-HR-Nkz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="663"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Send Message Label" translatesAutoresizingMaskIntoConstraints="NO" id="hra-Ra-LfJ">
                                         <rect key="frame" x="0.0" y="546" width="375" height="57"/>
@@ -251,20 +252,20 @@
                                             <action selector="sendButtonTapped:" destination="HE8-yK-ANU" eventType="touchUpInside" id="kyq-42-Xns"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-z8-2kl">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-z8-2kl">
                                         <rect key="frame" x="16" y="27" width="343" height="470"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationLevel="10" indentationWidth="25" reuseIdentifier="receivedMessageCell" rowHeight="141" id="UV2-8v-P4B" customClass="MessageTableViewCell" customModule="_StarAutoDirect" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="343" height="141"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationLevel="10" indentationWidth="25" reuseIdentifier="receivedMessageCell" rowHeight="59" id="UV2-8v-P4B" customClass="MessageTableViewCell" customModule="_StarAutoDirect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="343" height="59"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UV2-8v-P4B" id="5tj-yq-bmh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="140.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRE-PV-FZo">
-                                                            <rect key="frame" x="4" y="3" width="335" height="134"/>
+                                                            <rect key="frame" x="4" y="3" width="335" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -301,12 +302,6 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cEz-HR-Nkz" firstAttribute="height" secondItem="Fxe-Bu-HaY" secondAttribute="height" id="A2T-ji-xfX"/>
-                            <constraint firstItem="cEz-HR-Nkz" firstAttribute="centerX" secondItem="Fxe-Bu-HaY" secondAttribute="centerX" id="UdC-e2-dqR"/>
-                            <constraint firstItem="cEz-HR-Nkz" firstAttribute="centerY" secondItem="Fxe-Bu-HaY" secondAttribute="centerY" id="Vsa-wa-kyu"/>
-                            <constraint firstItem="cEz-HR-Nkz" firstAttribute="width" secondItem="Fxe-Bu-HaY" secondAttribute="width" id="elf-2p-0Pu"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="messageTextView" destination="hca-8N-H3l" id="kzx-sa-trG"/>
