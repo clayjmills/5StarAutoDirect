@@ -1,7 +1,6 @@
 import Firebase
 import FirebaseDatabase
 import UIKit
-import Whisper
 
 // I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
 
@@ -39,6 +38,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         navigationItem.title = user?.name
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
+        observeMessages()
         
         //FIXME: - unwrap optional value here to prevent crash
         //TODO: - add in car sound everytime msg received
@@ -49,9 +49,16 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
 
         guard let user = user else { return }
         if user.isBroker {
-            navigationItem.title = customer?.name
+            navigationItem.title = self.user?.name
         } else {
             navigationItem.title = "Broker"
+        }
+        
+        DispatchQueue.main.async {
+            MessageController.shared.fetchMessages(completion: { (messages) in
+                guard let messages = messages else { return }
+                self.messages = messages
+            })
         }
     }
     
@@ -65,6 +72,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         handleSend()
+        observeMessages()
         tableView.reloadData()
         
 //        guard let toID = user?.name else { return }
@@ -92,10 +100,8 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
                 //Alex code for messages
                 guard let message = Message(jsonDictionary: dictionary) else { return }
                 
-                guard let customer = self.customer else { return }
-                if message.toID == customer.name {
-                    self.messages.append(message)
-                }
+ //               message.setValuesForKeys(dictionary)
+                self.messages.append(message)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -110,7 +116,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             let ref = Database.database().reference().child("messages")
             
             let childRef = ref.childByAutoId()
-            guard let input = messageTextView.text, let name = customer?.name else { return }
+            guard let input = messageTextView.text, let name = user?.name else { return }
             let values: [String: Any] = ["text":input, "name": name]
             childRef.updateChildValues(values)
             messageTextView.text = ""
@@ -133,21 +139,3 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

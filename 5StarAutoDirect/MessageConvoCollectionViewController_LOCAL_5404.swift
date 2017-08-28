@@ -12,12 +12,10 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
-    let firebaseController = FirebaseController()
-    let messageController = MessageController()
+    static let shared = MessageConvoViewController()
     
-
-    var message: Message?
-    var customer: User?
+    //Announcement
+    
     var messages: [Message] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -25,28 +23,24 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
+    
     var user: User? {
         didSet {
             observeMessages()
         }
     }
     
+    var customer: User?
+    
     override func viewDidLoad() {
+        observeMessages()
         super.viewDidLoad()
         tableView.reloadData()
         tableView.dataSource = self
         tableView.delegate = self
-        navigationItem.title = user?.name
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
         
-        //FIXME: - unwrap optional value here to prevent crash
-        //TODO: - add in car sound everytime msg received
-        //TODO: - suscribe to changes at value and ref of "messages"
-        //This runs everytime view is called obviously
-     
-       
-
         guard let user = user else { return }
         if user.isBroker {
             navigationItem.title = customer?.name
@@ -71,12 +65,13 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
 //        MessageController.shared.createMessage(text: messageTextView.text, toID: toID)
 //        messageTextView.text = "button was clicked"
     }
-    // Mark: - TableView Data Source Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
+    
+    // Mark: - TableView Data Source Functions
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell", for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
         cell.message = messages[indexPath.row]
@@ -124,6 +119,7 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
 
     // keyboard under text View
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         scrollView.setContentOffset(CGPoint(x:0, y:190), animated: true)
     }

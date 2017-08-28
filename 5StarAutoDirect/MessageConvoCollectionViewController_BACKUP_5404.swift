@@ -1,7 +1,6 @@
 import Firebase
 import FirebaseDatabase
 import UIKit
-import Whisper
 
 // I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
 
@@ -15,9 +14,12 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     let firebaseController = FirebaseController()
     let messageController = MessageController()
     
+<<<<<<< HEAD
+=======
 
     var message: Message?
     var customer: User?
+>>>>>>> adds observer to MessageVC
     var messages: [Message] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -32,11 +34,11 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     override func viewDidLoad() {
+        observeMessages()
         super.viewDidLoad()
         tableView.reloadData()
         tableView.dataSource = self
         tableView.delegate = self
-        navigationItem.title = user?.name
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
         

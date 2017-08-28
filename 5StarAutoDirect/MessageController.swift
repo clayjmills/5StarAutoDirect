@@ -25,6 +25,16 @@ class MessageController {
                 completion(messages)
             }
         })
-        
+    }
+    
+    func observeChildMessagesAdded(atRef ref: DatabaseReference, viewController: UIViewController, completion: ((Result<JSONObject>) -> Void)?) {
+        ref.child("messages").observe(.childChanged, with: { (snapshot) in
+            //TODO: - Determine if value has changed
+            if let snap = snapshot.value as? JSONObject {
+                completion?(Result.success(snap))
+            } else {
+                completion?(Result.failure(JSONError.typeMismatch(snapshot.key) ))
+            }
+        })
     }
 }
