@@ -52,9 +52,7 @@ class CarDetailViewController: UIViewController {
     
     fileprivate let carSoundPlayer = SoundPlayer(sound: .ferrari)
 
-    var user: User? {
-        return UserController.shared.currentUser
-    }
+    var user: User?
     fileprivate var isHighlighted = true
     fileprivate var originalBorderColor: CGColor?
     fileprivate var textFields: [UITextField] {
