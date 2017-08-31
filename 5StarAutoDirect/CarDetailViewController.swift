@@ -51,7 +51,7 @@ class CarDetailViewController: UIViewController {
     // MARK: - Properties
     
     fileprivate let carSoundPlayer = SoundPlayer(sound: .ferrari)
-    //FIXME: - why is this user being called by another VC and not a Controller? --> userHomeVC line 40
+
     var user: User?
     fileprivate var isHighlighted = true
     fileprivate var originalBorderColor: CGColor?
@@ -70,6 +70,7 @@ class CarDetailViewController: UIViewController {
         carSoundPlayer.prepare()
         originalBorderColor = textFields.first?.layer.borderColor
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reactToKeyboardShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reactToKeyboardHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -78,6 +79,8 @@ class CarDetailViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func submitButtonTapped(_ sender: Any) {
+        print("button tapped")
+        print(UserController.shared.currentUser?.identifier)
         let textFieldsToShake = requiredTextFields.filter { $0.text == nil || $0.text!.isEmpty }
         
         if textFieldsToShake.isEmpty, let newCar = constructedCar() {

@@ -28,7 +28,8 @@ class UserController {
         guard let currentUser = currentUser else { return }
         currentUser.car = car
         updateUser(user: currentUser)
-        firebaseController.save(at: rootRef.child("User"), json: currentUser.jsonObject()) { error in
+        print(currentUser.identifier)
+        firebaseController.save(at: rootRef.child("users").child(currentUser.identifier).child("car"), json: currentUser.jsonObject()) { error in
             completion?(currentUser)
         
             if let error = error {
