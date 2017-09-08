@@ -12,9 +12,15 @@ import FirebaseDatabase
 
 class BrokerTableViewController: UITableViewController {
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var carLabel: UILabel!
+    
     static let shared = BrokerTableViewController()
     
     var user: User?
+    guard let currentUser = UserController.shared.currentUser else { return }
     var users: [User] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -28,22 +34,21 @@ class BrokerTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        setLabelText()
         showNotificationBanner()
     }
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //    print("number of rows found \(UserController.shared.users.count) users")
+        
         return users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserInfoTableViewCell else { return UITableViewCell() }
-
         let user = users[indexPath.row]
-        
-        cell.user = user
         
         return cell
     }
@@ -58,4 +63,5 @@ class BrokerTableViewController: UITableViewController {
             }
         }
     }
+    
 }
