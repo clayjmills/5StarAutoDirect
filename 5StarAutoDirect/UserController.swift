@@ -23,23 +23,10 @@ class UserController {
     
     weak var delegate: UserControllerDelegate?
     
-    // TODO: - verify function is working correctly. check about optional completion block
     func saveCarToUser(car: Car, completion: ((User?) -> Void)?) {
         guard let currentUser = currentUser else { return }
         currentUser.car = car
         updateUser(user: currentUser)
-        print(currentUser.identifier)
-        firebaseController.save(at: rootRef.child("users").child(currentUser.identifier).child("car"), json: currentUser.jsonObject()) { error in
-            completion?(currentUser)
-        
-            if let error = error {
-                print(error.localizedDescription, "\(#line)")
-            } else {
-                self.currentUser = currentUser
-                completion?(currentUser)
-                print(currentUser.car)
-            }
-        }
     }
     
     func updateUser(user: User) {
@@ -47,7 +34,9 @@ class UserController {
         firebaseController.save(at: ref, json: user.jsonObject()) { (error) in
             if let error = error {
                 print(error.localizedDescription, "\(#line) in \(#file)")
+                //TODO: - Alert controller
             } else {
+                self.currentUser = user
                 print("success updating User \(#line)")
             }
         }
@@ -109,7 +98,17 @@ class UserController {
     // getting users from firebase
     func fetchUsers(completion: @escaping ([User]?) -> Void) {
         rootRef.child("users").observe(.value, with: { (snapshot) in
-            
+            // this block will bring down entire JSON brnach
+            if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
+                let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
+                completion(users)
+            }
+        })
+    }
+    //TODO: - test func
+    //Use to get currentUser
+    func currentUser(completion: @escaping([User]?) -> Void) {
+        rootRef.child("users").observeSingleEvent(of: .value, with: { snapshot in
             if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
                 let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
                 completion(users)

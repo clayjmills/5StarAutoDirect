@@ -40,7 +40,7 @@ struct Car: JSONInitializable {
     }
 }
 
-//FIXME: - potential
+//FIXME: - check UUID in firebase
 extension Car: Equatable { }
 
 func ==(lhs: Car, rhs: Car) -> Bool {

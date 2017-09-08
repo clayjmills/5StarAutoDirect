@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return true
+        //TODO: - fetch current User function. set as currentUser
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

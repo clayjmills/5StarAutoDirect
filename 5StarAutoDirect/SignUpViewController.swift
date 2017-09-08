@@ -49,6 +49,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
+        //TODO: - check AUTH independent of User. then check if they contain email
+        //TODO: - send user verification email via firebase (auth has User property)
         let keyChain = DatabaseManager().keyChain
         if keyChain.get("uid") != nil {
             if (Auth.auth().currentUser?.email?.uppercased().contains("FIVESTARAUTODIRECT"))! {

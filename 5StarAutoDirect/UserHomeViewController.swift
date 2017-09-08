@@ -17,6 +17,7 @@ class UserHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showNotificationBanner()
     }
     
     override func viewDidAppear(_ animated: Bool) {

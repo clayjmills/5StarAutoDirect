@@ -14,8 +14,8 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     let firebaseController = FirebaseController()
     let messageController = MessageController()
+    let currentUserId = UserController.shared.currentUser?.identifier
     
-
     var message: Message?
     var messages: [Message] = [] {
         didSet {
@@ -44,14 +44,13 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         navigationItem.title = user?.name
         self.messageTextView.layer.cornerRadius = 8
         self.messageTextView.layer.borderWidth = 1
-        
+            
+        showNotificationBanner()
         //FIXME: - unwrap optional value here to prevent crash
         //TODO: - add in car sound everytime msg received
         //TODO: - suscribe to changes at value and ref of "messages"
-        //This runs everytime view is called obviously
+        //FIXME: - check if currentUser.id == message.toId is the same for notifications
      
-       
-
         guard let user = user else { return }
         if user.isBroker {
             navigationItem.title = customer?.name
@@ -87,7 +86,6 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
         cell.message = messages[indexPath.row]
         return cell
     }
-    
     
     func observeMessages() {
         let ref = Database.database().reference().child("messages")
@@ -138,21 +136,4 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

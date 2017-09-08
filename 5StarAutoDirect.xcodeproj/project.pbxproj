@@ -29,7 +29,7 @@
 		7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93B1F45511C00C98E86 /* SegueHandling.swift */; };
 		7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
-		737D375F1F4FD84E00094891 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D375E1F4FD84E00094891 /* ViewControllerHelper.swift */; };
+		737D375F1F4FD84E00094891 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */; };
 		737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D37601F50737C00094891 /* UIApplicationExtension.swift */; };
 		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
@@ -70,7 +70,7 @@
 		7345A93B1F45511C00C98E86 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
 		7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		737D375E1F4FD84E00094891 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
+		737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		737D37601F50737C00094891 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 				7345A93B1F45511C00C98E86 /* SegueHandling.swift */,
 				733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */,
 				7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */,
-				737D375E1F4FD84E00094891 /* ViewControllerHelper.swift */,
+				737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */,
 				737D37601F50737C00094891 /* UIApplicationExtension.swift */,
 			);
 			name = Infrastructure;
@@ -254,7 +254,7 @@
 				TargetAttributes = {
 					66EDEA321EE8755500BF8357 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = HK9J242HR4;
+						DevelopmentTeam = 4UKSSV9PZ8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -346,7 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				737D375F1F4FD84E00094891 /* ViewControllerHelper.swift in Sources */,
+				737D375F1F4FD84E00094891 /* ViewControllerExtension.swift in Sources */,
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
 				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
 				7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */,
@@ -503,7 +503,7 @@
 			baseConfigurationReference = 2EDB9CA6D50489671D4F0017 /* Pods-5StarAutoDirect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HK9J242HR4;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -518,7 +518,7 @@
 			baseConfigurationReference = 7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HK9J242HR4;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

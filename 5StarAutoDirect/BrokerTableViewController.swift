@@ -28,6 +28,7 @@ class BrokerTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.dataSource = self
         tableView.delegate = self
+        showNotificationBanner()
     }
     // MARK: - Table view data source
     

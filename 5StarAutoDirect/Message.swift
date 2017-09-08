@@ -16,6 +16,7 @@ class Message: NSObject {
     
     var text: String
     var toID: String
+    //TODO: - creat user id 
     
     init(text: String, toID: String) {
         self.text = text

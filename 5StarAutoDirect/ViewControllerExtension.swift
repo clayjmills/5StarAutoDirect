@@ -10,15 +10,16 @@ import UIKit
 import Whisper
 
 extension UIViewController {
-// broker tv, car detail, messageconvo collection, user tvc, userinfo tvc
+    
     func showNotificationBanner() {
-        let announcement = Announcement(title: "New Message Received", subtitle: "Click here to go to messages", image: nil, action: nil)
-        if let topController = UIApplication.topViewController(){
+        
+        let currentUser = UserController.shared.currentUser
+        print("button tapped")
+        let announcement = Announcement(title: "Message Received", subtitle: "Please check your inbox", image: nil, action: nil)
+        if let topController = UIApplication.topViewController() {
+
             Whisper.show(shout: announcement, to: topController)
         }
     }
 }
 
-protocol currentView {
-    var currentView: UIView { get }
-}
