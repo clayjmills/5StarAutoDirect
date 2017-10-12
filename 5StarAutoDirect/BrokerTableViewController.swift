@@ -35,7 +35,7 @@ class BrokerTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        setLabelText()
+//        setLabelText()
         showNotificationBanner()
     }
     // MARK: - Table view data source
